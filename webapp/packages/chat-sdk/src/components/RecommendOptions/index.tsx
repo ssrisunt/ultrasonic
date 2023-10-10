@@ -38,7 +38,7 @@ const RecommendOptions: React.FC<Props> = ({ entityId, modelId, modelName, onSel
     const basicColumn = {
       dataIndex: 'name',
       key: 'name',
-      title: '基本信息',
+      title: 'Basic information',
       render: (name: string, record: any) => {
         return (
           <div className={`${prefixCls}-item-name-column`}>

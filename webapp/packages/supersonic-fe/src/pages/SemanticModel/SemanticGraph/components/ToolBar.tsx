@@ -36,7 +36,7 @@ const searchNode = (graph: Graph, onSearch?: ToolBarSearchCallBack) => {
 
 const generatorSearchInputDom = (graph: Graph, onSearch: ToolBarSearchCallBack) => {
   const domString =
-    '<input placeholder="请输入指标/维度名称" class="ant-input" id="toolBarSearchInput" type="text" value="" />';
+    '<input placeholder="Please enter a metric/dimension name" class="ant-input" id="toolBarSearchInput" type="text" value="" />';
   const searchInputDom = createDom(domString);
   searchInputDom.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {

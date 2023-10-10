@@ -119,7 +119,7 @@ const DatabaseCreateForm: ForwardRefRenderFunction<any, Props> = (
               label="port"
               rules={[{ required: true, message: 'Please enter the port number' }]}
             >
-              <Input placeholder="请输入端口号" />
+              <Input placeholder="Please enter the port number" />
             </FormItem>
           </>
         )}
@@ -142,7 +142,7 @@ const DatabaseCreateForm: ForwardRefRenderFunction<any, Props> = (
         )}
         <FormItem
           name="username"
-          label="用户名"
+          label="User name"
           // rules={[{ required: true, message: '请输入用户名' }]}
         >
           <Input placeholder="Please enter a username" />

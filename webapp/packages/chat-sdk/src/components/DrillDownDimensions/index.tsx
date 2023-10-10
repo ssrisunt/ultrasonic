@@ -61,7 +61,7 @@ const DrillDownDimensions: React.FC<Props> = ({
   return (
     <div className={prefixCls}>
       <div className={drillDownDimensionsSectionClass}>
-        <div className={`${prefixCls}-title`}>推荐下钻维度：</div>
+        <div className={`${prefixCls}-title`}>Drill-down dimensions：</div>
         <div className={`${prefixCls}-content`}>
           {defaultDimensions.map((dimension, index) => {
             const itemNameClass = classNames(`${prefixCls}-content-item-name`, {

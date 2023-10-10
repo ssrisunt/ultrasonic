@@ -1,10 +1,10 @@
 import { MsgValidTypeEnum } from './type';
 
 export enum NumericUnit {
-  None = '无',
-  TenThousand = '万',
+  None = 'None',
+  TenThousand = '10k',
   EnTenThousand = 'w',
-  OneHundredMillion = '亿',
+  OneHundredMillion = '100m',
   Thousand = 'k',
   Million = 'M',
   Giga = 'G',
@@ -20,9 +20,9 @@ export const CHART_SECONDARY_COLOR = 'rgba(153, 153, 153, 0.3)';
 export const CLS_PREFIX = 'ss-chat';
 
 export const DATE_TYPES = {
-  DAY: [{ label: '近7天', value: 7 }, { label: '近30天', value: 30 }, { label: '近60天', value: 60 }, { label: '近90天', value: 90 }],
-  WEEK: [{ label: '近4周', value: 4 }, { label: '近12周', value: 12 }, { label: '近24周', value: 24 }, { label: '近52周', value: 52 }],
-  MONTH: [{ label: '近3个月', value: 3 }, { label: '近6个月', value: 6 }, { label: '近12个月', value: 12 }, { label: '近24个月', value: 24  }],
+  DAY: [{ label: 'last 7 days', value: 7 }, { label: 'Nearly 30 days', value: 30 }, { label: 'Nearly 60 days', value: 60 }, { label: 'Nearly 90 days', value: 90 }],
+  WEEK: [{ label: 'Nearly 4 weeks', value: 4 }, { label: 'Nearly 12 weeks', value: 12 }, { label: 'Nearly 24 weeks', value: 24 }, { label: 'Nearly 52 weeks', value: 52 }],
+  MONTH: [{ label: 'Nearly 3 months', value: 3 }, { label: 'Nearly 6 months', value: 6 }, { label: 'Almost 12 months', value: 12 }, { label: 'Nearly 24 months', value: 24  }],
 };
 
 export const THEME_COLOR_LIST = [

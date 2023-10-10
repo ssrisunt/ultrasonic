@@ -36,7 +36,7 @@ const SqlItem: React.FC<Props> = ({ integrateSystem, sqlInfo }) => {
       <div className={`${tipPrefixCls}-title-bar`}>
         <CheckCircleFilled className={`${tipPrefixCls}-step-icon`} />
         <div className={`${tipPrefixCls}-step-title`}>
-          SQL生成
+          SQL generation
           {sqlType && (
             <span className={`${prefixCls}-toggle-expand-btn`} onClick={onCollapse}>
               <UpOutlined />
@@ -53,7 +53,7 @@ const SqlItem: React.FC<Props> = ({ integrateSystem, sqlInfo }) => {
                 setSqlType(sqlType === 'llmParseSql' ? '' : 'llmParseSql');
               }}
             >
-              LLM解析SQL
+              LLM parses SQL
             </div>
           )}
           {sqlInfo.logicSql && (
@@ -65,7 +65,7 @@ const SqlItem: React.FC<Props> = ({ integrateSystem, sqlInfo }) => {
                 setSqlType(sqlType === 'logicSql' ? '' : 'logicSql');
               }}
             >
-              逻辑SQL
+              Logical SQL
             </div>
           )}
           {sqlInfo.querySql && (
@@ -77,7 +77,7 @@ const SqlItem: React.FC<Props> = ({ integrateSystem, sqlInfo }) => {
                 setSqlType(sqlType === 'querySql' ? '' : 'querySql');
               }}
             >
-              物理SQL
+              Physical SQL
             </div>
           )}
         </div>

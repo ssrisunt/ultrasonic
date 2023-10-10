@@ -59,7 +59,7 @@ const AgentsSection: React.FC<Props> = ({
             }}
           >
             <PlusOutlined />
-            新建助理
+           Create a new assistant
           </Button>
         </div>
         <div className={styles.agentsContainer}>

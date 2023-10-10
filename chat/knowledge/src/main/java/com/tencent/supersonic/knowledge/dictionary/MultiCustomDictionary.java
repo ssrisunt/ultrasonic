@@ -172,31 +172,31 @@ public class MultiCustomDictionary extends DynamicCustomDictionary {
                         try {
                             defaultNature = LexiconUtility.convertStringToNature(nature, customNatureCollector);
                         } catch (Exception var16) {
-                            Predefine.logger.severe("配置文件【" + p + "】写错了！" + var16);
+                            Predefine.logger.severe("Configuration file【" + p + "】Written wrong!" + var16);
                             continue;
                         }
                     }
 
-                    Predefine.logger.info("以默认词性[" + defaultNature + "]加载自定义词典" + p + "中……");
+                    Predefine.logger.info("to the default part of speech[" + defaultNature + "]load the custom dictionary" + p + "middle……");
                     boolean success = load(p, defaultNature, map, customNatureCollector, addToSuggestTrie);
                     if (!success) {
-                        Predefine.logger.warning("失败：" + p);
+                        Predefine.logger.warning("fail：" + p);
                     }
                 }
 
                 if (map.size() == 0) {
-                    Predefine.logger.warning("没有加载到任何词条");
-                    map.put("未##它", null);
+                    Predefine.logger.warning("No entry loaded");
+                    map.put("not##it", null);
                 }
 
-                logger.info("正在构建DoubleArrayTrie……");
+                logger.info("BuildingDoubleArrayTrie……");
                 dat.build(map);
                 if (addToSuggestTrie) {
                     // SearchService.save();
                 }
                 if (isCache) {
                     // 缓存成dat文件，下次加载会快很多
-                    logger.info("正在缓存词典为dat文件……");
+                    logger.info("Cache dictionary as dat file……");
                     // 缓存值文件
                     List<CoreDictionary.Attribute> attributeList = new LinkedList<CoreDictionary.Attribute>();
                     for (Map.Entry<String, CoreDictionary.Attribute> entry : map.entrySet()) {
@@ -222,13 +222,13 @@ public class MultiCustomDictionary extends DynamicCustomDictionary {
                     out.close();
                 }
             } catch (FileNotFoundException var17) {
-                logger.severe("自定义词典" + mainPath + "不存在！" + var17);
+                logger.severe("Custom dictionaries" + mainPath + "Does not exist!" + var17);
                 return false;
             } catch (IOException var18) {
-                logger.severe("自定义词典" + mainPath + "读取错误！" + var18);
+                logger.severe("Custom dictionaries" + mainPath + "Read error!" + var18);
                 return false;
             } catch (Exception var19) {
-                logger.warning("自定义词典" + mainPath + "缓存失败！\n" + TextUtility.exceptionToString(var19));
+                logger.warning("Custom dictionaries" + mainPath + "Caching failed！\n" + TextUtility.exceptionToString(var19));
             }
 
             return true;
@@ -288,7 +288,7 @@ public class MultiCustomDictionary extends DynamicCustomDictionary {
                 }
             }
         } catch (Exception var11) {
-            logger.warning("读取失败，问题发生在" + TextUtility.exceptionToString(var11));
+            logger.warning("Read failed, the problem occurred" + TextUtility.exceptionToString(var11));
             return false;
         }
     }

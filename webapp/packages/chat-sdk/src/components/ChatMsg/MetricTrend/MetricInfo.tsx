@@ -45,7 +45,7 @@ const MetricInfo: React.FC<Props> = ({ aggregateInfo, currentMetricField }) => {
         </div>
         <div className={`${prefixCls}-bottom-section`}>
           <div className={`${prefixCls}-date`}>
-            最新数据日期：<span className={`${prefixCls}-date-value`}>{date}</span>
+            Recent Date data：<span className={`${prefixCls}-date-value`}>{date}</span>
           </div>
           {metricInfos?.length > 0 && (
             <div className={`${prefixCls}-period-compare`}>

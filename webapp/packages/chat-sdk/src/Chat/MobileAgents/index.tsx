@@ -22,7 +22,7 @@ const MobileAgents: React.FC<Props> = ({
 }) => {
   return (
     <Drawer
-      title="智能助理"
+      title="Intelligent assistants"
       placement="bottom"
       open={open}
       height="85%"

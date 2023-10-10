@@ -77,7 +77,7 @@ public class DomainServiceImpl implements DomainService {
     public void deleteDomain(Long id) {
         List<ModelResp> modelResps = modelService.getModelByDomainIds(Lists.newArrayList(id));
         if (!CollectionUtils.isEmpty(modelResps)) {
-            throw new RuntimeException("该主题域下还存在模型, 暂不能删除, 请确认");
+            throw new RuntimeException("There is still a model under this topic domain, which cannot be deleted for the time being, please confirm");
         }
         domainRepository.deleteDomain(id);
     }

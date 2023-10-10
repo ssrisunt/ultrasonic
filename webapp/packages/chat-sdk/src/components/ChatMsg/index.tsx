@@ -205,7 +205,7 @@ const ChatMsg: React.FC<Props> = ({ queryId, data, chartIndex, triggerResize }) 
   return (
     <div className={chartMsgClass}>
       {dataSource?.length === 0 ? (
-        <div>暂无数据，如有疑问请联系管理员</div>
+        <div>There is no data, please contact the administrator if you have any questions</div>
       ) : (
         <div>
           {getMsgContent()}

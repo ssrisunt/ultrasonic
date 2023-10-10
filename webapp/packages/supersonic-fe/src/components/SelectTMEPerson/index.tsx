@@ -42,7 +42,7 @@ const SelectTMEPerson: FC<Props> = ({ placeholder, value, isMultiple = true, onC
   return (
     <Select
       value={value}
-      placeholder={placeholder ?? '请选择用户名'}
+      placeholder={placeholder ?? 'Please select a username'}
       mode={isMultiple ? 'multiple' : undefined}
       allowClear
       showSearch

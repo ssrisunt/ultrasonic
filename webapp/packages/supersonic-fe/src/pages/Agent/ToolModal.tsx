@@ -36,7 +36,7 @@ const ToolModal: React.FC<Props> = ({ editTool, onSaveTool, onCancel }) => {
 
   const initModelList = async () => {
     const res = await getModelList();
-    setModelList([{ id: -1, name: '默认' }, ...getLeafList(res.data)]);
+    setModelList([{ id: -1, name: 'Default' }, ...getLeafList(res.data)]);
   };
 
   const initPluginList = async () => {
@@ -114,7 +114,7 @@ const ToolModal: React.FC<Props> = ({ editTool, onSaveTool, onCancel }) => {
           <Input placeholder="Please enter a tool name" />
         </FormItem>
         {(toolType === AgentToolTypeEnum.RULE || toolType === AgentToolTypeEnum.DSL) && (
-          <FormItem name="modelIds" label="主题域">
+          <FormItem name="modelIds" label="Model ID">
             <Select
               options={modelList.map((model) => ({ label: model.name, value: model.id }))}
               placeholder="Please select a model"
@@ -153,7 +153,7 @@ const ToolModal: React.FC<Props> = ({ editTool, onSaveTool, onCancel }) => {
                 }}
               >
                 <PlusOutlined />
-                新增示例问题
+                New sample question
               </Button>
             </div>
           </FormItem>

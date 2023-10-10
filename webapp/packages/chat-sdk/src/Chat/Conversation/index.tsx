@@ -122,7 +122,7 @@ const Conversation: ForwardRefRenderFunction<any, Props> = (
     <div className={conversationClass}>
       <div className={styles.rightSection}>
         <div className={styles.titleBar}>
-          <div className={styles.title}>历史对话</div>
+          <div className={styles.title}>Historical dialogue</div>
           <div className={styles.rightOperation}>
             <div
               className={styles.newConversation}
@@ -130,7 +130,7 @@ const Conversation: ForwardRefRenderFunction<any, Props> = (
                 addConversation();
               }}
             >
-              新对话
+              New conversations
             </div>
             <CloseOutlined className={styles.closeIcon} onClick={onCloseConversation} />
           </div>
@@ -183,7 +183,7 @@ const Conversation: ForwardRefRenderFunction<any, Props> = (
                         <div className={styles.conversationTitleBar}>
                           <div className={styles.conversationName}>{item.chatName}</div>
                           {currentConversation?.chatId === item.chatId && (
-                            <div className={styles.currentConversation}>当前对话</div>
+                            <div className={styles.currentConversation}>The current conversation</div>
                           )}
                         </div>
                         <div className={styles.conversationTime}>

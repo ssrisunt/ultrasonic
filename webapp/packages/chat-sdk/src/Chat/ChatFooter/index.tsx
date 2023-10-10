@@ -279,7 +279,7 @@ const ChatFooter: ForwardRefRenderFunction<any, Props> = (
                   >
                     {SEMANTIC_TYPE_MAP[option.schemaElementType] ||
                       option.schemaElementType ||
-                      '维度'}
+                      'Dimension'}
                   </Tag>
                 )}
                 {option.subRecommend}
@@ -301,26 +301,26 @@ const ChatFooter: ForwardRefRenderFunction<any, Props> = (
           }}
         >
           <IconFont type="icon-c003xiaoxiduihua" className={styles.toolIcon} />
-          <div>新对话</div>
+          <div>New conversations</div>
         </div>
         {!isMobile && (
           <div className={styles.toolItem} onClick={onToggleHistoryVisible}>
             <IconFont type="icon-lishi" className={styles.toolIcon} />
-            <div>历史对话</div>
+            <div>Historical dialogue</div>
           </div>
         )}
         <div className={styles.toolItem} onClick={onOpenAgents}>
           <IconFont type="icon-zhinengzhuli" className={styles.toolIcon} />
-          <div>智能助理</div>
+          <div>Intelligent assistants</div>
         </div>
       </div>
       <div className={styles.composer}>
         <div className={styles.composerInputWrapper}>
           <AutoComplete
             className={styles.composerInput}
-            placeholder={`智能助理${
+            placeholder={`Intelligent assistants${
               isMobile ? `[${currentAgent?.name}]` : `【${currentAgent?.name}】`
-            }将与您对话，输入“/”可切换助理`}
+            }will talk to you, enter“/”to switch assistants`}
             value={inputMsg}
             onChange={(value: string) => {
               onInputMsgChange(value);

@@ -38,7 +38,7 @@ const DetailModal: React.FC<Props> = ({ detail, onSubmit, onCancel }) => {
 
   const initModelList = async () => {
     const res = await getModelList();
-    setModelList([{ id: -1, name: '默认' }, ...getLeafList(res.data)]);
+    setModelList([{ id: -1, name: 'Default' }, ...getLeafList(res.data)]);
   };
 
   useEffect(() => {

@@ -9,12 +9,13 @@ runtimeDir=$baseDir/../runtime
 buildDir=$baseDir/build
 
 cd $baseDir
+echo $baseDir
 
 #1. build backend java modules
 rm -fr ${buildDir}/*.tar.gz
 rm -fr dist
 
-mvn -f $baseDir/../ clean package -DskipTests
+mvn -f $baseDir/../ clean package -DskipTests -Dcheckstyle.skip
 
 #2. move package to build
 cp $baseDir/../launchers/semantic/target/*.tar.gz ${buildDir}/supersonic-semantic.tar.gz

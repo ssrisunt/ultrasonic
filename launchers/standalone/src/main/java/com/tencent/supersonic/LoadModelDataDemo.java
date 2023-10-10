@@ -261,13 +261,13 @@ public class LoadModelDataDemo implements CommandLineRunner {
         dimensionReq.setModelId(1L);
         dimensionReq.setType(DimensionTypeEnum.categorical.name());
         dimensionReq.setId(3L);
-        dimensionReq.setName("页面");
+        dimensionReq.setName("Page");
         dimensionReq.setBizName("page");
         dimensionReq.setDatasourceId(3L);
         dimensionReq.setAlias("page");
         dimensionReq.setSemanticType(SemanticTypeEnum.CATEGORY.name());
         dimensionReq.setSensitiveLevel(2);
-        dimensionReq.setDescription("页面");
+        dimensionReq.setDescription("Page");
         dimensionReq.setExpr("page");
         dimensionReq.setDimValueMaps(Collections.emptyList());
         dimensionService.updateDimension(dimensionReq, user);

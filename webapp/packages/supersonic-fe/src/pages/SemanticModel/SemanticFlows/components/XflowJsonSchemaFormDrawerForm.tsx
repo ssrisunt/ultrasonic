@@ -125,7 +125,7 @@ const XflowJsonSchemaFormDrawerForm: React.FC<CreateFormProps> = (props) => {
       <Drawer
         width={'100%'}
         destroyOnClose
-        title="数据源编辑"
+        title="Data source editing"
         open={createModalVisible}
         onClose={() => {
           resetSelectedNode();

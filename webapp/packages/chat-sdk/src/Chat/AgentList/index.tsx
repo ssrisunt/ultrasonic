@@ -14,13 +14,13 @@ type Props = {
 
 const AgentList: React.FC<Props> = ({ agentList, currentAgent, onSelectAgent }) => {
   const onAddAgent = () => {
-    message.info('正在开发中，敬请期待');
+    message.info('It is under development, so stay tuned');
   };
 
   return (
     <div className={styles.agentList}>
       <div className={styles.header}>
-        <div className={styles.headerTitle}>智能助理</div>
+        <div className={styles.headerTitle}>Intelligent assistant</div>
         <PlusCircleOutlined className={styles.plusIcon} onClick={onAddAgent} />
       </div>
       <div className={styles.agentListContent}>

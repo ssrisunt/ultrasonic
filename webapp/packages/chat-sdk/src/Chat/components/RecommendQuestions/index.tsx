@@ -39,7 +39,7 @@ const RecommendQuestions: React.FC<Props> = ({ onSelectQuestion }) => {
         <></>
       ) : questions.length > 0 ? (
         <Message position="left" bubbleClassName={styles.recommendQuestionsMsg}>
-          <div className={styles.title}>推荐问题：</div>
+          <div className={styles.title}>Recommended Questions：</div>
           <div className={styles.content}>
             {questions.map((question, index) => (
               <div
@@ -55,7 +55,7 @@ const RecommendQuestions: React.FC<Props> = ({ onSelectQuestion }) => {
           </div>
         </Message>
       ) : (
-        <Message position="left">您好，请问有什么我可以帮您吗？</Message>
+        <Message position="left">Hello, How can help you with?</Message>
       )}
     </div>
   );

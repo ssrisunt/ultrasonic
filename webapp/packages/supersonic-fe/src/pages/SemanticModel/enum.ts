@@ -15,14 +15,14 @@ export enum SemanticNodeType {
 }
 
 export enum MetricTypeWording {
-  ATOMIC = '原子指标',
-  DERIVED = '衍生指标',
+  ATOMIC = 'Atomic indicators',
+  DERIVED = 'Derived indicators',
 }
 
 export enum DictTaskState {
-  ERROR = '错误',
-  PENDING = '等待',
-  RUNNING = '正在执行',
-  SUCCESS = '成功',
-  UNKNOWN = '未知',
+  ERROR = 'error',
+  PENDING = 'pending',
+  RUNNING = 'running',
+  SUCCESS = 'success',
+  UNKNOWN = 'unknown',
 }

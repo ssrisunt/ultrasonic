@@ -11,7 +11,7 @@ type Props = {
 const DomainManager: React.FC<Props> = () => {
   return (
     <>
-      <Helmet title={'语义模型-超音数'} />
+      <Helmet title={'Semantic model - UltraSonic'} />
       <OverviewContainer mode={'domain'} />
     </>
   );

@@ -11,11 +11,11 @@ const TransTypeTag: React.FC<Props> = ({ type }) => {
   return (
     <>
       {type === SemanticNodeType.DIMENSION ? (
-        <Tag color="blue">{'维度'}</Tag>
+        <Tag color="blue">{'Dimension'}</Tag>
       ) : type === SemanticNodeType.METRIC ? (
-        <Tag color="orange">{'指标'}</Tag>
+        <Tag color="orange">{'Limited Terms'}</Tag>
       ) : type === SemanticNodeType.DATASOURCE ? (
-        <Tag color="green">{'数据源'}</Tag>
+        <Tag color="green">{'Data source'}</Tag>
       ) : (
         <></>
       )}

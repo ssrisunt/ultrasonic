@@ -2,42 +2,42 @@ import type { IGraphCommand } from '@antv/xflow';
 
 /** 节点命令 */
 export namespace CustomCommands {
-  const category = '节点操作';
+  const category = 'Node operations';
   /** 异步请求demo */
   export const TEST_ASYNC_CMD: IGraphCommand = {
     id: 'xflow:async-cmd',
-    label: '异步请求',
+    label: 'Asynchronous requests',
     category,
   };
   /** 重命名节点弹窗 */
   export const SHOW_RENAME_MODAL: IGraphCommand = {
     id: 'xflow:rename-node-modal',
-    label: '打开重命名弹窗',
+    label: 'Open the Rename pop-up window',
     category,
   };
   /** 二次确认弹窗 */
   export const SHOW_CONFIRM_MODAL: IGraphCommand = {
     id: 'xflow:confirm-modal',
-    label: '打开二次确认弹窗',
+    label: 'Open the secondary confirmation pop-up window',
     category,
   };
   /** 部署服务 */
   export const DEPLOY_SERVICE: IGraphCommand = {
     id: 'xflow:deploy-service',
-    label: '部署服务',
+    label: 'Deploy the service',
     category,
   };
 
   export const DATASOURCE_RELATION: IGraphCommand = {
     id: 'xflow:datasource-relation',
-    label: '获取数据源关系数据',
+    label: 'Get data source relational data',
     category,
   };
 
   /** 查看维度 */
   export const VIEW_DIMENSION: IGraphCommand = {
     id: 'xflow:view-dimension',
-    label: '查看维度',
+    label: 'View dimensions',
     category,
   };
 }

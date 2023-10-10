@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-/** app 核心组件 */
+/** app Core components */
 import { XFlow, XFlowCanvas, XFlowGraphCommands } from '@antv/xflow';
 import type { IApplication, IAppLoad, NsGraph, NsGraphCmd } from '@antv/xflow';
-/** 交互组件 */
+/** Interactions */
 import {
   /** 触发Command的交互组件 */
   CanvasScaleToolbar,
@@ -14,18 +14,18 @@ import {
   CanvasNodePortTooltip,
   DagGraphExtension,
 } from '@antv/xflow';
-/** app 组件配置  */
-/** 配置画布 */
+/** app Component configuration  */
+/** Placement Cloth */
 import { useGraphHookConfig } from './ConfigGraph';
-/** 配置Command */
+/** Configure Command */
 import { useCmdConfig, initGraphCmds } from './ConfigCmd';
-/** 配置Model */
+/** Configure Model */
 import { useModelServiceConfig } from './ConfigModelService';
-/** 配置Menu */
+/** Configure the Menu */
 import { useMenuConfig } from './ConfigMenu';
-/** 配置Toolbar */
+/** Configure Toolbar */
 import { useToolbarConfig } from './ConfigToolbar';
-/** 配置Dnd组件面板 */
+/** Configure the Dnd Palette*/
 import * as dndPanelConfig from './ConfigDndPanel';
 import { connect } from 'umi';
 import type { StateType } from '../model';

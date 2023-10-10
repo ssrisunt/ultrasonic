@@ -19,7 +19,7 @@ const Text: React.FC<Props> = ({ columns, referenceColumn, dataSource }) => {
 
   const initData = () => {
     let textValue = dataSource[0][columns[0].nameEn];
-    setText(textValue === undefined ? '暂无数据，如有疑问请联系管理员' : textValue);
+    setText(textValue === undefined ? 'There is no data, please contact the administrator if you have any questions' : textValue);
     if (referenceColumn) {
       const referenceDataValue = dataSource[0][referenceColumn.nameEn];
       setReferenceData(referenceDataValue || []);
@@ -46,7 +46,7 @@ const Text: React.FC<Props> = ({ columns, referenceColumn, dataSource }) => {
       {htmlCode ? <pre>{text}</pre> : text}
       {referenceData.length > 0 && (
         <span className={`${prefixCls}-check-more`} onClick={onToggleMore}>
-          {referenceExpanded ? '收起' : '查看'}更多
+          {referenceExpanded ? 'collapse' : 'view'}More
           {referenceExpanded ? (
             <UpOutlined className={`${prefixCls}-arrow-icon`} />
           ) : (

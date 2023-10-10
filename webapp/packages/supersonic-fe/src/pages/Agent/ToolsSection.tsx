@@ -68,7 +68,7 @@ const ToolsSection: React.FC<Props> = ({ currentAgent, onSaveAgent, onEditAgent,
         <ArrowLeftOutlined className={styles.backIcon} onClick={goBack} />
         <div className={styles.agentTitle}>{currentAgent?.name}</div>
         <div className={styles.toggleStatus}>
-          {currentAgent?.status === 0 ? '已禁用' : <span className={styles.online}>已启用</span>}
+          {currentAgent?.status === 0 ? 'Disabled' : <span className={styles.online}>Enabled</span>}
           <span
             onClick={(e) => {
               e.stopPropagation();
@@ -93,19 +93,19 @@ const ToolsSection: React.FC<Props> = ({ currentAgent, onSaveAgent, onEditAgent,
               onEditAgent(currentAgent);
             }}
           >
-            修改基本信息
+            Modify the basic information
           </Button>
         </div>
         <div className={styles.infoContent}>
           <div className={styles.infoItem}>
-            示例问题：
+            Example question：
             <Space>
               {currentAgent?.examples?.map((item) => (
                 <Tag key={item}>{item}</Tag>
               ))}
             </Space>
           </div>
-          <div className={styles.infoItem}>描述：{currentAgent?.description}</div>
+          <div className={styles.infoItem}>Description：{currentAgent?.description}</div>
         </div>
       </div>
       <div className={styles.toolSection}>
@@ -118,7 +118,7 @@ const ToolsSection: React.FC<Props> = ({ currentAgent, onSaveAgent, onEditAgent,
               setModalVisible(true);
             }}
           >
-            <PlusOutlined /> 新增工具
+            <PlusOutlined />New tools
           </Button>
         </div>
         {agentConfig?.tools && agentConfig?.tools?.length > 0 ? (
@@ -148,7 +148,7 @@ const ToolsSection: React.FC<Props> = ({ currentAgent, onSaveAgent, onEditAgent,
                           }}
                         />
                         <Popconfirm
-                          title="确定删除吗？"
+                          title="Are you sure you want to delete?"
                           onCancel={(e) => {
                             e?.stopPropagation();
                           }}
@@ -176,7 +176,7 @@ const ToolsSection: React.FC<Props> = ({ currentAgent, onSaveAgent, onEditAgent,
           </div>
         ) : (
           <div className={styles.emptyHolder}>
-            <Empty description={`【${currentAgent?.name}】暂无工具，请新增工具`} />
+            <Empty description={`【${currentAgent?.name}】No tools yet, please add new tools`} />
           </div>
         )}
       </div>

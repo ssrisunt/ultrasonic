@@ -24,14 +24,14 @@ const DimensionValueSettingModal: React.FC<Props> = ({
   const renderFooter = () => {
     return (
       <>
-        <Button onClick={onCancel}>取消</Button>
+        <Button onClick={onCancel}>Cancel</Button>
         <Button
           type="primary"
           onClick={() => {
             handleSubmit();
           }}
         >
-          完成
+          Finish
         </Button>
       </>
     );
@@ -41,7 +41,7 @@ const DimensionValueSettingModal: React.FC<Props> = ({
       <Modal
         width={600}
         destroyOnClose
-        title={'维度值设置'}
+        title={'Dimension value settings'}
         maskClosable={false}
         open={visible}
         footer={renderFooter()}

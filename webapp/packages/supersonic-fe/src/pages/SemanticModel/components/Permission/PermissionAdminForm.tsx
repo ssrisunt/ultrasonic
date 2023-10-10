@@ -97,17 +97,17 @@ const PermissionAdminForm: React.FC<Props> = ({
         <FormItem
           name="admins"
           label={
-            <FormItemTitle title={'管理员'} subTitle={'管理员将拥有主题域下所有编辑及访问权限'} />
+            <FormItemTitle title={'Administrator'} subTitle={'Administrators will have all editing and access rights under the topic domain'} />
           }
         >
-          <SelectTMEPerson placeholder="请邀请团队成员" />
+          <SelectTMEPerson placeholder="Please invite team members" />
         </FormItem>
         {APP_TARGET === 'inner' && (
-          <FormItem name="adminOrgs" label="按组织">
+          <FormItem name="adminOrgs" label="ByOrganization">
             <SelectPartner
               type="selectedDepartment"
               treeSelectProps={{
-                placeholder: '请选择需要授权的部门',
+                placeholder: 'Please select the department that needs authorization',
               }}
             />
           </FormItem>
@@ -115,9 +115,9 @@ const PermissionAdminForm: React.FC<Props> = ({
         <Form.Item
           label={
             <FormItemTitle
-              title={'设为公开'}
+              title={'Make public'}
               subTitle={
-                '公开后,所有用户将可使用主题域下低/中敏感度资源，高敏感度资源需通过资源列表进行授权'
+                'After disclosure, all users will be able to use low/medium sensitivity resources under the topic domain, and high sensitivity resources need to be authorized through the resource list'
               }
             />
           }
@@ -129,17 +129,17 @@ const PermissionAdminForm: React.FC<Props> = ({
         {!isOpenState && (
           <>
             {APP_TARGET === 'inner' && (
-              <FormItem name="viewOrgs" label="按组织">
+              <FormItem name="viewOrgs" label="By organization">
                 <SelectPartner
                   type="selectedDepartment"
                   treeSelectProps={{
-                    placeholder: '请选择需要授权的部门',
+                    placeholder: 'Please select the ministry that requires authorization门',
                   }}
                 />
               </FormItem>
             )}
-            <FormItem name="viewers" label="按个人">
-              <SelectTMEPerson placeholder="请选择需要授权的个人" />
+            <FormItem name="viewers" label="By Individual">
+              <SelectTMEPerson placeholder="Please select the individual who needs authorization" />
             </FormItem>
           </>
         )}

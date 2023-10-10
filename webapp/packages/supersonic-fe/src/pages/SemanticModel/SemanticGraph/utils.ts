@@ -174,12 +174,12 @@ export const findNodesByLabel = (query: string, nodes: Node[]): Node[] => {
     let match = false;
     let children: Node[] = [];
 
-    // 如果节点的label包含查询字符串，我们将其标记为匹配
+    // If the node's label contains a query string, we mark it as a match
     if (node.label.includes(query)) {
       match = true;
     }
 
-    // 我们还需要在子节点中进行搜索
+    // We also need to search in the child nodes
     if (node.children) {
       children = findNodesByLabel(query, node.children);
       if (children.length > 0) {
@@ -187,7 +187,7 @@ export const findNodesByLabel = (query: string, nodes: Node[]): Node[] => {
       }
     }
 
-    // 如果节点匹配或者其子节点匹配，我们将其添加到结果中
+    // If the node matches or its child nodes match, we add it to the result
     if (match) {
       result.push({ ...node, children });
     }

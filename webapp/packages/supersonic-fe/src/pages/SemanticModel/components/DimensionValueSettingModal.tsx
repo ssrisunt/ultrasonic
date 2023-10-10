@@ -67,7 +67,7 @@ const DimensionInfoModal: React.FC<CreateFormProps> = ({
         setTableDataSource([...tableDataSource, ...data]);
       }
     } else {
-      message.error('大语言模型解析异常');
+      message.error('Large language model parsing exceptions');
     }
   };
 
@@ -83,19 +83,19 @@ const DimensionInfoModal: React.FC<CreateFormProps> = ({
         >
           <Space>
             智能填充
-            <Tooltip title="智能填充将根据维度相关信息，使用大语言模型获取可能被使用的维度值">
+            <Tooltip title="Smart Fill will use a large language model to get dimension values that are likely to be used based on information about the dimension">
               <InfoCircleOutlined />
             </Tooltip>
           </Space>
         </Button>
-        <Button onClick={onCancel}>取消</Button>
+        <Button onClick={onCancel}>Cancel</Button>
         <Button
           type="primary"
           onClick={() => {
             handleSubmit();
           }}
         >
-          完成
+          Finish
         </Button>
       </>
     );
@@ -103,51 +103,51 @@ const DimensionInfoModal: React.FC<CreateFormProps> = ({
 
   const columns = [
     {
-      title: '技术名称',
+      title: 'Technical name',
       dataIndex: 'techName',
       width: 200,
-      tooltip: '数据库中存储的维度值数据。 比如数据库中维度平台的维度值有kw、qy等',
+      tooltip: 'Dimension value data stored in the database. For example, the dimension values of the dimension platform in the database are kw, qy, etc',
       formItemProps: {
         fieldProps: {
-          placeholder: '请填写技术名称',
+          placeholder: 'Please fill in the technical name',
         },
         rules: [
           {
             required: true,
             whitespace: true,
-            message: '此项是必填项',
+            message: 'This field is required',
           },
         ],
       },
     },
     {
-      title: '业务名称',
+      title: 'Business name',
       dataIndex: 'bizName',
       width: 200,
       tooltip:
-        '查询完成后,最终返回给用户的维度值信息。比如将技术名称kw转换成酷我平台,最终返回给用户是酷我平台',
+        'After the query is completed, the dimension value information is finally returned to the user. For example, the technical name KW is converted into Kuwo platform, and the final return to the user is Kuwo platform',
       fieldProps: {
-        placeholder: '请填写业务名称',
+        placeholder: 'Please fill in the business name',
       },
       formItemProps: {
         rules: [
           {
             required: true,
             whitespace: true,
-            message: '此项是必填项',
+            message: 'This field is required',
           },
         ],
       },
     },
     {
-      title: '别名',
+      title: 'Alias',
       dataIndex: 'alias',
       valueType: 'select',
       width: 500,
       tooltip:
-        '解析用户查询意图时,支持别名到技术名称的转换。比如用户输入kw、kuwo、酷我,完成设置后,都可以将其转换成技术名称kw',
+        'When resolving user query intent, the conversion of aliases to technical names is supported. For example, if the user enters kw, kuwo, and kuwo, after completing the settings, they can be converted into the technical name kw',
       fieldProps: {
-        placeholder: '输入别名后回车确认，多别名输入、复制粘贴支持英文逗号自动分隔',
+        placeholder: 'Enter the alias to confirm, and multi-alias input and copy and paste support automatic separation of English commas',
         mode: 'tags',
         maxTagCount: 5,
         tokenSeparators: [','],
@@ -158,7 +158,7 @@ const DimensionInfoModal: React.FC<CreateFormProps> = ({
     <Modal
       width={1200}
       destroyOnClose
-      title="维度值设置"
+      title="Dimension value settings"
       style={{ top: 48 }}
       maskClosable={false}
       open={open}

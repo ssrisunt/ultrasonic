@@ -123,7 +123,7 @@ const Copilot: ForwardRefRenderFunction<any, Props> = (
                 />
               )}
             </div>
-            <div className={styles.title}>内容库问答</div>
+            <div className={styles.title}>Content Library Q&A</div>
           </div>
           <div className={styles.chat}>
             <Chat

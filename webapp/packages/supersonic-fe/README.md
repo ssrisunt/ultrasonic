@@ -58,4 +58,4 @@ You can view full document on our [official website](https://pro.ant.design). An
 
 #### 踩坑
 
-1.antd `Select`组件如果默认不选中时默认值不是`undefeated`，则不显示 placeholder
+1.antd 'Select' component does not display placeholder if the default value is not 'undefeated' when it is not selected by default

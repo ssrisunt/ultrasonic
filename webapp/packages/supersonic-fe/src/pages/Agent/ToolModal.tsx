@@ -96,41 +96,41 @@ const ToolModal: React.FC<Props> = ({ editTool, onSaveTool, onCancel }) => {
   return (
     <Modal
       open
-      title={editTool ? '编辑工具' : '新建工具'}
+      title={editTool ? 'Editing Tools' : 'Create a new tool'}
       confirmLoading={saveLoading}
       width={800}
       onOk={onOk}
       onCancel={onCancel}
     >
       <Form {...layout} form={form}>
-        <FormItem name="type" label="类型" rules={[{ required: true, message: '请选择工具类型' }]}>
+        <FormItem name="type" label="Type" rules={[{ required: true, message: 'Please select the tool type' }]}>
           <Select
             options={AGENT_TOOL_TYPE_LIST}
-            placeholder="请选择工具类型"
+            placeholder="Please select the tool type"
             onChange={setToolType}
           />
         </FormItem>
-        <FormItem name="name" label="名称">
-          <Input placeholder="请输入工具名称" />
+        <FormItem name="name" label="Name">
+          <Input placeholder="Please enter a tool name" />
         </FormItem>
         {(toolType === AgentToolTypeEnum.RULE || toolType === AgentToolTypeEnum.DSL) && (
           <FormItem name="modelIds" label="主题域">
             <Select
               options={modelList.map((model) => ({ label: model.name, value: model.id }))}
-              placeholder="请选择主题域"
+              placeholder="Please select a model"
               mode="multiple"
             />
           </FormItem>
         )}
         {toolType === AgentToolTypeEnum.DSL && (
-          <FormItem name="exampleQuestions" label="示例问题">
+          <FormItem name="exampleQuestions" label="Example question">
             <div className={styles.paramsSection}>
               {examples.map((example) => {
                 const { id, question } = example;
                 return (
                   <div className={styles.filterRow} key={id}>
                     <Input
-                      placeholder="示例问题"
+                      placeholder="Example question"
                       value={question}
                       className={styles.questionExample}
                       onChange={(e) => {
@@ -160,14 +160,14 @@ const ToolModal: React.FC<Props> = ({ editTool, onSaveTool, onCancel }) => {
         )}
         {toolType === AgentToolTypeEnum.INTERPRET && (
           <>
-            <FormItem name="modelId" label="主题域">
+            <FormItem name="modelId" label="Subject domain">
               <Select
                 options={modelList.map((model) => ({ label: model.name, value: model.id }))}
                 showSearch
                 filterOption={(input, option) =>
                   ((option?.label ?? '') as string).toLowerCase().includes(input.toLowerCase())
                 }
-                placeholder="请选择主题域"
+                placeholder="Please select a subject field"
                 onChange={(value) => {
                   setMetricOptions([...metricOptions]);
                   updateMetricList(value);
@@ -180,7 +180,7 @@ const ToolModal: React.FC<Props> = ({ editTool, onSaveTool, onCancel }) => {
                   return (
                     <div className={styles.filterRow} key={filter.id}>
                       <Select
-                        placeholder="请选择指标，需先选择主题域"
+                        placeholder="To select an indicator, you need to select a subject domain first"
                         options={(modelMetricList || []).map((metric) => ({
                           label: metric.name,
                           value: `${metric.id}`,
@@ -223,9 +223,9 @@ const ToolModal: React.FC<Props> = ({ editTool, onSaveTool, onCancel }) => {
           </>
         )}
         {toolType === AgentToolTypeEnum.PLUGIN && (
-          <FormItem name="plugins" label="插件">
+          <FormItem name="plugins" label="Plugins">
             <Select
-              placeholder="请选择插件"
+              placeholder="Please select a plugin"
               options={plugins.map((plugin) => ({ label: plugin.name, value: plugin.id }))}
               showSearch
               filterOption={(input, option) =>
@@ -241,9 +241,9 @@ const ToolModal: React.FC<Props> = ({ editTool, onSaveTool, onCancel }) => {
           </FormItem>
         )}
         {toolType === AgentToolTypeEnum.RULE && (
-          <FormItem name="queryModes" label="查询模式">
+          <FormItem name="queryModes" label="Query mode">
             <Select
-              placeholder="请选择查询模式"
+              placeholder="Please select a query mode"
               options={QUERY_MODE_LIST}
               showSearch
               mode="multiple"

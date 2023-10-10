@@ -274,7 +274,7 @@ const DomainManger: React.FC<Props> = ({
         setCurrentNodeData({ ...targetData, ...targetItem });
         setConfirmModalOpenState(true);
       } else {
-        message.error('获取维度初始化数据失败');
+        message.error('Failed to get dimension initialization data');
       }
     }
     if (targetData.nodeType === SemanticNodeType.METRIC) {
@@ -283,7 +283,7 @@ const DomainManger: React.FC<Props> = ({
         setCurrentNodeData({ ...targetData, ...targetItem });
         setConfirmModalOpenState(true);
       } else {
-        message.error('获取指标初始化数据失败');
+        message.error('Failed to get metric initialization data');
       }
     }
   };

@@ -31,7 +31,7 @@ const EntitySettingSection: React.FC<Props> = ({ domainManger }) => {
       return;
     }
 
-    message.error('获取问答设置信息失败');
+    message.error('Failed to get Q&A setup information');
   };
 
   const initPage = async () => {
@@ -46,7 +46,7 @@ const EntitySettingSection: React.FC<Props> = ({ domainManger }) => {
     <div style={{ width: 800, margin: '0 auto' }}>
       <Space direction="vertical" style={{ width: '100%' }} size={20}>
         {
-          <ProCard title="实体" bordered>
+          <ProCard title="Entity" bordered>
             <EntityCreateForm
               ref={entityCreateRef}
               modelId={Number(modelId)}

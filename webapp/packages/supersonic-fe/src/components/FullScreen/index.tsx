@@ -56,7 +56,7 @@ const FullScreen: FC<IProps> = ({
         <div className={styles.backNormal}>
           <FullscreenExitOutlined
             className={styles.fullscreenExitIcon}
-            title="退出全屏"
+            title="Exit full screen"
             onClick={handleBackToNormal}
           />
         </div>

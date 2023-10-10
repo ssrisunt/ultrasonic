@@ -18,7 +18,7 @@ const PermissionSection: React.FC<Props> = ({ permissionTarget }) => {
     <>
       <div>
         <Space direction="vertical" style={{ width: '100%' }} size={20}>
-          <ProCard title="邀请成员" bordered>
+          <ProCard title="Invite members" bordered>
             <PermissionAdminForm permissionTarget={permissionTarget} />
           </ProCard>
           {permissionTarget === 'model' && <PermissionTable />}

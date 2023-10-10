@@ -78,19 +78,19 @@ public class ConfigureDemo implements ApplicationListener<ApplicationReadyEvent>
     }
 
     public void addSampleChats() throws Exception {
-        chatService.addChat(user, "样例对话1", 1);
+        chatService.addChat(user, "Sample Dialogue 1", 1);
 
-        parseAndExecute(1, "超音数 访问次数");
-        parseAndExecute(1, "按部门统计");
-        parseAndExecute(1, "查询近30天");
+        parseAndExecute(1, "Number of Visits");
+        parseAndExecute(1, "Statistics by sector");
+        parseAndExecute(1, "Inquiry last 30 days");
     }
 
     public void addSampleChats2() throws Exception {
-        chatService.addChat(user, "样例对话2", 1);
+        chatService.addChat(user, "Sample Dialogue 2", 1);
 
-        parseAndExecute(2, "alice 停留时长");
-        parseAndExecute(2, "对比alice和lucy的访问次数");
-        parseAndExecute(2, "访问次数最高的部门");
+        parseAndExecute(2, "Length of stay of Alice");
+        parseAndExecute(2, "Comparing the number of visits by Alice and Lucy");
+        parseAndExecute(2, "Most visited department");
     }
 
     public void addDemoChatConfig_1() {
@@ -135,11 +135,12 @@ public class ConfigureDemo implements ApplicationListener<ApplicationReadyEvent>
         chatConfigBaseReq.setChatAggConfig(chatAggConfig);
 
         List<RecommendedQuestionReq> recommendedQuestions = new ArrayList<>();
-        recommendedQuestions.add(new RecommendedQuestionReq("超音数访问次数"));
-        recommendedQuestions.add(new RecommendedQuestionReq("近15天超音数访问次数汇总"));
-        recommendedQuestions.add(new RecommendedQuestionReq("按部门统计超音数的访问人数"));
-        recommendedQuestions.add(new RecommendedQuestionReq("对比alice和lucy的停留时长"));
-        recommendedQuestions.add(new RecommendedQuestionReq("超音数访问次数最高的部门"));
+        recommendedQuestions.add(new RecommendedQuestionReq("Number of u visits"));
+        recommendedQuestions.add(new RecommendedQuestionReq("Summary of the number of visits in the past 15 days"));
+        recommendedQuestions.add(new RecommendedQuestionReq("Summary of the number of visits in the past 15 days"));
+        recommendedQuestions.add(new RecommendedQuestionReq("Counting the number of visitors by department"));
+        recommendedQuestions.add(new RecommendedQuestionReq("Comparing the length of stay of Alice and Lucy"));
+        recommendedQuestions.add(new RecommendedQuestionReq("Department with the highest number of visits"));
         chatConfigBaseReq.setRecommendedQuestions(recommendedQuestions);
 
         configService.addConfig(chatConfigBaseReq, user);
@@ -187,12 +188,12 @@ public class ConfigureDemo implements ApplicationListener<ApplicationReadyEvent>
         Plugin plugin1 = new Plugin();
         plugin1.setType("WEB_PAGE");
         plugin1.setModelList(Arrays.asList(1L));
-        plugin1.setPattern("用于分析超音数的流量概况，包含UV、PV等核心指标的追踪。P.S. 仅作为示例展示，无实际看板");
-        plugin1.setName("超音数流量分析看板");
+        plugin1.setPattern("It is used to analyze the flow profile of the ultrasonic number, including the tracking of core indicators such as UV and PV. P.S. Presented as an example only, no actual Kanban board");
+        plugin1.setName("UltraSonic Traffic Analysis Kanban");
         PluginParseConfig pluginParseConfig = new PluginParseConfig();
         pluginParseConfig.setDescription(plugin1.getPattern());
         pluginParseConfig.setName(plugin1.getName());
-        pluginParseConfig.setExamples(Lists.newArrayList("tom最近访问超音数情况怎么样"));
+        pluginParseConfig.setExamples(Lists.newArrayList("How is Tom's recent visit to UltraSonic"));
         plugin1.setParseModeConfig(JSONObject.toJSONString(pluginParseConfig));
         WebBase webBase = new WebBase();
         webBase.setUrl("www.yourbi.com");
@@ -211,12 +212,12 @@ public class ConfigureDemo implements ApplicationListener<ApplicationReadyEvent>
     private void addAgent1() {
         Agent agent = new Agent();
         agent.setId(1);
-        agent.setName("算指标");
-        agent.setDescription("帮助您用自然语言查询指标，支持时间限定、条件筛选、下钻维度以及聚合统计");
+        agent.setName("Calculate indicators");
+        agent.setDescription("Helps you query metrics in natural language, supporting time limits, conditional filtering, drill-down dimensions, and aggregated statistics");
         agent.setStatus(1);
         agent.setEnableSearch(1);
-        agent.setExamples(Lists.newArrayList("超音数访问次数", "近15天超音数访问次数汇总", "按部门统计超音数的访问人数",
-                "对比alice和lucy的停留时长", "超音数访问次数最高的部门"));
+        agent.setExamples(Lists.newArrayList("Number of visits", "Summary of visits in the past 15 days", "Number of visitors by department",
+                "Comparison of length of stay with Alice and Lucy", "Department with the highest number of ultrasound visits"));
         AgentConfig agentConfig = new AgentConfig();
         RuleQueryTool ruleQueryTool = new RuleQueryTool();
         ruleQueryTool.setType(AgentToolType.RULE);
@@ -241,11 +242,11 @@ public class ConfigureDemo implements ApplicationListener<ApplicationReadyEvent>
     private void addAgent2() {
         Agent agent = new Agent();
         agent.setId(2);
-        agent.setName("圈实体");
-        agent.setDescription("帮助您用自然语言圈选实体，支持多条件组合筛选");
+        agent.setName("Circle Entity");
+        agent.setDescription("Helps you tag entities with natural language, supports multi-criteria combination filtering");
         agent.setStatus(1);
         agent.setEnableSearch(1);
-        agent.setExamples(Lists.newArrayList("国风风格艺人", "港台地区的艺人", "风格为流行的艺人"));
+        agent.setExamples(Lists.newArrayList("Chinese style artist", "Hong Kong and Taiwan area artist", "style for popular artist"));
         AgentConfig agentConfig = new AgentConfig();
         RuleQueryTool ruleQueryTool = new RuleQueryTool();
         ruleQueryTool.setId("0");

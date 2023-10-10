@@ -18,15 +18,15 @@ export const getMenuConfig = (props?: InitContextMenuProps) => {
       if (nodeData) {
         const nodeTypeConfig = SEMANTIC_NODE_TYPE_CONFIG[nodeType] || {};
         let ulNode = `
-        <li title='编辑' key='edit' >编辑</li>
-        <li title='删除' key='delete' >删除</li>
+        <li title='Edit' key='edit' >Edit</li>
+        <li title='Delete' key='delete' >Delete</li>
      `;
         if (nodeType === SemanticNodeType.DATASOURCE) {
           ulNode = `
-              <li title='新增维度' key='createDimension' >新增维度</li>
-              <li title='新增指标' key='createMetric' >新增指标</li>
-              <li title='编辑' key='editDatasource' >编辑</li>
-              <li title='删除' key='deleteDatasource' >删除</li>
+              <li title='New dimensions' key='createDimension' >New dimensions</li>
+              <li title='New metrics' key='createMetric' >New metrics</li>
+              <li title='Edit' key='editDatasource' >Edit</li>
+              <li title='Delete' key='deleteDatasource' >Delete</li>
             `;
         }
         const header = `${name}`;
@@ -37,19 +37,19 @@ export const getMenuConfig = (props?: InitContextMenuProps) => {
         </ul>
         </div>`;
       }
-      return `<div>当前节点信息获取失败</div>`;
+      return `<div>The current node information failed to obtain</div>`;
     },
     handleMenuClick(target, item) {
       const targetKey = target.getAttribute('key') || '';
       onMenuClick?.(targetKey, item);
     },
     // offsetX and offsetY include the padding of the parent container
-    // 需要加上父级容器的 padding-left 16 与自身偏移量 10
+    // You need to add the parent's padding-left 16 to its own offset of 10
     offsetX: 16 + 10,
-    // 需要加上父级容器的 padding-top 24 、画布兄弟元素高度、与自身偏移量 10
+    // You need to add the padding-top 24 of the parent container, the height of the canvas brother element, and the offset from itself by 10
     offsetY: 0,
     // the types of items that allow the menu show up
-    // 在哪些类型的元素上响应
+    // On what types of elements to respond to
     itemTypes: ['node'],
   };
 };

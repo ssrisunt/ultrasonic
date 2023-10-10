@@ -49,11 +49,11 @@ const ParseTip: React.FC<Props> = ({
   };
 
   if (parseLoading) {
-    return getNode('意图解析中');
+    return getNode('Intent is being resolved');
   }
 
   if (parseTip) {
-    return getNode('意图解析失败', parseTip);
+    return getNode('Intent parsing failed', parseTip);
   }
 
   if (parseInfoOptions.length === 0) {
@@ -101,8 +101,8 @@ const ParseTip: React.FC<Props> = ({
         {index !== undefined && <div>{index + 1}.</div>}
         {!!agentType && queryMode !== 'DSL' ? (
           <div className={`${prefixCls}-tip-item`}>
-            将由{agentType === 'plugin' ? '插件' : '内置'}工具
-            <span className={itemValueClass}>{agentName}</span>来解答
+            will be by{agentType === 'plugin' ? 'Plugins' : 'Built-in'}tool
+            <span className={itemValueClass}>{agentName}</span>to answer
           </div>
         ) : (
           <>
@@ -112,7 +112,7 @@ const ParseTip: React.FC<Props> = ({
             !!entityName ? (
               <div className={`${prefixCls}-tip-item`}>
                 <div className={`${prefixCls}-tip-item-name`}>{entityAlias}：</div>
-                {!isOptions && (entityAlias === '歌曲' || entityAlias === '艺人') ? (
+                {!isOptions && (entityAlias === 'song' || entityAlias === 'player') ? (
                   <SwicthEntity
                     entityName={entityName}
                     chatContext={parseInfo}
@@ -124,19 +124,19 @@ const ParseTip: React.FC<Props> = ({
               </div>
             ) : (
               <div className={`${prefixCls}-tip-item`}>
-                <div className={`${prefixCls}-tip-item-name`}>数据来源：</div>
+                <div className={`${prefixCls}-tip-item-name`}>DataSources：</div>
                 <div className={itemValueClass}>{modelName}</div>
               </div>
             )}
             {!queryMode?.includes('ENTITY') && metric && (
               <div className={`${prefixCls}-tip-item`}>
-                <div className={`${prefixCls}-tip-item-name`}>指标：</div>
+                <div className={`${prefixCls}-tip-item-name`}>Entity：</div>
                 <div className={itemValueClass}>{metric.name}</div>
               </div>
             )}
             {!isOptions && (
               <div className={`${prefixCls}-tip-item`}>
-                <div className={`${prefixCls}-tip-item-name`}>数据时间：</div>
+                <div className={`${prefixCls}-tip-item-name`}>DataTime：</div>
                 <div className={itemValueClass}>
                   {startDate === endDate ? startDate : `${startDate} ~ ${endDate}`}
                 </div>
@@ -149,11 +149,11 @@ const ParseTip: React.FC<Props> = ({
                   <div className={`${prefixCls}-tip-item-name`}>
                     {queryMode === 'DSL'
                       ? nativeQuery
-                        ? '查询字段'
-                        : '下钻维度'
+                        ? 'Query fields'
+                        : 'Drill down dimensions'
                       : queryMode === 'ENTITY_DETAIL'
-                      ? '查询字段'
-                      : '下钻维度'}
+                      ? 'Query fields'
+                      : 'Drill down dimensions'}
                     ：
                   </div>
                   <div className={itemValueClass}>
@@ -175,7 +175,7 @@ const ParseTip: React.FC<Props> = ({
               ))}
             {queryMode === 'METRIC_ORDERBY' && aggType && aggType !== 'NONE' && (
               <div className={`${prefixCls}-tip-item`}>
-                <div className={`${prefixCls}-tip-item-name`}>聚合方式：</div>
+                <div className={`${prefixCls}-tip-item-name`}>Aggregation method：</div>
                 <div className={itemValueClass}>{AGG_TYPE_MAP[aggType]}</div>
               </div>
             )}
@@ -236,7 +236,7 @@ const ParseTip: React.FC<Props> = ({
   const getFiltersNode = () => {
     return (
       <div className={`${prefixCls}-tip-item`}>
-        <div className={`${prefixCls}-tip-item-name`}>筛选条件：</div>
+        <div className={`${prefixCls}-tip-item-name`}>Dimension Filter：</div>
         <div className={`${prefixCls}-tip-item-content`}>{getFilterContent(dimensionFilters)}</div>
       </div>
     );
@@ -261,10 +261,10 @@ const ParseTip: React.FC<Props> = ({
 
   return getNode(
     <div className={`${prefixCls}-title-bar`}>
-      意图解析
-      {(!type || queryMode === 'DSL') && entityAlias && entityAlias !== '厂牌' && entityName && (
+     Intent
+      {(!type || queryMode === 'DSL') && entityAlias && entityAlias !== 'Label' && entityName && (
         <div className={`${prefixCls}-switch-entity-tip`}>
-          (如果未匹配到您查询的{entityAlias}，可点击{entityAlias}名切换)
+          (If it does not match to your query{entityAlias}，Clickable{entityAlias}Name switching)
         </div>
       )}
     </div>,

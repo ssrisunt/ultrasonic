@@ -88,7 +88,7 @@ const ClassMetricTable: React.FC<Props> = ({ domainManger, dispatch }) => {
     },
     {
       dataIndex: 'name',
-      title: '指标名称',
+      title: 'Metric name',
       render: (_, record: any) => {
         if (record.hasAdminRes) {
           return (
@@ -115,21 +115,21 @@ const ClassMetricTable: React.FC<Props> = ({ domainManger, dispatch }) => {
     // },
     {
       dataIndex: 'modelName',
-      title: '所属模型',
+      title: 'Model Name',
     },
     {
       dataIndex: 'sensitiveLevel',
-      title: '敏感度',
+      title: 'Sensitivity Level',
       valueEnum: SENSITIVE_LEVEL_ENUM,
     },
     {
       dataIndex: 'createdBy',
-      title: '创建人',
+      title: 'Created By',
       search: false,
     },
     {
       dataIndex: 'tags',
-      title: '标签',
+      title: 'tag',
       search: false,
       render: (tags) => {
         if (Array.isArray(tags)) {
@@ -148,7 +148,7 @@ const ClassMetricTable: React.FC<Props> = ({ domainManger, dispatch }) => {
     },
     {
       dataIndex: 'description',
-      title: '描述',
+      title: 'Description',
       search: false,
     },
     // {
@@ -162,14 +162,14 @@ const ClassMetricTable: React.FC<Props> = ({ domainManger, dispatch }) => {
 
     {
       dataIndex: 'updatedAt',
-      title: '更新时间',
+      title: 'Updated At',
       search: false,
       render: (value: any) => {
         return value && value !== '-' ? moment(value).format('YYYY-MM-DD HH:mm:ss') : '-';
       },
     },
     {
-      title: '操作',
+      title: 'Operate',
       dataIndex: 'x',
       valueType: 'option',
       render: (_, record) => {
@@ -183,13 +183,13 @@ const ClassMetricTable: React.FC<Props> = ({ domainManger, dispatch }) => {
                   setCreateModalVisible(true);
                 }}
               >
-                编辑
+                Edit
               </a>
 
               <Popconfirm
-                title="确认删除？"
-                okText="是"
-                cancelText="否"
+                title="Confirm deletion?"
+                okText="Ok"
+                cancelText="Cancel"
                 onConfirm={async () => {
                   const { code, msg } = await deleteMetric(record.id);
                   if (code === 200) {
@@ -206,7 +206,7 @@ const ClassMetricTable: React.FC<Props> = ({ domainManger, dispatch }) => {
                     setMetricItem(record);
                   }}
                 >
-                  删除
+                  Delete
                 </a>
               </Popconfirm>
             </Space>

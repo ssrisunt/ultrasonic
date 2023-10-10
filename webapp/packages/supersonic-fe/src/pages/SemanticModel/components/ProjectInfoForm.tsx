@@ -34,16 +34,16 @@ const ProjectInfoForm: React.FC<ProjectInfoFormProps> = (props) => {
         setSaveLoading(false);
       }
     } catch (error) {
-      message.error('接口调用出错');
+      message.error('An error occurred in the interface call');
       setSaveLoading(false);
     }
   };
 
   const footer = (
     <>
-      <Button onClick={onCancel}>取消</Button>
+      <Button onClick={onCancel}>Cancel</Button>
       <Button type="primary" loading={saveLoading} onClick={handleConfirm}>
-        确定
+        Are you sure?
       </Button>
     </>
   );
@@ -51,11 +51,11 @@ const ProjectInfoForm: React.FC<ProjectInfoFormProps> = (props) => {
   const titleRender = () => {
     let str = EnumTransModelType[modelType];
     if (type === 'top') {
-      str += '顶级';
+      str += 'top';
     } else if (modelType === 'add') {
-      str += '子';
+      str += 'child';
     }
-    str += '主题域';
+    str += 'Subject domain';
     return str;
   };
 
@@ -78,28 +78,28 @@ const ProjectInfoForm: React.FC<ProjectInfoFormProps> = (props) => {
         className={styles.form}
       >
         {type !== 'top' && modelType === 'add' && (
-          <FormItem name="parentName" label="父主题域名称">
-            <Input disabled placeholder="父主题域名称" />
+          <FormItem name="parentName" label="Parent topic domain name">
+            <Input disabled placeholder="Parent topic domain name" />
           </FormItem>
         )}
         <FormItem
           name="name"
-          label="主题域名称"
-          rules={[{ required: true, message: '请输入主题域名称！' }]}
+          label="Subject domain name"
+          rules={[{ required: true, message: 'Please enter a subject domain name!' }]}
         >
-          <Input placeholder="主题域名称不可重复" />
+          <Input placeholder="Subject domain names are not repeatable" />
         </FormItem>
         <FormItem
           name="bizName"
-          label="主题域英文名称"
-          rules={[{ required: true, message: '请输入主题域英文名称！' }]}
+          label="Business Nmae"
+          rules={[{ required: true, message: 'Please enter the English name of the subject domain!' }]}
         >
-          <Input placeholder="请输入主题域英文名称" />
+          <Input placeholder="Please enter the English name of the subject field" />
         </FormItem>
-        <FormItem name="description" label="主题域描述" hidden={true}>
-          <Input.TextArea placeholder="主题域描述" />
+        <FormItem name="description" label="Subject field description" hidden={true}>
+          <Input.TextArea placeholder="Subject field description" />
         </FormItem>
-        <FormItem name="isUnique" label="是否唯一" hidden={true}>
+        <FormItem name="isUnique" label="Is unique" hidden={true}>
           <Switch size="small" checked={true} />
         </FormItem>
       </Form>

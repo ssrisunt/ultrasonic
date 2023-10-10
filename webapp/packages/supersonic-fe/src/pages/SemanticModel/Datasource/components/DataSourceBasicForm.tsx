@@ -51,12 +51,12 @@ const DataSourceBasicForm: React.FC<Props> = ({ isEdit, databaseConfigList, mode
         <>
           <FormItem
             name="databaseId"
-            label="数据库连接"
-            rules={[{ required: true, message: '请选择数据库连接' }]}
+            label="Database connection"
+            rules={[{ required: true, message: 'Please select a database connection' }]}
           >
             <Select
               showSearch
-              placeholder="请选择数据库连接"
+              placeholder="Please select a database connection"
               disabled={isEdit}
               onChange={(dbLinkConfigId: number) => {
                 queryDbNameList(dbLinkConfigId);
@@ -72,12 +72,12 @@ const DataSourceBasicForm: React.FC<Props> = ({ isEdit, databaseConfigList, mode
           </FormItem>
           <FormItem
             name="dbName"
-            label="数据库名"
-            rules={[{ required: true, message: '请选择数据库/表' }]}
+            label="Database name"
+            rules={[{ required: true, message: 'Please select a database/table' }]}
           >
             <Select
               showSearch
-              placeholder="请先选择一个数据库连接"
+              placeholder="Please select a database connection first"
               disabled={isEdit}
               onChange={(dbName: string) => {
                 queryTableNameList(dbName);
@@ -92,10 +92,10 @@ const DataSourceBasicForm: React.FC<Props> = ({ isEdit, databaseConfigList, mode
           </FormItem>
           <FormItem
             name="tableName"
-            label="数据表名"
-            rules={[{ required: true, message: '请选择数据库/表' }]}
+            label="Data table name"
+            rules={[{ required: true, message: 'Please select a database/table' }]}
           >
-            <Select placeholder="请选择数据库/表" disabled={isEdit} showSearch>
+            <Select placeholder="Please select a database/table" disabled={isEdit} showSearch>
               {tableNameList.map((item) => (
                 <Select.Option key={item.name} value={item.name}>
                   {item.name}
@@ -108,20 +108,20 @@ const DataSourceBasicForm: React.FC<Props> = ({ isEdit, databaseConfigList, mode
 
       <FormItem
         name="name"
-        label="数据源中文名"
-        rules={[{ required: true, message: '请输入数据源中文名' }]}
+        label="data source name"
+        rules={[{ required: true, message: 'Please enter the data source name' }]}
       >
-        <Input placeholder="名称不可重复" />
+        <Input placeholder="Names are not repeatable" />
       </FormItem>
       <FormItem
         name="bizName"
-        label="数据源英文名"
-        rules={[{ required: true, message: '请输入数据源英文名' }]}
+        label="business data source"
+        rules={[{ required: true, message: 'Please the business data source name' }]}
       >
-        <Input placeholder="名称不可重复" disabled={isEdit} />
+        <Input placeholder="Names are not repeatable" disabled={isEdit} />
       </FormItem>
-      <FormItem name="description" label="数据源描述">
-        <TextArea placeholder="请输入数据源描述" />
+      <FormItem name="description" label="Data source description">
+        <TextArea placeholder="Please enter a description of the data source" />
       </FormItem>
     </Spin>
   );

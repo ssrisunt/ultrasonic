@@ -2,15 +2,15 @@ import { SemanticNodeType } from './enum';
 
 export const SENSITIVE_LEVEL_OPTIONS = [
   {
-    label: '低',
+    label: 'low',
     value: 0,
   },
   {
-    label: '中',
+    label: 'medium',
     value: 1,
   },
   {
-    label: '高',
+    label: 'high',
     value: 2,
   },
 ];
@@ -26,17 +26,17 @@ export const SENSITIVE_LEVEL_ENUM = SENSITIVE_LEVEL_OPTIONS.reduce(
 
 export const SEMANTIC_NODE_TYPE_CONFIG = {
   [SemanticNodeType.DATASOURCE]: {
-    label: '数据源',
+    label: 'Data source',
     value: SemanticNodeType.DATASOURCE,
     color: 'cyan',
   },
   [SemanticNodeType.DIMENSION]: {
-    label: '维度',
+    label: 'Dimension',
     value: SemanticNodeType.DIMENSION,
     color: 'blue',
   },
   [SemanticNodeType.METRIC]: {
-    label: '指标',
+    label: 'Limited Terms',
     value: SemanticNodeType.METRIC,
     color: 'orange',
   },

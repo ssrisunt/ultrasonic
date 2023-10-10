@@ -58,27 +58,27 @@ const BindMeasuresTable: React.FC<CreateFormProps> = ({
   const columns: ProColumns[] = [
     {
       dataIndex: 'bizName',
-      title: '度量名称',
+      title: 'Measure Name',
     },
     {
       dataIndex: 'alias',
-      title: '别名',
+      title: 'Alias',
     },
     {
       dataIndex: 'agg',
-      title: '算子类型',
+      title: 'Operator Type',
     },
     {
       dataIndex: 'datasourceName',
-      title: '所属数据源',
+      title: 'Datasource Name',
     },
   ];
   const renderFooter = () => {
     return (
       <>
-        <Button onClick={onCancel}>取消</Button>
+        <Button onClick={onCancel}>Cancel</Button>
         <Button type="primary" onClick={handleSubmit}>
-          将选中度量添加到指标
+          Add the selected metric to the metric
         </Button>
       </>
     );
@@ -95,7 +95,7 @@ const BindMeasuresTable: React.FC<CreateFormProps> = ({
     <Modal
       width={800}
       destroyOnClose
-      title="度量添加"
+      title="Measure addition"
       open={createModalVisible}
       footer={renderFooter()}
       onCancel={() => {

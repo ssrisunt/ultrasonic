@@ -37,7 +37,7 @@ const DatabaseSettingModal: React.FC<CreateFormProps> = ({
               handleTestConnection();
             }}
           >
-            连接测试
+            Connection test
           </Button>
 
           <Button
@@ -46,7 +46,7 @@ const DatabaseSettingModal: React.FC<CreateFormProps> = ({
               createFormRef.current.saveDatabaseConfig();
             }}
           >
-            保 存
+            preservation
           </Button>
         </Space>
       </>
@@ -57,7 +57,7 @@ const DatabaseSettingModal: React.FC<CreateFormProps> = ({
     <Modal
       width={1200}
       destroyOnClose
-      title="数据库连接设置"
+      title="Database connection settings"
       style={{ top: 48 }}
       maskClosable={false}
       open={open}

@@ -16,7 +16,7 @@ export const onNodeDrop: NsNodeCollapsePanel.IOnNodeDrop = async (node, commands
 const NodeDescription = (props: { name: string }) => {
   return (
     <Card size="small" style={{ width: '200px' }} bordered={false}>
-      将数据源组件拖入画布，对数据源进行设置及关联
+      Drag the Data Source component into the canvas to set up and associate the data source
     </Card>
   );
 };
@@ -24,18 +24,18 @@ const NodeDescription = (props: { name: string }) => {
 export const nodeDataService: NsNodeCollapsePanel.INodeDataService = async (meta, modelService) => {
   return [
     {
-      id: '数据源',
-      header: '数据源',
+      id: 'Data source',
+      header: 'Data source',
       children: [
         {
           id: '2',
-          label: '新增数据源',
+          label: 'Add a new data source',
           parentId: '1',
           renderKey: DATASOURCE_NODE_RENDER_ID,
           // renderComponent: (props) => (
           //   <div className="react-dnd-node react-custom-node-1"> {props.data.label} </div>
           // ),
-          popoverContent: <NodeDescription name="数据源" />,
+          popoverContent: <NodeDescription name="Data source" />,
         },
       ],
     },

@@ -38,7 +38,7 @@ const Chat = () => {
 
   const onMsgDataLoaded = (msgData: any) => {
     setData(msgData);
-    setFollowQuestions(['测试1234测试', '测试1234测试', '测试1234测试']);
+    setFollowQuestions(['Test 1234 test', 'Test 1234 test', 'Test 1234 test']);
   };
 
   // 5: 查信息，6: 智能圈选
@@ -47,7 +47,7 @@ const Chat = () => {
     <div className={styles.page}>
       <div className={styles.inputMsg}>
         <Search
-          placeholder="请输入问题"
+          placeholder="Please enter a question"
           value={inputMsg}
           onChange={onInputChange}
           onSearch={onSearch}

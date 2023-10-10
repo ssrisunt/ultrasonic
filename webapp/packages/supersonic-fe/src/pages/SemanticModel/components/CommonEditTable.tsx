@@ -66,7 +66,7 @@ const CommonEditTable: React.FC<Props> = forwardRef(
     const columns = [
       ...columnList,
       {
-        title: '操作',
+        title: 'Operation',
         dataIndex: 'x',
         valueType: 'option',
         render: (text, record, _, action) => {
@@ -78,7 +78,7 @@ const CommonEditTable: React.FC<Props> = forwardRef(
                   action?.startEditable?.(record.editRowId);
                 }}
               >
-                编辑
+                Edit
               </a>
               <a
                 key="deleteBtn"
@@ -90,7 +90,7 @@ const CommonEditTable: React.FC<Props> = forwardRef(
                   handleDataSourceChange(data);
                 }}
               >
-                删除
+                Delete
               </a>
               {extenderCtrlColumn?.(text, record, _, action)}
             </Space>
@@ -141,7 +141,7 @@ const CommonEditTable: React.FC<Props> = forwardRef(
                 return index !== row.index && item[defaultRowKey] === rowKeyValue;
               });
               if (isSame[0]) {
-                message.error('存在重复值');
+                message.error('There are duplicate values');
                 return Promise.reject();
               }
               return true;

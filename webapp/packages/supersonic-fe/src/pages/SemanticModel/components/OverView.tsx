@@ -36,7 +36,7 @@ const OverView: React.FC<Props> = ({
       <div className={styles.overviewExtraContainer}>
         <div className={styles.extraWrapper}>
           <div className={styles.extraStatistic}>
-            <div className={styles.extraTitle}>维度数</div>
+            <div className={styles.extraTitle}>The number of dimensions</div>
             <div className={styles.extraValue}>
               <span className="ant-statistic-content-value">{formatNumber(dimensionCnt || 0)}</span>
             </div>
@@ -44,7 +44,7 @@ const OverView: React.FC<Props> = ({
         </div>
         <div className={styles.extraWrapper}>
           <div className={styles.extraStatistic}>
-            <div className={styles.extraTitle}>指标数</div>
+            <div className={styles.extraTitle}>The number of metrics</div>
             <div className={styles.extraValue}>
               <span className="ant-statistic-content-value">{formatNumber(metricCnt || 0)}</span>
             </div>
@@ -68,15 +68,15 @@ const OverView: React.FC<Props> = ({
           },
           items: [
             {
-              label: '编辑',
+              label: 'Edit',
               key: 'edit',
             },
             {
               label: (
                 <Popconfirm
-                  title="确认删除？"
-                  okText="是"
-                  cancelText="否"
+                  title="Confirm deletion?"
+                  okText="Ok"
+                  cancelText="cancel"
                   onConfirm={async () => {
                     const { code, msg } = await deleteModel(model.id);
                     if (code === 200) {
@@ -86,7 +86,7 @@ const OverView: React.FC<Props> = ({
                     }
                   }}
                 >
-                  <a key="modelDeleteBtn">删除</a>
+                  <a key="modelDeleteBtn">Model Delete</a>
                 </Popconfirm>
               ),
               key: 'delete',

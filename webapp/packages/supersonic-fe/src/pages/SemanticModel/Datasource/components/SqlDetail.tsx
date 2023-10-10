@@ -254,13 +254,13 @@ const SqlDetail: React.FC<IProps> = ({
 
   const excuteScript = () => {
     if (!sql) {
-      return message.error('SQL查询语句不可以为空！');
+      return message.error('SQL query statements cannot be empty!');
     }
     if (isSqlExcLocked) {
-      return message.warning('请间隔5s再重新执行！');
+      return message.warning('Please wait 5 s before doing it again!');
     }
     const waitTime = 5000;
-    setIsSqlExcLocked(true); // 加锁，5s后再解锁
+    setIsSqlExcLocked(true); // Lock and unlock after 5 s
     setTimeout(() => {
       setIsSqlExcLocked(false);
     }, waitTime);
@@ -293,7 +293,7 @@ const SqlDetail: React.FC<IProps> = ({
     setTableScroll({
       scrollToFirstRowOnChange: true,
       x: '100%',
-      y: windowHeight - DEFAULT_FULLSCREEN_TOP - paginationHeight - 30, // 30为退出全屏按钮的高度
+      y: windowHeight - DEFAULT_FULLSCREEN_TOP - paginationHeight - 30, // 30 is the height of the exit full-screen button
     });
   };
 
@@ -355,10 +355,10 @@ const SqlDetail: React.FC<IProps> = ({
         </>
       );
     }
-    return <div className={styles.sqlResultContent}>请点击左侧任务列表查看执行详情</div>;
+    return <div className={styles.sqlResultContent}>Click the task list on the left to view the execution details</div>;
   };
 
-  // 更新任务结果列表的高度，使其撑满容器
+  // Update the height of the task results list so that it fills the container
   useEffect(() => {
     if (isSqlResFullScreen) {
       updateFullScreenResScroll();
@@ -385,7 +385,7 @@ const SqlDetail: React.FC<IProps> = ({
     <>
       <div className={styles.sqlOprBar}>
         <div className={styles.sqlOprBarLeftBox}>
-          <Tooltip title="数据类型">
+          <Tooltip title="DATA TYPE">
             <Dropdown
               menu={{
                 items: jdbcSourceItems,
@@ -409,16 +409,16 @@ const SqlDetail: React.FC<IProps> = ({
               </Button>
             </Dropdown>
           </Tooltip>
-          <Tooltip title="全屏">
+          <Tooltip title="Full screen">
             <FullscreenOutlined className={styles.sqlOprIcon} onClick={handleFullScreenSqlIde} />
           </Tooltip>
-          <Tooltip title="格式化SQL语句">
+          <Tooltip title="Format SQL statements">
             <EditOutlined className={styles.sqlOprIcon} onClick={formatSQL} />
           </Tooltip>
-          <Tooltip title="改变主题">
+          <Tooltip title="Change the theme">
             <SwapOutlined className={styles.sqlOprIcon} onClick={handleThemeChange} />
           </Tooltip>
-          <Tooltip title="执行脚本">
+          <Tooltip title="Execute the script">
             <Button
               style={{
                 lineHeight: '24px',
@@ -436,7 +436,7 @@ const SqlDetail: React.FC<IProps> = ({
               }
               onClick={excuteScript}
             >
-              {isPartial ? '部分运行' : '运行'}
+              {isPartial ? 'Partially run' : 'Run'}
             </Button>
           </Tooltip>
         </div>

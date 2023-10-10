@@ -44,12 +44,12 @@ const RecommendOptions: React.FC<Props> = ({ entityId, modelId, modelName, onSel
           <div className={`${prefixCls}-item-name-column`}>
             <Avatar
               shape="square"
-              icon={<IconFont type={modelName === '艺人库' ? 'icon-geshou' : 'icon-zhuanji'} />}
+              icon={<IconFont type={modelName === 'Artist Library' ? 'icon-geshou' : 'icon-zhuanji'} />}
               src={record.url}
             />
             <div className={`${prefixCls}-entity-name`}>
               {name}
-              {record.ver && record.ver !== '完整版' && record.ver !== '-' && `(${record.ver})`}
+              {record.ver && record.ver !== 'Full version' && record.ver !== '-' && `(${record.ver})`}
               {record.singerName && ` - ${record.singerName}`}
             </div>
           </div>
@@ -69,7 +69,7 @@ const RecommendOptions: React.FC<Props> = ({ entityId, modelId, modelName, onSel
             ? {
                 dataIndex: 'onlineSongCnt',
                 key: 'onlineSongCnt',
-                title: '在架歌曲数',
+                title: 'Number of songs on the shelf',
                 align: 'center',
                 render: (onlineSongCnt: string) => {
                   return onlineSongCnt ? getFormattedValue(+onlineSongCnt) : '-';
@@ -78,7 +78,7 @@ const RecommendOptions: React.FC<Props> = ({ entityId, modelId, modelName, onSel
             : {
                 dataIndex: 'publishTime',
                 key: 'publishTime',
-                title: '发布时间',
+                title: 'Release time',
                 align: 'center',
                 render: (publishTime: string) => {
                   return publishTime ? moment(publishTime).format('YYYY-MM-DD') : '-';
@@ -88,7 +88,7 @@ const RecommendOptions: React.FC<Props> = ({ entityId, modelId, modelName, onSel
             dataIndex: playCntColumnIdex,
             key: playCntColumnIdex,
             align: 'center',
-            title: modelName.includes('歌曲') ? '近7天日均运营播放量' : '昨日结算播放量',
+            title: modelName.includes('Song') ? 'Average daily operating views in the past 7 days' : 'Yesterday\'s Settlement Views',
             render: (value: string) => {
               return value ? getFormattedValue(+value) : '-';
             },

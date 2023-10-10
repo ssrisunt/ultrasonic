@@ -21,10 +21,10 @@ export enum SemanticTypeEnum {
 }
 
 export const SEMANTIC_TYPE_MAP = {
-  [SemanticTypeEnum.MODEL]: '数据来源',
-  [SemanticTypeEnum.DIMENSION]: '维度',
-  [SemanticTypeEnum.METRIC]: '指标',
-  [SemanticTypeEnum.VALUE]: '维度值',
+  [SemanticTypeEnum.MODEL]: 'Source of data',
+  [SemanticTypeEnum.DIMENSION]: 'Dimension',
+  [SemanticTypeEnum.METRIC]: 'Limited Terms',
+  [SemanticTypeEnum.VALUE]: 'Dimension Value',
 };
 
 export const AGENT_ICONS = [
@@ -45,14 +45,14 @@ export const HOLDER_TAG = '@_supersonic_@';
 
 export const CHAT_TITLE = '';
 
-export const DEFAULT_CONVERSATION_NAME = '新问答对话';
+export const DEFAULT_CONVERSATION_NAME = 'New Q&A';
 
-export const PAGE_TITLE = '问答对话';
+export const PAGE_TITLE = 'Q&A Dialogue';
 
-export const WEB_TITLE = '问答对话';
+export const WEB_TITLE = 'Q&A Dialogue';
 
-export const MOBILE_TITLE = '问答对话';
+export const MOBILE_TITLE = 'Q&A Dialogue';
 
-export const PLACE_HOLDER = '请输入您的问题，或输入“/”切换助理';
+export const PLACE_HOLDER = 'Please enter your question, or enter\'/\'Switch Assistant';
 
-export const SIMPLE_PLACE_HOLDER = '请输入您的问题';
+export const SIMPLE_PLACE_HOLDER = 'Please enter your question';

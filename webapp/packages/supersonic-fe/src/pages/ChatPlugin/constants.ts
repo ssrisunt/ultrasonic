@@ -1,13 +1,13 @@
 export const PLUGIN_TYPE_MAP = {
-  WEB_PAGE: 'Web页面',
-  WEB_SERVICE: 'Web服务',
+  WEB_PAGE: 'Web pages',
+  WEB_SERVICE: 'Web services',
   // DSL: 'LLM语义解析',
   // CONTENT_INTERPRET: '内容解读',
 }
 
 export const PARSE_MODE_MAP = {
-  EMBEDDING_RECALL: '向量召回',
-  FUNCTION_CALL: '函数调用'
+  EMBEDDING_RECALL: 'Embedding recall',
+  FUNCTION_CALL: 'Function Call'
 }
 
 export const PLUGIN_COLOR_MAP = {

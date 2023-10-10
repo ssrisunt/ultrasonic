@@ -21,7 +21,7 @@ const getRunningEnv = async () => {
     const config = await response.json();
     return config;
   } catch (error) {
-    console.warn('无法获取配置文件: 运行时环境将以semantic启动');
+    console.warn('Unable to get configuration file: runtime environment will start with semantic');
   }
 };
 
@@ -88,14 +88,14 @@ export async function patchRoutes({ routes }) {
     const target = routes[0].routes;
     if (env) {
       const envRoutes = traverseRoutes(target, env);
-      // 清空原本route;
+      // Empty the original route;
       target.splice(0, 99);
-      // 写入根据环境转换过的的route
+      // Write the route that is converted according to the environment
       target.push(...envRoutes);
     }
   } else {
     const target = routes[0].routes;
-    // start-standalone模式不存在env，在此模式下不显示chatSetting
+    // There is no env in start-standalone mode, and chat settings are not displayed in this mode
     const envRoutes = target.filter((item: any) => {
       return !['chatSetting'].includes(item.name);
     });

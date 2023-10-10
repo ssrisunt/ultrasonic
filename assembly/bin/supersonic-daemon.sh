@@ -69,17 +69,20 @@ function runJavaService {
   done
 
   export CLASSPATH
-  export LANG="zh_CN.UTF-8"
+  export LANG="en_US.UTF-8"
 
   cd $javaRunDir
   if [[ "$JAVA_HOME" == "" ]]; then
     JAVA_HOME=$(ls /usr/jdk64/jdk* -d 2>/dev/null | xargs | awk '{print "'$local_app_name'"}')
   fi
   export PATH=$JAVA_HOME/bin:$PATH
-  command="-Dfile.encoding="UTF-8"  -Duser.language="Zh" -Duser.region="CN" -Duser.timezone="GMT+08" -Dapp_name=${local_app_name} -Xms1024m -Xmx2048m "$main_class
+  command="-Dfile.encoding="UTF-8"  -Duser.language="en" -Duser.region="US" -Duser.timezone="GMT-06" -Dapp_name=${local_app_name} -Xms1024m -Xmx2048m "$main_class
+
+  echo "java -Dspring.profiles.active=dev ${command}"
 
   mkdir -p $javaRunDir/logs
   if [[ "$is_test" == "true" ]]; then
+
     java -Dspring.profiles.active="dev" $command >/dev/null 2>$javaRunDir/logs/error.log &
   else
     java  $command $javaRunDir >/dev/null 2>$javaRunDir/logs/error.log &
@@ -89,6 +92,7 @@ function runJavaService {
 function runPythonService {
   pythonRunDir=${runtimeDir}/supersonic-${model_name}/llmparser
   cd $pythonRunDir
+  echo $pythonRunDir/llmparser.log
   nohup ${python_path} supersonic_llmparser.py  > $pythonRunDir/llmparser.log  2>&1   &
   # Add health check
   for i in {1..10}
@@ -130,8 +134,10 @@ function start()
   pid=$(ps aux |grep ${local_app_name} | grep -v grep | awk '{print $2}')
   if [[ "$pid" == "" ]]; then
     if [[ ${local_app_name} == $LLMPARSER_APP_NAME ]]; then
+      echo "1 ${local_app_name}"
       runPythonService ${local_app_name}
     else
+      echo "2 ${local_app_name}"
       runJavaService ${local_app_name}
     fi
   else

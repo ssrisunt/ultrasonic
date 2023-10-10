@@ -19,7 +19,7 @@ const DatabaseSection: React.FC<Props> = ({ domainManger, dispatch }) => {
   return (
     <div style={{ width: 800, margin: '0 auto' }}>
       <Space direction="vertical" style={{ width: '100%' }} size={20}>
-        <ProCard title="数据库设置" bordered>
+        <ProCard title="Database settings" bordered>
           <DatabaseCreateForm
             ref={entityCreateRef}
             dataBaseConfig={dataBaseConfig}

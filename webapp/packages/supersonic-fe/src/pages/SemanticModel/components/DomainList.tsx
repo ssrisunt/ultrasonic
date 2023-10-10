@@ -84,7 +84,7 @@ const DomainListTree: FC<DomainListProps> = ({
     const params = { ...values };
     const res = await updateDomain(params);
     if (res.code === 200) {
-      message.success('编辑分类成功');
+      message.success('The classification is edited successfully');
       setProjectInfoModalVisible(false);
       onTreeDataUpdate?.();
     } else {
@@ -106,7 +106,7 @@ const DomainListTree: FC<DomainListProps> = ({
   const confirmDelete = async (projectId: string) => {
     const res = await deleteDomain(projectId);
     if (res.code === 200) {
-      message.success('编辑项目成功');
+      message.success('The edit project succeeded');
       setProjectInfoModalVisible(false);
       onTreeDataUpdate?.();
     } else {
@@ -156,12 +156,12 @@ const DomainListTree: FC<DomainListProps> = ({
             />
             <Popconfirm
               key="popconfirm"
-              title={'确认删除吗?'}
+              title={'Confirm deletion?'}
               onConfirm={() => {
                 confirmDelete(id);
               }}
-              okText="是"
-              cancelText="否"
+              okText="Ok"
+              cancelText="Cancel"
             >
               <DeleteOutlined className={styles.icon} />
             </Popconfirm>
@@ -184,13 +184,13 @@ const DomainListTree: FC<DomainListProps> = ({
           <Search
             allowClear
             className={styles.search}
-            placeholder="请输入主题域名称进行查询"
+            placeholder="Please enter the subject domain name to query"
             onSearch={onSearch}
           />
         </Col>
         {createDomainBtnVisible && (
           <Col flex="0 1 50px">
-            <Tooltip title="新增顶级域">
+            <Tooltip title="Add a new top-level domain">
               <PlusCircleOutlined
                 onClick={() => {
                   setProjectInfoParams({ type: 'top', modelType: 'add' });

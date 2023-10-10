@@ -9,10 +9,10 @@ export const CHAT_BLUE = '#1b4aef';
 export const CHART_SECONDARY_COLOR = 'rgba(153, 153, 153, 0.3)';
 
 export enum NumericUnit {
-  None = '无',
-  TenThousand = '万',
+  None = 'None',
+  TenThousand = '10k',
   EnTenThousand = 'w',
-  OneHundredMillion = '亿',
+  OneHundredMillion = '100m',
   Thousand = 'k',
   Million = 'M',
   Giga = 'G',

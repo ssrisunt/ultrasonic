@@ -18,8 +18,8 @@ const AgentTip: React.FC<Props> = ({ currentAgent, onSendMsg }) => {
       {!isMobile && <LeftAvatar />}
       <Message position="left" bubbleClassName={styles.agentTipMsg}>
         <div className={styles.title}>
-          您好，智能助理【{currentAgent.name}
-          】将与您对话，试着问：
+          Hello, Smart Assistant【{currentAgent.name}
+          】Will talk to you, try to ask：
         </div>
         <div className={styles.content}>
           <div className={styles.examples}>

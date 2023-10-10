@@ -95,7 +95,7 @@ const ClassDataSourceTypeModal: React.FC<Props> = ({
                 />
               }
             >
-              <Meta title="快速创建" description="自动进行数据源可视化创建" />
+              <Meta title="Quick Create" description="Automating data source visualization creation" />
             </Card>
           </Col>
           <Col span={12}>
@@ -114,7 +114,7 @@ const ClassDataSourceTypeModal: React.FC<Props> = ({
                 />
               }
             >
-              <Meta title="SQL脚本" description="自定义SQL脚本创建数据源" />
+              <Meta title="SQL Screenplay" description="Custom SQL Script to Create a Data Source" />
             </Card>
           </Col>
         </Row>
@@ -143,7 +143,7 @@ const ClassDataSourceTypeModal: React.FC<Props> = ({
         <Drawer
           width={'100%'}
           destroyOnClose
-          title="数据源编辑"
+          title="Data source editing"
           open={true}
           onClose={() => {
             setCreateModalVisible(false);

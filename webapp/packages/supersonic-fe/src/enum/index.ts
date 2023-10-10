@@ -6,7 +6,7 @@ const keyTypeTran = {
   number: Number,
 };
 /**
- * obj转成value，label的数组
+ * obj into an array of values and labels
  * @param _obj
  */
 export const objToArray = (_obj: ObjToArrayParams, keyType: string = 'string') => {

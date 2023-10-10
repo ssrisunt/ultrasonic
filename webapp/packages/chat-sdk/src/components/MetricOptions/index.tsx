@@ -32,7 +32,7 @@ const MetricOptions: React.FC<Props> = ({
   return (
     <div className={prefixCls}>
       <div className={sectionClass}>
-        <div className={`${prefixCls}-title`}>推荐相关指标：</div>
+        <div className={`${prefixCls}-title`}>Recommend relevant metrics：</div>
         <div className={`${prefixCls}-content`}>
           {defaultMetrics.map((metric, index) => {
             const itemNameClass = classNames(`${prefixCls}-content-item-name`, {

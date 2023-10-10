@@ -60,17 +60,17 @@ const EntityCreateForm: ForwardRefRenderFunction<any, Props> = ({ initialValues 
   return (
     <>
       <Form {...formLayout} form={form} layout="vertical" className={styles.form}>
-        <FormItem name="blackList" label="黑名单">
-          <Input placeholder="多个维度值用英文逗号隔开" />
+        <FormItem name="blackList" label="Blacklist">
+          <Input placeholder="Multiple dimension values are separated by commas" />
         </FormItem>
 
-        <FormItem name="whiteList" label="白名单">
-          <Input placeholder="多个维度值用英文逗号隔开" />
+        <FormItem name="whiteList" label="Whitelist">
+          <Input placeholder="Multiple dimension values are separated by commas" />
         </FormItem>
 
         <FormItem name="ruleList">
           {/* <SqlEditor height={'150px'} /> */}
-          <CommonEditList title="过滤规则" />
+          <CommonEditList title="Rules List" />
         </FormItem>
       </Form>
     </>

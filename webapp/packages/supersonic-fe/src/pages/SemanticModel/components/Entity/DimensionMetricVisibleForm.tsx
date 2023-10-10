@@ -32,7 +32,7 @@ const DimensionMetricVisibleForm: ForwardRefRenderFunction<any, Props> = ({
       <Form {...formLayout}>
         <FormItem
           label={
-            <FormItemTitle title={'可见维度/指标'} subTitle={'设置可见后，将允许在问答中被使用'} />
+            <FormItemTitle title={'Visible dimensions/metrics'} subTitle={'After the settings are visible，will be allowed to be used in Q&A'} />
           }
         >
           <Button

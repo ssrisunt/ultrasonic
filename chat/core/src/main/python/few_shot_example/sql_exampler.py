@@ -1,360 +1,303 @@
 examplars= [
-    {   "current_date":"2020-12-01",
-        "table_name":"内容库产品",
-        "fields_list":"""["部门", "模块", "用户名", "访问次数", "访问人数", "访问时长", "数据日期"]""",
-        "question":"比较jackjchen和robinlee在内容库的访问次数",
-        "prior_schema_links":"""['jackjchen'->用户名, 'robinlee'->用户名]""",
-        "analysis": """让我们一步一步地思考。在问题“比较jackjchen和robinlee在内容库的访问次数“中，我们被问：
-“比较jackjchen和robinlee”，所以我们需要column=[用户名],cell values = ['jackjchen', 'robinlee'],所以有[用户名:('jackjchen', 'robinlee')]
-”内容库的访问次数“，所以我们需要column=[访问次数]""",
-        "schema_links":"""["用户名":("'jackjchen'", "'robinlee'"), "访问次数"]""",
-        "sql":"""select 用户名, 访问次数 from 内容库产品 where 用户名 in ('jackjchen', 'robinlee')"""
-        },
-    {   "current_date":"2022-11-06",
-        "table_name":"内容库产品",
-        "fields_list":"""["部门", "模块", "用户名", "访问次数", "访问人数", "访问时长", "数据日期"]""",
-        "question":"内容库近12个月访问人数 按部门",
-        "prior_schema_links":"""[]""",
-        "analysis": """让我们一步一步地思考。在问题“内容库近12个月访问人数 按部门“中，我们被问：
-”内容库近12个月“，所以我们需要column=[数据日期],cell values = [12],所以有[数据日期:(12)]
-“访问人数”，所以我们需要column=[访问人数]
-”按部门“，所以我们需要column=[部门]""",
-        "schema_links":"""["数据日期":(12), "访问人数", "部门"]""",
-        "sql":"""select 部门, 数据日期, 访问人数 from 内容库产品 where datediff('month', 数据日期, '2022-11-06') <= 12 """
-        },
-    {   "current_date":"2023-04-21",
-        "table_name":"内容库产品",
-        "fields_list":"""["部门", "模块", "用户名", "访问次数", "访问人数", "访问时长", "数据日期"]""",
-        "question":"内容库美术部、技术研发部的访问时长",
-        "prior_schema_links":"""['美术部'->部门, '技术研发部'->部门]""",
-        "analysis": """让我们一步一步地思考。在问题“内容库美术部、技术研发部的访问时长“中，我们被问：
-“访问时长”，所以我们需要column=[访问时长]
-”内容库美术部、技术研发部“，所以我们需要column=[部门], cell values = ['美术部', '技术研发部'],所以有[部门:('美术部', '技术研发部')]""",
-        "schema_links":"""["访问时长", "部门":("'美术部'", "'技术研发部'")]""",
-        "sql":"""select 部门, 访问时长 from 内容库产品 where 部门 in ('美术部', '技术研发部')"""
-        },
+    {
+        "current_date": "2020-12-01",
+        "table_name": "Content Library Product",
+        "fields_list": """["Department", "Module", "Username", "Access Count", "Number_of_Visitors", "Access Duration", "Data Date"]""",
+        "question": "Compare the access count of jackjchen and robinlee in the content library",
+        "prior_schema_links": """['jackjchen'->Username, 'robinlee'->Username]""",
+        "analysis": """Let's think step by step. In the question "Compare the access count of jackjchen and robinlee in the content library", we are asked:
+    "Compare jackjchen and robinlee", so we need column=[Username], cell values = ['jackjchen', 'robinlee'], so there is [Username:('jackjchen', 'robinlee')]
+    "Access count in the content library", so we need column=[Access Count]""",
+        "schema_links": """["Username":("'jackjchen'", "'robinlee'"), "Access Count"]""",
+        "sql": """select Username, Access Count from Content_Library_Product where Username in ('jackjchen', 'robinlee')"""
+    },
+    {
+        "current_date": "2022-11-06",
+        "table_name": "Content Library Product",
+        "fields_list": """["Department", "Module", "Username", "Access Count", "Number_of_Visitors", "Access Duration", "Data Date"]""",
+        "question": "Number_of_Visitors to the content library in the past 12 months by department",
+        "prior_schema_links": """[]""",
+        "analysis": """Let's think step by step. In the question "Number_of_Visitors to the content library in the past 12 months by department", we are asked:
+    "Content library in the past 12 months", so we need column=[Data Date], cell values = [12], so there is [Data Date:(12)]
+    "Number_of_Visitors", so we need column=[Number_of_Visitors]
+    "By department", so we need column=[Department]""",
+        "schema_links": """["Data Date":(12), "Number_of_Visitors", "Department"]""",
+        "sql": """select Department, Data Date, Number_of_Visitors from Content_Library_Product where datediff('month', Data Date, '2022-11-06') <= 12 """
+    },
+    { "current_date":"2023-04-21",
+      "table_name":"Content Library Products",
+      "fields_list":"""["department", "module", "username", "number of visits", "Number_of_Visitors", "duration of visits", "data date"]""",
+      "question":"The access duration of the content library art department and technology research and development department",
+      "prior_schema_links":"""['Art Department'->
+department, 'Technology R&D Department'->
+department]""",
+      "analysis": """Let's think about it step by step. In the question "Duration of visits to the Content Library Art Department and Technology R&D Department", we were asked:
+"Access duration", so we need column=[Access duration]
+"Content library art department, technology research and development department", so we need column=[
+department], cell values = ['Art Department', 'Technology R&D Department'], so there are [
+department:('Art Department', 'Technology R&D Department')]""",
+      "schema_links":"""["Access duration", "department":("'Art Department'", "'Technology R&D Department'")]""",
+      "sql":"""select department, visit_duration from Content_Library_Product where department in ('Art Department', 'Technology R&D Department')"""
+      },
     {   "current_date":"2023-08-21",
-        "table_name":"严选",
-        "fields_list":"""["严选版权归属系", "付费模式", "结算播放份额", "付费用户结算播放份额", "数据日期"]""",
-        "question":"近3天海田飞系MPPM结算播放份额",
-        "prior_schema_links":"""['海田飞系'->严选版权归属系]""",
-        "analysis": """让我们一步一步地思考。在问题“近3天海田飞系MPPM结算播放份额“中，我们被问：
-“MPPM结算播放份额”，所以我们需要column=[结算播放份额], 
-”海田飞系“，所以我们需要column=[严选版权归属系], cell values = ['海田飞系'],所以有[严选版权归属系:('海田飞系')],
-”近3天“，所以我们需要column=[数据日期], cell values = [3],所以有[数据日期:(3)]""",
-        "schema_links":"""["结算播放份额", "严选版权归属系":("'海田飞系'"), "数据日期":(3)]""",
-        "sql":"""select 严选版权归属系, 结算播放份额 from 严选 where 严选版权归属系 = '海田飞系' and datediff('day', 数据日期, '2023-08-21') <= 3 """
+        "table_name":"curated_products",
+        "fields_list":"""["strict_selection_copyright", "paid_model", "settlement_playback_share", "settlement_playback_share_paid_user", "data_date"]""",
+        "question":"In the past 3 days, the Haitian flying series MPPM settled the playback share",
+        "prior_schema_links":"""['Haitian Fei series'->strict_selection_copyright]""",
+        "analysis": "Let's think step by step. In the question 'last 3 days Haitian Fei series MPPM settlement playback share', we are asked about: 'MPPM settlement playback share', so we need column=[settlement_playback_share], 'Haitian Fei series', so we need column=[strict_selection_copyright], cell values = ['Haitian Fei series'], so we have [strict_selection_copyright:('Haitian Fei series')], 'last 3 days', so we need column=[data_date], cell values = [3], so we have [data_date:(3)]",
+        "schema_links": ["settlement_playback_share","strict_selection_copyright:('Haitian Fei series')","data_date:(3)"],
+        "sql": "select strict_selection_copyright, settlement_playback_share from curated_products where strict_selection_copyright = 'Haitian Fei series' and datediff('day', data_date, '2023-08-21') <= 3"
         },
     {   "current_date":"2023-05-22",
-        "table_name":"歌曲库",
-        "fields_list":"""["是否潮流人歌曲", "C音歌曲ID", "C音歌曲MID", "歌曲名", "歌曲版本", "语种", "歌曲类型", "翻唱类型", "MPPM歌曲ID", "是否严选窄口径歌曲", "是否严选宽口径歌曲", "结算播放量", "运营播放量", "付费用户结算播放量", "历史累计结算播放量", "运营搜播量", "结算搜播量", "运营完播量", "运营推播量", "近7日复播率", "日均搜播量", "数据日期"]""",
-        "question":"对比近7天翻唱版和纯音乐的歌曲播放量",
-        "prior_schema_links":"""['纯音乐'->语种, '翻唱版'->歌曲版本]""",
-        "analysis": """让我们一步一步地思考。在问题“对比近3天翻唱版和纯音乐的歌曲播放量“中，我们被问：
-“歌曲播放量”，所以我们需要column=[结算播放量]
-”翻唱版“，所以我们需要column=[歌曲版本], cell values = ['翻唱版'],所以有[歌曲版本:('翻唱版')]
-”和纯音乐的歌曲“，所以我们需要column=[语种], cell values = ['纯音乐'],所以有[语种:('纯音乐')]
-”近7天“，所以我们需要column=[数据日期], cell values = [7],所以有[数据日期:(7)]""",
-        "schema_links":"""["结算播放量", "歌曲版本":("'翻唱版'"), "语种":("'纯音乐'"), "数据日期":(7)]""",
-        "sql":"""select 歌曲版本, 语种, 结算播放量 from 歌曲库 where 歌曲版本 = '翻唱版' and 语种 = '纯音乐' and datediff('day', 数据日期, '2023-05-22') <= 7 """
+        "table_name":"song_library",
+        "fields_list":"""["is_trendy_song", "c_note_song_id", "c_note_song_mid", "song_title", "song_version", "language", "song_type", "cover_type", "mppm_song_id", "is_strict_selection_narrow_scope_song", "is_strict_selection_wide_scope_song", "settlement_playback_count", "operation_playback_count", "paid_user_name_settlement_playback_count", "historical_cumulative_settlement_playback_count", "operation_search_playback_count", "settlement_search_playback_count", "operation_complete_playback_count", "operation_push_playback_count", "last_7_days_replay_rate", "daily_average_search_playback_count", "data_date"]""",
+        "question":"Compare the playback count of cover versions and instrumental songs in the last 7 days",
+        "prior_schema_links":"""['instrumental'->language, 'cover_version'->song_version]""",
+        "analysis": """Let's think step by step. In the question 'Compare the playback count of cover versions and instrumental songs in the last 7 days', we are asked about: 'song playback count', so we need column=[settlement_playback_count], 'cover version', so we need column=[song_version], cell values = ['cover_version'], so we have [song_version:('cover_version')], 'and instrumental songs', so we need column=[language], cell values = ['instrumental'], so we have [language:('instrumental')], 'last 7 days', so we need column=[data_date], cell values = [7], so we have [data_date:(7)],
+        "schema_links":"""["settlement_playback_count", "song_version:('cover_version')", "language:('instrumental')", "data_date:(7)"]""",
+        "sql":"""select song_version, language, settlement_playback_count from song_library where song_version = 'cover_version' and language = 'instrumental' and datediff('day', data_date, '2023-05-22') <= 7"""
         },
     {   "current_date":"2023-05-31",
-        "table_name":"艺人库",
-        "fields_list":"""["上下架状态", "歌手名", "歌手等级", "歌手类型", "歌手来源", "MPPM潮流人等级", "活跃区域", "年龄", "歌手才能", "歌手风格", "粉丝数", "潮音粉丝数", "超声波粉丝数", "推博粉丝数", "超声波歌曲数", "在架歌曲数", "超声波分享数", "独占歌曲数", "超声波在架歌曲评论数", "有播放量歌曲数", "数据日期"]""",
-        "question":"对比一下陈拙悬、孟梅琦、赖媚韵的粉丝数",
-        "prior_schema_links":"""['1527896'->MPPM歌手ID, '1565463'->MPPM歌手ID, '2141459'->MPPM歌手ID]""",
-        "analysis": """让我们一步一步地思考。在问题“对比一下陈拙悬、孟梅琦、赖媚韵的粉丝数“中，我们被问：
-“粉丝数”，所以我们需要column=[粉丝数]
-”陈拙悬、孟梅琦、赖媚韵“，所以我们需要column=[歌手名], cell values = ['陈拙悬', '孟梅琦', '赖媚韵'],所以有[歌手名:('陈拙悬', '孟梅琦', '赖媚韵')]""",
-        "schema_links":"""["粉丝数", "歌手名":("'陈拙悬'", "'孟梅琦'", "'赖媚韵'")]""",
-        "sql":"""select 歌手名, 粉丝数 from 艺人库 where 歌手名 in ('陈拙悬', '孟梅琦', '赖媚韵')"""
-        },
-    {   "current_date":"2023-07-31",
-        "table_name":"歌曲库",
-        "fields_list":"""["歌曲名", "歌曲版本", "歌曲类型", "MPPM歌曲ID", "是否严选窄口径歌曲", "是否严选宽口径歌曲", "是否潮流人歌曲", "超声波歌曲ID", "C音歌曲ID", "C音歌曲MID", "结算播放量", "运营播放量", "分享量", "收藏量", "运营搜播量", "结算搜播量", "拉新用户数", "拉活用户数", "分享率", "结算播放份额", "数据日期"]""",
-        "question":"播放量大于1万的歌曲有多少",
-        "prior_schema_links":"""[]""",
-        "analysis": """让我们一步一步地思考。在问题“播放量大于1万的歌曲有多少“中，我们被问：
-“歌曲有多少”，所以我们需要column=[歌曲名]
-”播放量大于1万的“，所以我们需要column=[结算播放量], cell values = [10000],所以有[结算播放量:(10000)]""",
-        "schema_links":"""["歌曲名", "结算播放量":(10000)]""",
-        "sql":"""select 歌曲名 from 歌曲库 where 结算播放量 > 10000"""
-        },
-    {   "current_date":"2023-07-31",
-        "table_name":"内容库产品",
-        "fields_list":"""["用户名", "部门", "模块", "访问时长", "访问次数", "访问人数", "数据日期"]""",
-        "question":"内容库访问时长小于1小时，且来自美术部的用户是哪些",
-        "prior_schema_links":"""['美术部'->部门]""",
-        "analysis": """让我们一步一步地思考。在问题“内容库访问时长小于1小时，且来自美术部的用户是哪些“中，我们被问：
-“用户是哪些”，所以我们需要column=[用户名]
-”美术部的“，所以我们需要column=[部门], cell values = ['美术部'],所以有[部门:('美术部')]
-”访问时长小于1小时“，所以我们需要column=[访问时长], cell values = [1],所以有[访问时长:(1)]""",
-        "schema_links":"""["用户名", "部门":("'美术部'"), "访问时长":(1)]""",
-        "sql":"""select 用户名 from 内容库产品 where 部门 = '美术部' and 访问时长 < 1"""
-        },
-    {   "current_date":"2023-08-31",
-        "table_name":"内容库产品",
-        "fields_list":"""["用户名", "部门", "模块", "访问时长", "访问次数", "访问人数", "数据日期"]""",
-        "question":"内容库pv最高的用户有哪些",
-        "prior_schema_links":"""[]""",
-        "analysis": """让我们一步一步地思考。在问题“内容库pv最高的用户有哪些“中，我们被问：
-“用户有哪些”，所以我们需要column=[用户名]
-”pv最高的“，所以我们需要column=[访问次数], cell values = [1],所以有[访问次数:(1)]""",
-        "schema_links":"""["用户名", "访问次数":(1)]""",
-        "sql":"""select 用户名 from 内容库产品 order by 访问次数 desc limit 1"""
-        },
-    {   "current_date":"2023-08-31",
-        "table_name":"艺人库",
-        "fields_list":"""["播放量层级", "播放量单调性", "播放量方差", "播放量突增类型", "播放量集中度", "歌手名", "歌手等级", "歌手类型", "歌手来源", "MPPM潮流人等级", "结算播放量", "运营播放量", "历史累计结算播放量", "有播放量歌曲数", "历史累计运营播放量", "付费用户结算播放量", "结算播放量占比", "运营播放份额", "免费用户结算播放占比", "完播量", "数据日期"]""",
-        "question":"近90天袁亚伟播放量平均值是多少",
-        "prior_schema_links":"""['152789226'->MPPM歌手ID]""",
-        "analysis": """让我们一步一步地思考。在问题“近90天袁亚伟播放量平均值是多少“中，我们被问：
-“播放量平均值是多少”，所以我们需要column=[结算播放量]
-”袁亚伟“，所以我们需要column=[歌手名], cell values = ['袁亚伟'],所以有[歌手名:('袁亚伟')]
-”近90天“，所以我们需要column=[数据日期], cell values = [90],所以有[数据日期:(90)]""",
-        "schema_links":"""["结算播放量", "歌手名":("'袁亚伟'"), "数据日期":(90)]""",
-        "sql":"""select avg(结算播放量) from 艺人库 where 歌手名 = '袁亚伟' and datediff('day', 数据日期, '2023-08-31') <= 90 """
-        },
-    {   "current_date":"2023-08-31",
-        "table_name":"艺人库",
-        "fields_list":"""["播放量层级", "播放量单调性", "播放量方差", "播放量突增类型", "播放量集中度", "歌手名", "歌手等级", "歌手类型", "歌手来源", "MPPM潮流人等级", "结算播放量", "运营播放量", "历史累计结算播放量", "有播放量歌曲数", "历史累计运营播放量", "付费用户结算播放量", "结算播放量占比", "运营播放份额", "免费用户结算播放占比", "完播量", "数据日期"]""",
-        "question":"周倩倩近7天结算播放量总和是多少",
-        "prior_schema_links":"""['199509'->MPPM歌手ID]""",
-        "analysis": """让我们一步一步地思考。在问题“周倩倩近7天结算播放量总和是多少“中，我们被问：
-“结算播放量总和是多少”，所以我们需要column=[结算播放量]
-”周倩倩“，所以我们需要column=[歌手名], cell values = ['周倩倩'],所以有[歌手名:('周倩倩')]
-”近7天“，所以我们需要column=[数据日期], cell values = [7],所以有[数据日期:(7)]""",
-        "schema_links":"""["结算播放量", "歌手名":("'周倩倩'"), "数据日期":(7)]""",
-        "sql":"""select sum(结算播放量) from 艺人库 where 歌手名 = '周倩倩' and datediff('day', 数据日期, '2023-08-31') <= 7 """
-        },
-    {   "current_date":"2023-09-14",
-        "table_name":"内容库产品",
-        "fields_list":"""["部门", "模块", "用户名", "访问次数", "访问人数", "访问时长", "数据日期"]""",
-        "question":"内容库访问次数大于1k的部门是哪些",
-        "prior_schema_links":"""[]""",
-        "analysis": """让我们一步一步地思考。在问题“内容库访问次数大于1k的部门是哪些“中，我们被问：
-“部门是哪些”，所以我们需要column=[部门]
-”访问次数大于1k的“，所以我们需要column=[访问次数], cell values = [1000],所以有[访问次数:(1000)]""",
-        "schema_links":"""["部门", "访问次数":(1000)]""",
-        "sql":"""select 部门 from 内容库产品 where 访问次数 > 1000"""
-        },
-    {   "current_date":"2023-09-18",
-        "table_name":"歌曲库",
-        "fields_list":"""["歌曲名", "MPPM歌手ID", "歌曲版本", "歌曲类型", "MPPM歌曲ID", "是否严选窄口径歌曲", "是否严选宽口径歌曲", "是否潮流人歌曲", "超声波歌曲ID", "C音歌曲ID", "C音歌曲MID", "结算播放量", "运营播放量", "分享量", "收藏量", "运营搜播量", "结算搜播量", "拉新用户数", "拉活用户数", "分享率", "结算播放份额", "数据日期"]""",
-        "question":"陈亿训唱的所有的播放量大于20k的孤勇者有哪些",
-        "prior_schema_links":"""['199509'->MPPM歌手ID, '1527123'->MPPM歌曲ID]""",
-        "analysis": """让我们一步一步地思考。在问题“陈亿训唱的所有的播放量大于20k的孤勇者有哪些“中，我们被问：
-“孤勇者有哪些”，所以我们需要column=[歌曲名], cell values = ['孤勇者'],所以有[歌曲名:('孤勇者')]
-”播放量大于20k的“，所以我们需要column=[结算播放量], cell values = [20000],所以有[结算播放量:(20000)]
-”陈亿训唱的“，所以我们需要column=[歌手名], cell values = ['陈亿训'],所以有[歌手名:('陈亿训')]""",
-        "schema_links":"""["歌曲名":("'孤勇者'"), "结算播放量":(20000), "歌手名":("'陈亿训'")]""",
-        "sql":"""select 歌曲名 from 歌曲库 where 结算播放量 > 20000 and 歌手名 = '陈亿训' and 歌曲名 = '孤勇者'"""
-        },
-    {   "current_date":"2023-09-18",
-        "table_name":"歌曲库",
-        "fields_list":"""["歌曲名", "歌曲版本", "歌手名", "歌曲类型", "发布时间", "MPPM歌曲ID", "是否严选窄口径歌曲", "是否严选宽口径歌曲", "是否潮流人歌曲", "超声波歌曲ID", "C音歌曲ID", "C音歌曲MID", "结算播放量", "运营播放量", "分享量", "收藏量", "运营搜播量", "结算搜播量", "拉新用户数", "拉活用户数", "分享率", "结算播放份额", "数据日期"]""",
-        "question":"周洁轮去年发布的歌曲有哪些",
-        "prior_schema_links":"""['23109'->MPPM歌手ID]""",
-        "analysis": """让我们一步一步地思考。在问题“周洁轮去年发布的歌曲有哪些“中，我们被问：
-“歌曲有哪些”，所以我们需要column=[歌曲名]
-”去年发布的“，所以我们需要column=[发布时间], cell values = [1],所以有[发布时间:(1)]
-”周洁轮“，所以我们需要column=[歌手名], cell values = ['周洁轮'],所以有[歌手名:('周洁轮')]""",
-        "schema_links":"""["歌曲名", "发布时间":(1), "歌手名":("'周洁轮'")]""",
-        "sql":"""select 歌曲名 from 歌曲库 where datediff('year', 发布时间, '2023-09-18') <= 1 and 歌手名 = '周洁轮'"""
-        },
-    {   "current_date":"2023-09-11",
-        "table_name":"艺人库",
-        "fields_list":"""["播放量层级", "播放量单调性", "播放量方差", "播放量突增类型", "播放量集中度", "歌手名", "歌手等级", "歌手类型", "歌手来源", "签约日期", "MPPM潮流人等级", "结算播放量", "运营播放量", "历史累计结算播放量", "有播放量歌曲数", "历史累计运营播放量", "付费用户结算播放量", "结算播放量占比", "运营播放份额", "免费用户结算播放占比", "完播量", "数据日期"]""",
-        "question":"我想要近半年签约的播放量前十的歌手有哪些",
-        "prior_schema_links":"""[]""",
-        "analysis": """让我们一步一步地思考。在问题“我想要近半年签约的播放量前十的歌手“中，我们被问：
-“歌手有哪些”，所以我们需要column=[歌手名]
-”播放量前十的“，所以我们需要column=[结算播放量], cell values = [10],所以有[结算播放量:(10)]
-”近半年签约的“，所以我们需要column=[签约日期], cell values = [0.5],所以有[签约日期:(0.5)]""",
-        "schema_links":"""["歌手名", "结算播放量":(10), "签约日期":(0.5)]""",
-        "sql":"""select 歌手名 from 艺人库 where datediff('year', 签约日期, '2023-09-11') <= 0.5 order by 结算播放量 desc limit 10"""
-        },
-    {   "current_date":"2023-08-12",
-        "table_name":"歌曲库",
-        "fields_list": """["发行日期", "歌曲语言", "歌曲来源", "歌曲流派", "歌曲名", "歌曲版本", "歌曲类型", "发行时间", "数据日期"]""",
-        "question":"最近一年发行的歌曲中，有哪些在近7天播放超过一千万的",
-        "prior_schema_links":"""[]""",
-        "analysis": """让我们一步一步地思考。在问题“最近一年发行的歌曲中，有哪些在近7天播放超过一千万的“中，我们被问：
-“发行的歌曲中，有哪些”，所以我们需要column=[歌曲名]
-”最近一年发行的“，所以我们需要column=[发行日期], cell values = [1],所以有[发行日期:(1)]
-”在近7天播放超过一千万的“，所以我们需要column=[数据日期, 结算播放量], cell values = [7, 10000000],所以有[数据日期:(7), 结算播放量:(10000000)]""",
-        "schema_links":"""["歌曲名", "发行日期":(1), "数据日期":(7), "结算播放量":(10000000)]""",
-        "sql":"""select 歌曲名 from 歌曲库 where datediff('year', 发行日期, '2023-08-12') <= 1 and datediff('day', 数据日期, '2023-08-12') <= 7 and 结算播放量 > 10000000"""
-        },
-    {   "current_date":"2023-08-12",
-        "table_name":"歌曲库",
-        "fields_list": """["发行日期", "歌曲语言", "歌曲来源", "歌曲流派", "歌曲名", "歌曲版本", "歌曲类型", "发行时间", "数据日期"]""",
-        "question":"今年以来发行的歌曲中，有哪些在近7天播放超过一千万的",
-        "prior_schema_links":"""[]""",
-        "analysis": """让我们一步一步地思考。在问题“今年以来发行的歌曲中，有哪些在近7天播放超过一千万的“中，我们被问：
-“发行的歌曲中，有哪些”，所以我们需要column=[歌曲名]
-”今年以来发行的“，所以我们需要column=[发行日期], cell values = [0],所以有[发行日期:(0)]
-”在近7天播放超过一千万的“，所以我们需要column=[数据日期, 结算播放量], cell values = [7, 10000000],所以有[数据日期:(7), 结算播放量:(10000000)]""",
-        "schema_links":"""["歌曲名", "发行日期":(0), "数据日期":(7), "结算播放量":(10000000)]""",
-        "sql":"""select 歌曲名 from 歌曲库 where datediff('year', 发行日期, '2023-08-12') <= 0 and datediff('day', 数据日期, '2023-08-12') <= 7 and 结算播放量 > 10000000"""
-        },
-    {   "current_date":"2023-08-12",
-        "table_name":"歌曲库",
-        "fields_list": """["发行日期", "歌曲语言", "歌曲来源", "歌曲流派", "歌曲名", "歌曲版本", "歌曲类型", "发行时间", "数据日期"]""",
-        "question":"2023年以来发行的歌曲中，有哪些在近7天播放超过一千万的",
-        "prior_schema_links":"""['514129144'->MPPM歌曲ID]""",
-        "analysis": """让我们一步一步地思考。在问题“2023年以来发行的歌曲中，有哪些在近7天播放超过一千万的“中，我们被问：
-“发行的歌曲中，有哪些”，所以我们需要column=[歌曲名]
-”2023年以来发行的“，所以我们需要column=[发行日期], cell values = ['2023-01-01'],所以有[发行日期:('2023-01-01')]
-”在近7天播放超过一千万的“，所以我们需要column=[数据日期, 结算播放量], cell values = [7, 10000000],所以有[数据日期:(7), 结算播放量:(10000000)]""",
-        "schema_links":"""["歌曲名", "发行日期":("'2023-01-01'"), "数据日期":(7), "结算播放量":(10000000)]""",
-        "sql":"""select 歌曲名 from 歌曲库 where 发行日期 >= '2023-01-01' and datediff('day', 数据日期, '2023-08-12') <= 7 and 结算播放量 > 10000000"""
-        },
-    {   "current_date":"2023-08-01",
-        "table_name":"歌曲库",
-        "fields_list":"""["歌曲名", "歌曲版本", "歌手名", "歌曲类型", "发布时间", "MPPM歌曲ID", "是否严选窄口径歌曲", "是否严选宽口径歌曲", "是否潮流人歌曲", "超声波歌曲ID", "C音歌曲ID", "C音歌曲MID", "结算播放量", "运营播放量", "分享量", "收藏量", "运营搜播量", "结算搜播量", "拉新用户数", "拉活用户数", "分享率", "结算播放份额", "数据日期"]""",
-        "question":"周洁轮2023年6月之后发布的歌曲有哪些",
-        "prior_schema_links":"""['23109'->MPPM歌手ID]""",
-        "analysis": """让我们一步一步地思考。在问题“周洁轮2023年6月之后发布的歌曲有哪些“中，我们被问：
-“歌曲有哪些”，所以我们需要column=[歌曲名]
-”2023年6月之后发布的“，所以我们需要column=[发布时间], cell values = ['2023-06-01'],所以有[发布时间:('2023-06-01')]
-”周洁轮“，所以我们需要column=[歌手名], cell values = ['周洁轮'],所以有[歌手名:('周洁轮')]""",
-        "schema_links":"""["歌曲名", "发布时间":("'2023-06-01'"), "歌手名":("'周洁轮'")]""",
-        "sql":"""select 歌曲名 from 歌曲库 where 发布时间 >= '2023-06-01' and 歌手名 = '周洁轮'"""
-        },
-    {   "current_date":"2023-08-01",
-        "table_name":"歌曲库",
-        "fields_list":"""["歌曲名", "歌曲版本", "歌手名", "歌曲类型", "发布时间", "MPPM歌曲ID", "是否严选窄口径歌曲", "是否严选宽口径歌曲", "是否潮流人歌曲", "超声波歌曲ID", "C音歌曲ID", "C音歌曲MID", "结算播放量", "运营播放量", "分享量", "收藏量", "运营搜播量", "结算搜播量", "拉新用户数", "拉活用户数", "分享率", "结算播放份额", "数据日期"]""",
-        "question":"邓梓琦在2023年1月5日之后发布的歌曲中，有哪些播放量大于500W的？",
-        "prior_schema_links":"""['2312311'->MPPM歌手ID]""",
-        "analysis": """让我们一步一步地思考。在问题“邓梓琦在2023年1月5日之后发布的歌曲中，有哪些播放量大于500W的？“中，我们被问：
-“播放量大于500W的”，所以我们需要column=[结算播放量], cell values = [5000000],所以有[结算播放量:(5000000)]
-”邓梓琦在2023年1月5日之后发布的“，所以我们需要column=[发布时间], cell values = ['2023-01-05'],所以有[发布时间:('2023-01-05')]
-”邓梓琦“，所以我们需要column=[歌手名], cell values = ['邓梓琦'],所以有[歌手名:('邓梓琦')]""",
-        "schema_links":"""["结算播放量":(5000000), "发布时间":("'2023-01-05'"), "歌手名":("'邓梓琦'")]""",
-        "sql":"""select 歌曲名 from 歌曲库 where 发布时间 >= '2023-01-05' and 歌手名 = '邓梓琦' and 结算播放量 > 5000000"""
-        },
-    {   "current_date":"2023-09-17",
-        "table_name":"歌曲库",
-        "fields_list":"""["歌曲名", "歌曲版本", "歌手名", "歌曲类型", "发布时间", "MPPM歌曲ID", "是否严选窄口径歌曲", "是否严选宽口径歌曲", "是否潮流人歌曲", "超声波歌曲ID", "C音歌曲ID", "C音歌曲MID", "结算播放量", "运营播放量", "分享量", "收藏量", "运营搜播量", "结算搜播量", "拉新用户数", "拉活用户数", "分享率", "结算播放份额", "数据日期"]""",
-        "question":"2023年6月以后，张亮英播放量大于200万的歌曲有哪些？",
-        "prior_schema_links":"""['45453'->MPPM歌手ID]""",
-        "analysis": """让我们一步一步地思考。在问题“2023年6月以后，张亮英播放量大于200万的歌曲有哪些？“中，我们被问：
-“播放量大于200万的”，所以我们需要column=[结算播放量], cell values = [2000000],所以有[结算播放量:(2000000)]
-”2023年6月以后，张亮英“，所以我们需要column=[数据日期, 歌手名], cell values = ['2023-06-01', '张亮英'],所以有[数据日期:('2023-06-01'), 歌手名:('张亮英')],
-”歌曲有哪些“，所以我们需要column=[歌曲名]""",
-        "schema_links":"""["结算播放量":(2000000), "数据日期":("'2023-06-01'"), "歌手名":("'张亮英'"), "歌曲名"]""",
-        "sql":"""select 歌曲名 from 歌曲库 where 数据日期 >= '2023-06-01' and 歌手名 = '张亮英' and 结算播放量 > 2000000"""
-        },
-    {   "current_date":"2023-08-16",
-        "table_name":"歌曲库",
-        "fields_list":"""["歌曲名", "歌曲版本", "歌手名", "歌曲类型", "发布时间", "MPPM歌曲ID", "是否严选窄口径歌曲", "是否严选宽口径歌曲", "是否潮流人歌曲", "超声波歌曲ID", "C音歌曲ID", "C音歌曲MID", "结算播放量", "运营播放量", "分享量", "收藏量", "运营搜播量", "结算搜播量", "拉新用户数", "拉活用户数", "分享率", "结算播放份额", "数据日期"]""",
-        "question":"2021年6月以后发布的李雨纯的播放量大于20万的歌曲有哪些",
-        "prior_schema_links":"""['23109'->MPPM歌手ID]""",
-        "analysis": """让我们一步一步地思考。在问题“2021年6月以后发布的李雨纯的播放量大于20万的歌曲有哪些“中，我们被问：
-“播放量大于20万的”，所以我们需要column=[结算播放量], cell values = [200000],所以有[结算播放量:(200000)]
-”2021年6月以后发布的“，所以我们需要column=[发布时间], cell values = ['2021-06-01'],所以有[发布时间:('2021-06-01')]
-”李雨纯“，所以我们需要column=[歌手名], cell values = ['李雨纯'],所以有[歌手名:('李雨纯')]""",
-        "schema_links":"""["结算播放量":(200000), "发布时间":("'2021-06-01'"), "歌手名":("'李雨纯'")]""",
-        "sql":"""select 歌曲名 from 歌曲库 where 发布时间 >= '2021-06-01' and 歌手名 = '李雨纯' and 结算播放量 > 200000"""
-        },
-    {   "current_date":"2023-08-16",
-        "table_name":"歌曲库",
-        "fields_list":"""["歌曲名", "歌曲版本", "歌手名", "歌曲类型", "发布时间", "MPPM歌曲ID", "是否严选窄口径歌曲", "是否严选宽口径歌曲", "是否潮流人歌曲", "超声波歌曲ID", "C音歌曲ID", "C音歌曲MID", "结算播放量", "运营播放量", "分享量", "收藏量", "运营搜播量", "结算搜播量", "拉新用户数", "拉活用户数", "分享率", "结算播放份额", "数据日期"]""",
-        "question":"刘锝桦在1992年4月2日到2020年5月2日之间发布的播放量大于20万的歌曲有哪些",
-        "prior_schema_links":"""['4234234'->MPPM歌手ID]""",
-        "analysis": """让我们一步一步地思考。在问题“刘锝桦在1992年4月2日到2020年5月2日之间发布的播放量大于20万的歌曲有哪些“中，我们被问：
-“播放量大于20万的”，所以我们需要column=[结算播放量], cell values = [200000],所以有[结算播放量:(200000)]
-”1992年4月2日到2020年5月2日之间发布的“， 所以我们需要column=[发布时间], cell values = ['1992-04-02', '2020-05-02'],所以有[发布时间:('1992-04-02', '2020-05-02')]
-”刘锝桦“，所以我们需要column=[歌手名], cell values = ['刘锝桦'],所以有[歌手名:('刘锝桦')]""",
-        "schema_links":"""["结算播放量":(200000), "发布时间":("'1992-04-02'", "'2020-05-02'"), "歌手名":("'刘锝桦'")]""",
-        "sql":"""select 歌曲名 from 歌曲库 where 发布时间 >= '1992-04-02' and 发布时间 <= '2020-05-02' and 歌手名 = '刘锝桦' and 结算播放量 > 200000"""
-        },
-    {
-        "current_date":"2023-09-04",
-        "table_name":"内容库产品",
-        "fields_list":"""["用户名", "部门", "模块", "访问时长", "访问次数", "访问人数", "数据日期"]""",
-        "question":"内容库近30天访问次数的平均数",
-        "prior_schema_links":"""[]""",
-        "analysis": """让我们一步一步地思考。在问题“内容库近30天访问次数的平均数“中，我们被问：
-“访问次数的平均数”，所以我们需要column=[访问次数]
-”内容库近30天“，所以我们需要column=[数据日期], cell values = [30],所以有[数据日期:(30)]""",
-        "schema_links":"""["访问次数", "数据日期":(30)]""",
-        "sql":"""select avg(访问次数) from 内容库产品 where datediff('day', 数据日期, '2023-09-04') <= 30 """
-        },
-    {
-        "current_date":"2023-09-04",
-        "table_name":"内容库产品",
-        "fields_list":"""["用户名", "部门", "模块", "访问时长", "访问次数", "访问人数", "数据日期"]""",
-        "question":"内容库近半年哪个月的访问次数汇总最高",
-        "prior_schema_links":"""[]""",
-        "analysis": """让我们一步一步地思考。在问题“内容库近半年哪个月的访问次数汇总最高“中，我们被问：
-“访问次数汇总最高”，所以我们需要column=[访问次数], cell values = [1],所以有[访问次数:(1)]
-”内容库近半年“，所以我们需要column=[数据日期], cell values = [0.5],所以有[数据日期:(0.5)]""",
-        "schema_links":"""["访问次数":(1), "数据日期":(0.5)]""",
-        "sql":"""select MONTH(数据日期), sum(访问次数) from 内容库产品 where datediff('year', 数据日期, '2023-09-04') <= 0.5 group by MONTH(数据日期) order by sum(访问次数) desc limit 1"""
-        },
-    {
-        "current_date":"2023-09-04",
-        "table_name":"内容库产品",
-        "fields_list":"""["用户名", "部门", "模块", "访问时长", "访问次数", "访问人数", "数据日期"]""",
-        "question":"内容库近半年每个月的平均访问次数",
-        "prior_schema_links":"""[]""",
-        "analysis": """让我们一步一步地思考。在问题“内容库近半年每个月的平均访问次数“中，我们被问：
-“每个月的平均访问次数”，所以我们需要column=[访问次数]
-”内容库近半年“，所以我们需要column=[数据日期], cell values = [0.5],所以有[数据日期:(0.5)]""",
-        "schema_links":"""["访问次数", "数据日期":(0.5)]""",
-        "sql":"""select MONTH(数据日期), avg(访问次数) from 内容库产品 where datediff('year', 数据日期, '2023-09-04') <= 0.5 group by MONTH(数据日期)"""
-        },
-    {
-        "current_date":"2023-09-10",
-        "table_name":"内容库产品",
-        "fields_list":"""["用户名", "部门", "模块", "访问时长", "访问次数", "访问人数", "数据日期"]""",
-        "question":"内容库 按部门统计访问次数 top10 的部门",
-        "prior_schema_links":"""[]""",
-        "analysis": """让我们一步一步地思考。在问题“内容库 按部门统计访问次数 top10 的部门“中，我们被问：
-“访问次数 top10 的部门”，所以我们需要column=[访问次数], cell values = [10],所以有[访问次数:(10)]
-”内容库 按部门统计“，所以我们需要column=[部门]""",
-        "schema_links":"""["访问次数":(10), "部门"]""",
-        "sql":"""select 部门, sum(访问次数) from 内容库产品 group by 部门 order by sum(访问次数) desc limit 10"""
-        },
-    {
-        "current_date":"2023-09-10",
-        "table_name":"内容库产品",
-        "fields_list":"""["用户名", "部门", "模块", "访问时长", "访问次数", "访问人数", "数据日期"]""",
-        "question":"超音速 近7个月，月度总访问量超过 2万的月份",
-        "prior_schema_links":"""[]""",
-        "analysis": """让我们一步一步地思考。在问题“超音速 近7个月，月度总访问量超过 2万的月份“中，我们被问：
-“月度总访问量超过 2万的月份”，所以我们需要column=[访问次数], cell values = [20000],所以有[访问次数:(20000)]
-”超音速 近7个月“，所以我们需要column=[数据日期], cell values = [7],所以有[数据日期:(7)]""",
-        "schema_links":"""["访问次数":(20000), "数据日期":(7)]""",
-        "sql":"""select MONTH(数据日期) from 内容库产品 where datediff('day', 数据日期, '2023-09-10') <= 7 group by MONTH(数据日期) having sum(访问次数) > 20000"""
-        },
-    {
-        "current_date":"2023-09-10",
-        "table_name":"歌曲库",
-        "fields_list":"""["歌曲语言", "歌曲来源", "运营播放量", "播放量", "歌曲名", "结算播放量", "专辑名", "发布日期", "歌曲版本", "歌曲类型", "数据日期"]""",
-        "question":"2022年7月到2023年7月之间发布到歌曲，按播放量取top 100，再按月粒度来统计近1年的运营播放量",
-        "prior_schema_links":"""[]""",
-        "analysis": """让我们一步一步地思考。在问题“2022年7月到2023年7月之间发布到歌曲，按播放量取top 100，再按月粒度来统计近1年的运营播放量“中，我们被问：
-“按月粒度来统计近1年的运营播放量”，所以我们需要column=[运营播放量, 数据日期], cell values = [1],所以有[运营播放量, 数据日期:(1)]
-”按播放量取top 100“，所以我们需要column=[播放量], cell values = [100],所以有[播放量:(100)]
-“2022年7月到2023年7月之间发布到歌曲”，所以我们需要column=[发布日期], cell values = ['2022-07-01', '2023-07-01'],所以有[发布日期:('2022-07-01', '2023-07-01')]""",
-        "schema_links":"""["运营播放量", "数据日期":(1), "播放量":(100), "发布日期":("'2022-07-01'", "'2023-07-01'")]""",
-        "sql":"""select MONTH(数据日期), sum(运营播放量) from (select 数据日期, 运营播放量 from 歌曲库 where 发布日期 >= '2022-07-01' and 发布日期 <= '2023-07-01' order by 播放量 desc limit 100) t where datediff('year', 数据日期, '2023-09-10') <= 1 group by MONTH(数据日期)"""
-        },
-    {
-        "current_date":"2023-09-10",
-        "table_name":"歌曲库",
-        "fields_list":"""["歌曲语言", "歌曲来源", "运营播放量", "播放量", "歌曲名", "结算播放量", "专辑名", "发布日期", "歌曲版本", "歌曲类型", "数据日期"]""",
-        "question":"2022年7月到2023年7月之间发布到歌曲，按播放量取top100，再按月粒度来统计近1年的运营播放量之和，筛选出其中运营播放量之和大于2k的月份",
-        "prior_schema_links":"""[]""",
-        "analysis": """让我们一步一步地思考。在问题“2022年7月到2023年7月之间发布到歌曲，按播放量取top100，再按月粒度来统计近1年的运营播放量之和，筛选出其中运营播放量之和大于2k的月份“中，我们被问：
-“筛选出其中运营播放量之和大于2k的月份”，所以我们需要column=[运营播放量], cell values = [2000],所以有[运营播放量:(2000)]
-”按月粒度来统计近1年的运营播放量之和“，所以我们需要column=[数据日期], cell values = [1],所以有[数据日期:(1)]
-”按播放量取top100“，所以我们需要column=[播放量], cell values = [100],所以有[播放量:(100)]
-”2022年7月到2023年7月之间发布到歌曲“，所以我们需要column=[发布日期], cell values = ['2022-07-01', '2023-07-01'],所以有[发布日期:('2022-07-01', '2023-07-01')]""",
-        "schema_links":"""["运营播放量":(2000), "数据日期":(1), "播放量":(100), "发布日期":("'2022-07-01'", "'2023-07-01'")]""",
-        "sql":"""select MONTH(数据日期), sum(运营播放量) from (select 数据日期, 运营播放量 from 歌曲库 where 发布日期 >= '2022-07-01' and 发布日期 <= '2023-07-01' order by 播放量 desc limit 100) t where datediff('year', 数据日期, '2023-09-10') <= 1 group by MONTH(数据日期) having sum(运营播放量) > 2000"""
-    }
+        "table_name":"artist_library",
+        "fields_list":"""["availability_status", "artist_name", "artist_level", "artist_type", "artist_origin", "mppm_trendy_person_level", "active_region", "age", "artist_talent", "artist_style", "fan_count", "trendy_sound_fan_count", "ultrasound_fan_count", "promoted_post_fan_count", "ultrasound_song_count", "available_song_count", "ultrasound_share_count", "exclusive_song_count", "ultrasound_available_song_comments", "songs_with_playback_count", "data_date"]""",
+        "question":"Compare the fan count of Chen Zhuoxuan, Meng Meiqi, and Lai Mei Yun",
+        "prior_schema_links":"""['1527896'->mppm_artist_id, '1565463'->mppm_artist_id, '2141459'->mppm_artist_id]""",
+        "analysis": """Let's think step by step. In the question 'Compare the fan count of Chen Zhuoxuan, Meng Meiqi, and Lai Mei Yun', we are asked about: 'fan count', so we need column=[fan_count], 'Chen Zhuoxuan, Meng Meiqi, Lai Mei Yun', so we need column=[artist_name], cell values = ['Chen Zhuoxuan', 'Meng Meiqi', 'Lai Mei Yun'], so we have [artist_name:('Chen Zhuoxuan', 'Meng Meiqi', 'Lai Mei Yun')]""",
+                                                                                                                                                                                                                                                                                                                                                                                                                     "schema_links":"""["fan_count", "artist_name":("'Chen Zhuoxuan'", "'Meng Meiqi'", "'Lai Mei Yun'")]""",
+"sql":"""select artist_name, fan_count from artist_library where artist_name in ('Chen Zhuoxuan', 'Meng Meiqi', 'Lai Mei Yun')"""
+},
+{   "current_date":"2023-07-31",
+    "table_name":"song_library",
+    "fields_list":"""["song_title", "song_version", "song_type", "mppm_song_id", "is_strict_selection_narrow_scope_song", "is_strict_selection_wide_scope_song", "is_trendy_song", "超声波歌曲ID", "c_note_song_id", "c_note_song_mid", "settlement_playback_count", "operation_playback_count", "share_count", "collection_count", "operation_search_playback_count", "settlement_search_playback_count", "new_user_count", "active_user_count", "share_rate", "settlement_playback_share", "data_date"]""",
+    "question":"How many songs have a playback count greater than 10,000?",
+    "prior_schema_links":"""[]""",
+    "analysis": "analysis": """Let's think step by step. In the question 'How many songs have a playback count greater than 10,000?', we are asked about: 'how many songs', so we need column=[song_title], 'playback count greater than 10,000', so we need column=[settlement_playback_count], cell values = [10000], so we have [settlement_playback_count:(10000)]""",
+"schema_links":"""["song_title", "settlement_playback_count":(10000)]""",
+"sql":"""select song_title from song_library where settlement_playback_count > 10000"""
+},
+{   "current_date":"2023-07-31",
+    "table_name":"content_library_products",
+    "fields_list":"""["user_name", "department", "module", "duration_of_visits", "number_of_visitors", "number_of_visitors", "data_date"]""",
+    "question":"""Which user names from the Art Department in the content library have a visit duration of less than 1 hour?""",
+    "prior_schema_links":"""['Art Department'->department]""",
+    "analysis": """Let's think step by step. In the question 'Which user names from the Art Department in the content library have a visit duration of less than 1 hour?', we are asked about: 'which user names', so we need column=[user_name], 'from the Art Department', so we need column=[department], cell values = ['Art Department'], so we have [department:('Art Department')], 'visit duration of less than 1 hour', so we need column=[duration_of_visits], cell values = [1], so we have [duration_of_visits:(1)]""",
+    "schema_links":"""["user_name", "department":("'Art Department'"), "duration_of_visits":(1)]""",
+    "sql":"""select user_name from content_library_products where department = 'Art Department' and visit_duration< 1"""
+    },
+{
+    "current_date": "2023-08-31",
+    "table_name": "content_library_products",
+    "fields_list": """["user_name", "department", "module", "duration_of_visits", "number_of_visitors", "data_date"]""",
+    "question": """Which user names in the content library have the highest page views (PV)?""",
+    "prior_schema_links": """[]""",
+    "analysis": """Let's think step by step. In the question 'Which user names in the content library have the highest page views (PV)?', we are asked about: 'which user names', so we need column=[user_name], 'with the highest page views (PV)', so we need column=[number_of_visitors], so we have [number_of_visitors:(1)]""",
+    "schema_links": """["user_name", "number_of_visitors":(1)]""",
+    "sql": """select user_name from content_library_products order by number_of_visitors desc limit 1"""
+},
+{
+    "current_date": "2023-08-31",
+    "table_name": "artist_library",
+    "fields_list": """["playback_level", "playback_monotonicity", "playback_variance", "sudden_increase_type", "playback_concentration", "artist_name", "artist_rank", "artist_type", "artist_source", "mppm_trendy_person_rank", "settlement_playback_count", "operation_playback_count", "historical_cumulative_settlement_playback_count", "songs_with_playback_count", "historical_cumulative_operation_playback_count", "paid_user_name_settlement_playback_count", "settlement_playback_ratio", "operation_playback_share", "free_user_name_settlement_playback_ratio", "complete_playback_count", "data_date"]""",
+    "question": """What is the average playback count for Yuan Yawei in the last 90 days?""",
+    "prior_schema_links": """['152789226'->mppm_artist_id]""",
+    "analysis": """Let's think step by step. In the question 'What is the average playback count for Yuan Yawei in the last 90 days?', we are asked about: 'average playback count', so we need column=[settlement_playback_count], 'Yuan Yawei', so we need column=[artist_name], cell values = ['Yuan Yawei'], so we have [artist_name:('Yuan Yawei')], 'last 90 days', so we need column=[data_date], cell values = [90], so we have [data_date:(90)]""",
+    "schema_links": """["settlement_playback_count", "artist_name":("'Yuan Yawei'"), "data_date":(90)]""",
+    "sql": """select avg(settlement_playback_count) from artist_library where artist_name = 'Yuan Yawei' and datediff('day', data_date, '2023-08-31') <= 90 """
+},
+{
+    "current_date": "2023-08-31",
+    "table_name": "artist_library",
+    "fields_list": """["playback_level", "playback_monotonicity", "playback_variance", "sudden_increase_type", "playback_concentration", "artist_name", "artist_rank", "artist_type", "artist_source", "mppm_trendy_person_rank", "settlement_playback_count", "operation_playback_count", "historical_cumulative_settlement_playback_count", "songs_with_playback_count", "historical_cumulative_operation_playback_count", "paid_user_name_settlement_playback_count", "settlement_playback_ratio", "operation_playback_share", "free_user_name_settlement_playback_ratio", "complete_playback_count", "data_date"]""",
+    "question": """What is the total settlement_playback_count for Zhou Qianqian in the last 7 days?""",
+    "prior_schema_links": """['199509'->mppm_artist_id]""",
+    "analysis": """Let's think step by step. In the question 'What is the total settlement_playback_count for Zhou Qianqian in the last 7 days?', we are asked about: 'total settlement_playback_count', so we need column=[settlement_playback_count], 'Zhou Qianqian', so we need column=[artist_name], cell values = ['Zhou Qianqian'], so we have [artist_name:('Zhou Qianqian')], 'last 7 days', so we need column=[data_date], cell values = [7], so we have [data_date:(7)]""",
+    "schema_links": """["settlement_playback_count", "artist_name":("'Zhou Qianqian'"), "data_date":(7)]""",
+    "sql": """select sum(settlement_playback_count) from artist_library where artist_name = 'Zhou Qianqian' and datediff('day', data_date, '2023-08-31') <= 7 """
+},
+{
+    "current_date": "2023-09-14",
+    "table_name": "content_library_products",
+    "fields_list": """["department", "module", "user_name", "number_of_visitors", "number_of_visitors", "duration_of_visits", "data_date"]""",
+    "question": """Which departments in the content library have more than 1k visitors?""",
+    "prior_schema_links": """[]""",
+    "analysis": """Let's think step by step. In the question 'Which departments in the content library have more than 1k visitors?', we are asked: 'Which departments', so we need column=[department]. 'More than 1k visitors', so we need column=[number_of_visitors], cell values = [1000], so we have [number_of_visitors:(1000)]""",
+    "schema_links": """["department", "number_of_visitors":(1000)]""",
+    "sql": """select department from content_library_products where number_of_visitors > 1000"""
+},
+{
+    "current_date": "2023-09-18",
+    "table_name": "song_library",
+    "fields_list": """["song_title", "mppm_artist_id", "song_version", "song_type", "mppm_song_id", "is_strict_selection_narrow_scope_song", "is_strict_selection_wide_scope_song", "is_trendy_song", "ultrasound_song_id", "c_note_song_id", "c_note_song_mid", "settlement_playback_count", "operation_playback_count", "share_count", "collection_count", "operation_search_playback_count", "settlement_search_playback_count", "new_user_count", "active_user_count", "share_rate", "settlement_playback_share", "data_date"]""",
+    "question": """Which songs titled 'Brave One' sung by 'Chen Yixun' have more than 20k playback count?""",
+    "prior_schema_links": """['199509'->mppm_artist_id, '1527123'->mppm_song_id]""",
+    "analysis": """Let's think step by step. In the question 'Which songs titled 'Brave One' sung by 'Chen Yixun' have more than 20k playback count?', we are asked: 'Which songs titled 'Brave One'', so we need column=[song_title], cell values = ['Brave One'], so we have [song_title:('Brave One')] 'More than 20k playback count', so we need column=[settlement_playback_count], cell values = [20000], so we have [settlement_playback_count:(20000)] 'Sung by 'Chen Yixun'', so we need column=[artist_name], cell values = ['Chen Yixun'], so we have [artist_name:('Chen Yixun')]""",
+    "schema_links": """["song_title":("'Brave One'"), "settlement_playback_count":(20000), "artist_name":("'Chen Yixun'")]""",
+    "sql": """select song_title from song_library where settlement_playback_count > 20000 and artist_name = 'Chen Yixun' and song_title = 'Brave One'"""
+},
+{
+    "current_date": "2023-09-18",
+    "table_name": "song_library",
+    "fields_list": """["song_title", "song_version", "artist_name", "song_type", "release_date", "mppm_song_id", "is_strict_selection_narrow_scope_song", "is_strict_selection_wide_scope_song", "is_trendy_song", "ultrasound_song_id", "c_note_song_id", "c_note_song_mid", "settlement_playback_count", "operation_playback_count", "share_count", "collection_count", "operation_search_playback_count", "settlement_search_playback_count", "new_user_count", "active_user_count", "share_rate", "settlement_playback_share", "data_date"]""",
+    "question": """Which songs were released by Zhou Jieliun last year?""",
+    "prior_schema_links": """['23109'->mppm_artist_id]""",
+    "analysis": """Let's think step by step. In the question 'Which songs were released by Zhou Jieliun last year?', we are asked: 'Which songs', so we need column=[song_title] 'Released last year', so we need column=[release_date], cell values = [1], so we have [release_date:(1)] 'By Zhou Jieliun', so we need column=[artist_name], cell values = ['Zhou Jieliun'], so we have [artist_name:('Zhou Jieliun')]""",
+    "schema_links": """["song_title", "release_date":(1), "artist_name":("'Zhou Jieliun'")]""",
+    "sql": """select song_title from song_library where datediff('year', release_date, '2023-09-18') <= 1 and artist_name = 'Zhou Jieliun'"""
+},
+{
+    "current_date": "2023-09-11",
+    "table_name": "artist_library",
+    "fields_list": """["playback_level", "playback_monotonicity", "playback_variance", "playback_surge_type", "playback_concentration", "artist_name", "artist_rank", "artist_type", "artist_source", "signing_date", "MPPM_trendy_person_rank", "settlement_playback_count", "operation_playback_count", "historical_cumulative_settlement_playback_count", "songs_with_playback_count", "historical_cumulative_operation_playback_count", "paid_user_name_settlement_playback_count", "settlement_playback_percentage", "operation_playback_share", "free_user_name_settlement_playback_percentage", "complete_playback_count", "data_date"]""",
+    "question": """Which artists, who have signed in the last six months, are in the top ten for playback count?""",
+    "prior_schema_links": """[]""",
+    "analysis": """Let's think step by step. In the question 'Which artists, who have signed in the last six months, are in the top ten for playback count?', we are asked: 'Which artists', so we need column=[artist_name] 'Top ten for playback count', so we need column=[settlement_playback_count], cell values = [10], so we have [settlement_playback_count:(10)] 'Who have signed in the last six months', so we need column=[signing_date], cell values = [0.5], so we have [signing_date:(0.5)]""",
+    "schema_links": """["artist_name", "settlement_playback_count":(10), "signing_date":(0.5)]""",
+    "sql": """select artist_name from artist_library where datediff('month', signing_date, '2023-09-11') <= 6 order by settlement_playback_count desc limit 10"""
+},
+{
+    "current_date": "2023-08-12",
+    "table_name": "song_library",
+    "fields_list": """["release_date", "song_language", "song_source", "song_genre", "song_title", "song_version", "song_type", "release_time", "data_date"]""",
+    "question": """Which songs released in the past year have had over 10 million plays in the last 7 days?""",
+    "prior_schema_links": """[]""",
+    "analysis": """Let's think step by step. In the question 'Which songs released in the past year have had over 10 million plays in the last 7 days?', we are asked: 'Which songs released', so we need column=[song_title] 'in the past year', so we need column=[release_date], cell values = [1], so we have [release_date:(1)] 'have had over 10 million plays in the last 7 days', so we need column=[data_date, settlement_playback_count], cell values = [7, 10000000], so we have [data_date:(7), settlement_playback_count:(10000000)]""",
+    "schema_links": """["song_title", "release_date":(1), "data_date":(7), "settlement_playback_count":(10000000)]""",
+    "sql": """select song_title from song_library where datediff('year', release_date, '2023-08-12') <= 1 and datediff('day', data_date, '2023-08-12') <= 7 and settlement_playback_count > 10000000"""
+},
+{
+    "current_date": "2023-08-12",
+    "table_name": "song_library",
+    "fields_list": """["release_date", "song_language", "song_source", "song_genre", "song_title", "song_version", "song_type", "release_time", "data_date"]""",
+    "question": """Which songs released this year have had over 10 million plays in the last 7 days?""",
+    "prior_schema_links": """[]""",
+    "analysis": """Let's think step by step. In the question 'Which songs released this year have had over 10 million plays in the last 7 days?', we are asked: 'Which songs released', so we need column=[song_title] 'released this year', so we need column=[release_date], cell values = [0], so we have [release_date:(0)] 'have had over 10 million plays in the last 7 days', so we need column=[data_date, settlement_playback_count], cell values = [7, 10000000], so we have [data_date:(7), settlement_playback_count:(10000000)]""",
+    "schema_links": """["song_title", "release_date":(0), "data_date":(7), "settlement_playback_count":(10000000)]""",
+    "sql": """select song_title from song_library where datediff('year', release_date, '2023-08-12') <= 0 and datediff('day', data_date, '2023-08-12') <= 7 and settlement_playback_count > 10000000"""
+},
+{
+    "current_date": "2023-08-12",
+    "table_name": "song_library",
+    "fields_list": """["release_date", "song_language", "song_source", "song_genre", "song_title", "song_version", "song_type", "release_time", "data_date"]""",
+    "question": """Which songs released since 2023 have had over 10 million plays in the last 7 days?""",
+    "prior_schema_links": """['514129144'->MPPM_song_ID]""",
+    "analysis": """Let's think step by step. In the question 'Which songs released since 2023 have had over 10 million plays in the last 7 days?', we are asked: 'Which songs released', so we need column=[song_title] 'released since 2023', so we need column=[release_date], cell values = ['2023-01-01'], so we have [release_date:('2023-01-01')] 'have had over 10 million plays in the last 7 days', so we need column=[data_date, settlement_playback_count], cell values = [7, 10000000], so we have [data_date:(7), settlement_playback_count:(10000000)]""",
+    "schema_links": """["song_title", "release_date":("'2023-01-01'"), "data_date":(7), "settlement_playback_count":(10000000)]""",
+    "sql": """select song_title from song_library where release_date >= '2023-01-01' and datediff('day', data_date, '2023-08-12') <= 7 and settlement_playback_count > 10000000"""
+},
+{
+    "current_date": "2023-08-01",
+    "table_name": "song_library",
+    "fields_list": """["song_title", "song_version", "artist_name", "song_type", "release_date", "mppm_song_id", "is_strict_selection_narrow_scope_song", "is_strict_selection_wide_scope_song", "is_trendy_song", "ultrasound_song_ID", "c_note_song_id", "c_note_song_mid", "settlement_playback_count", "operation_playback_count", "share_count", "collection_count", "operation_search_playback_count", "settlement_search_playback_count", "new_user_count", "active_user_count", "share_rate", "settlement_playback_share", "data_date"]""",
+    "question": """Which songs did Zhou Jielun release after June 2023?""",
+    "prior_schema_links": """['23109'->mppm_artist_id]""",
+    "analysis": """Let's think step by step. In the question 'Which songs did Zhou Jielun release after June 2023?', we are asked: 'Which songs', so we need column=[song_title] 'released after June 2023', so we need column=[release_date], cell values = ['2023-06-01'], so we have [release_date:('2023-06-01')] 'Zhou Jielun', so we need column=[artist_name], cell values = ['Zhou Jielun'], so we have [artist_name:('Zhou Jielun')]""",
+    "schema_links": """["song_title", "release_date":("'2023-06-01'"), "artist_name":("'Zhou Jielun'")]""",
+    "sql": """select song_title from song_library where release_date >= '2023-06-01' and artist_name = 'Zhou Jielun'"""
+},
+
+{
+    "current_date": "2023-08-01",
+    "table_name": "song_library",
+    "fields_list": """["song_title", "song_version", "artist_name", "song_type", "release_date", "mppm_song_id", "is_strict_selection_narrow_scope_song", "is_strict_selection_wide_scope_song", "is_trendy_song", "ultrasound_song_ID", "c_note_song_id", "c_note_song_mid", "settlement_playback_count", "operation_playback_count", "share_count", "collection_count", "operation_search_playback_count", "settlement_search_playback_count", "new_user_count", "active_user_count", "share_rate", "settlement_playback_share", "data_date"]""",
+    "question": """Which songs released by Deng Ziqi after January 5, 2023, have a playback count greater than 5 million?""",
+    "prior_schema_links": """['2312311'->mppm_artist_id]""",
+    "analysis": """Let's think step by step. In the question 'Which songs released by Deng Ziqi after January 5, 2023, have a playback count greater than 5 million?', we are asked: 'playback count greater than 5 million', so we need column=[settlement_playback_count], cell values = [5000000], so we have [settlement_playback_count:(5000000)] 'released by Deng Ziqi after January 5, 2023', so we need column=[release_date], cell values = ['2023-01-05'], so we have [release_date:('2023-01-05')] 'Deng Ziqi', so we need column=[artist_name], cell values = ['Deng Ziqi'], so we have [artist_name:('Deng Ziqi')]""",
+    "schema_links": """["song_title", "release_date":("'2023-01-05'"), "artist_name":("'Deng Ziqi'"), "settlement_playback_count":(5000000)]""",
+    "sql": """select song_title from song_library where release_date >= '2023-01-05' and artist_name = 'Deng Ziqi' and settlement_playback_count > 5000000"""
+},
+{
+    "current_date": "2023-09-17",
+    "table_name": "song_library",
+    "fields_list": """["song_title", "song_version", "artist_name", "song_type", "release_date", "mppm_song_id", "is_strict_selection_narrow_scope_song", "is_strict_selection_wide_scope_song", "is_trendy_song", "ultrasound_song_ID", "c_note_song_id", "c_note_song_mid", "settlement_playback_count", "operation_playback_count", "share_count", "collection_count", "operation_search_playback_count", "settlement_search_playback_count", "new_user_pull", "active_user_pull", "share_rate", "settlement_playback_share", "data_date"]""",
+    "question": """Which songs by Zhang Liangying released after June 2023 have a playback count greater than 2 million?""",
+    "prior_schema_links": """['45453'->mppm_artist_id]""",
+    "analysis": """Let's think step by step. In the question 'Which songs by Zhang Liangying released after June 2023 have a playback count greater than 2 million?', we are asked: 'playback count greater than 2 million', so we need column=[settlement_playback_count], cell values = [2000000], so we have [settlement_playback_count:(2000000)] 'released after June 2023 by Zhang Liangying', so we need column=[data_date, artist_name], cell values = ['2023-06-01', 'Zhang Liangying'], so we have [data_date:('2023-06-01'), artist_name:('Zhang Liangying')], 'Which songs', so we need column=[song_title]""",
+    "schema_links": """["song_title", "settlement_playback_count":(2000000), "data_date":("'2023-06-01'"), "artist_name":("'Zhang Liangying'")]""",
+    "sql": """select song_title from song_library where data_date >= '2023-06-01' and artist_name = 'Zhang Liangying' and settlement_playback_count > 2000000"""
+},
+{
+    "current_date": "2023-08-16",
+    "table_name": "song_library",
+    "fields_list": """["song_title", "song_version", "artist_name", "song_type", "release_date", "mppm_song_id", "is_strict_selection_narrow_scope_song", "is_strict_selection_wide_scope_song", "is_trendy_song", "ultrasound_song_ID", "c_note_song_id", "c_note_song_mid", "settlement_playback_count", "operation_playback_count", "share_count", "collection_count", "operation_search_playback_count", "settlement_search_playback_count", "new_user_pull", "active_user_pull", "share_rate", "settlement_playback_share", "data_date"]""",
+    "question": """Which songs by Liu Yehua released between April 2, 1992, and May 2, 2020, have a playback count greater than 200,000?""",
+    "prior_schema_links": """['4234234'->mppm_artist_id]""",
+    "analysis": """Let's think step by step. In the question 'Which songs by Liu Yehua released between April 2, 1992, and May 2, 2020, have a playback count greater than 200,000?', we are asked: 'playback count greater than 200,000', so we need column=[settlement_playback_count], cell values = [200000], so we have [settlement_playback_count:(200000)] 'released between April 2, 1992, and May 2, 2020 by Liu Yehua', so we need column=[release_date, artist_name], cell values = ['1992-04-02', '2020-05-02'], so we have [release_date:('1992-04-02', '2020-05-02'), artist_name:('Liu Yehua')]""",
+    "schema_links": """["song_title", "settlement_playback_count":(200000), "release_date":("'1992-04-02'", "'2020-05-02'"), "artist_name":("'Liu Yehua'")]""",
+    "sql": """select song_title from song_library where release_date >= '1992-04-02' and release_date <= '2020-05-02' and artist_name = 'Liu Yehua' and settlement_playback_count > 200000"""
+},
+{
+    "current_date": "2023-09-04",
+    "table_name": "content_library_products",
+    "fields_list": """["user_name", "department", "module", "duration_of_visits", "number_of_visitors", "number_of_visitors", "data_date"]""",
+    "question": """What is the average number of visitors in the content library for the past 30 days?""",
+    "prior_schema_links": """[]""",
+    "analysis": """Let's think step by step. In the question 'What is the average number of visitors in the content library for the past 30 days?', we are asked: 'average number of visitors', so we need column=[number_of_visitors] 'in the content library for the past 30 days', so we need column=[data_date], cell values = [30], so we have [data_date:(30)]""",
+    "schema_links": """["number_of_visitors", "data_date":(30)]""",
+    "sql": """select avg(number_of_visitors) from content_library_products where datediff('day', data_date, '2023-09-04') <= 30 """
+},
+{
+    "current_date": "2023-09-04",
+    "table_name": "content_library_products",
+    "fields_list": """["user_name", "department", "module", "duration_of_visits", "number_of_visitors", "number_of_visitors", "data_date"]""",
+    "question": """Which month in the past half year had the highest total number of visitors in the content library?""",
+    "prior_schema_links": """[]""",
+    "analysis": """Let's think step by step. In the question 'Which month in the past half year had the highest total number of visitors in the content library?', we are asked: 'highest total number of visitors', so we need column=[number_of_visitors], cell values = [1], so we have [number_of_visitors:(1)] 'in the content library for the past half year', so we need column=[data_date], cell values = [0.5], so we have [data_date:(0.5)]""",
+    "schema_links": """["number_of_visitors":(1), "data_date":(0.5)]""",
+    "sql": """select MONTH(data_date), sum(number_of_visitors) from content_library_products where datediff('year', data_date, '2023-09-04') <= 0.5 group by MONTH(data_date) order by sum(number_of_visitors) desc limit 1"""
+},
+{
+    "current_date": "2023-09-04",
+    "table_name": "content_library_products",
+    "fields_list": """["user_name", "department", "module", "duration_of_visits", "number_of_visitors", "number_of_visitors", "data_date"]""",
+    "question": """What is the average number of visitors per month in the content library for the past half year?""",
+    "prior_schema_links": """[]""",
+    "analysis": """Let's think step by step. In the question 'What is the average number of visitors per month in the content library for the past half year?', we are asked: 'average number of visitors per month', so we need column=[number_of_visitors] 'in the content library for the past half year', so we need column=[data_date], cell values = [0.5], so we have [data_date:(0.5)]""",
+    "schema_links": """["number_of_visitors", "data_date":(0.5)]""",
+    "sql": """select MONTH(data_date), avg(number_of_visitors) from content_library_products where datediff('year', data_date, '2023-09-04') <= 0.5 group by MONTH(data_date)"""
+},
+{
+    "current_date": "2023-09-10",
+    "table_name": "content_library_products",
+    "fields_list": """["user_name", "department", "module", "duration_of_visits", "number_of_visitors", "number_of_visitors", "data_date"]""",
+    "question": """Which are the top 10 departments in the content library based on the number of visitors?""",
+    "prior_schema_links": """[]""",
+    "analysis": """Let's think step by step. In the question 'Which are the top 10 departments in the content library based on the number of visitors?', we are asked: 'top 10 departments based on the number of visitors', so we need column=[number_of_visitors], cell values = [10], so we have [number_of_visitors:(10)] 'in the content library grouped by department', so we need column=[department]""",
+    "schema_links": """["number_of_visitors":(10), "department"]""",
+    "sql": """select
+        department, sum(number_of_visitors) from content_library_products group by
+        department order by sum(number_of_visitors) desc limit 10"""
+},
+{
+    "current_date":"2023-09-10",
+    "table_name":"content_library_products",
+    "fields_list":"""["user_name", "department", "module", "duration_of_visits", "number_of_visitors", "number_of_visitors", "data_date"]""",
+    "question":"超音速 近7个月，月度总访问量超过 2万的月份",
+    "prior_schema_links":"""[]""",
+    "analysis": """让我们一步一步地思考。在问题“超音速 近7个月，月度总访问量超过 2万的月份“中，我们被问：
+“月度总访问量超过 2万的月份”，所以我们需要column=[number_of_visitors], cell values = [20000],所以有[number_of_visitors:(20000)]
+”超音速 近7个月“，所以我们需要column=[data_date], cell values = [7],所以有[data_date:(7)]""",
+    "schema_links":"""["number_of_visitors":(20000), "data_date":(7)]""",
+    "sql":"""select MONTH(data_date) from content_library_products where datediff('day', data_date, '2023-09-10') <= 7 group by MONTH(data_date) having sum(number_of_visitors) > 20000"""
+},
+{
+    "current_date": "2023-09-10",
+    "table_name": "song_library",
+    "fields_list": """["song_language", "song_source", "operation_playback_count", "playback_count", "song_name", "settlement_playback_count", "album_name", "release_date", "song_version", "song_type", "data_date"]""",
+    "question": """For songs released between July 2022 and July 2023, rank by playback count and take the top 100, then aggregate the operational playback count by month for the past year.""",
+    "prior_schema_links": """[]""",
+    "analysis": """Let's think step by step. In the question 'For songs released between July 2022 and July 2023, rank by playback count and take the top 100, then aggregate the operational playback count by month for the past year.', we are asked: 'aggregate the operational playback count by month for the past year', so we need column=[operation_playback_count, data_date], cell values = [1], so we have [operation_playback_count, data_date:(1)] 'rank by playback count and take the top 100', so we need column=[playback_count], cell values = [100], so we have [playback_count:(100)] 'For songs released between July 2022 and July 2023', so we need column=[release_date], cell values = ['2022-07-01', '2023-07-01'], so we have [release_date:('2022-07-01', '2023-07-01')]""",
+    "schema_links": """["operation_playback_count", "data_date":(1), "playback_count":(100), "release_date":("'2022-07-01'", "'2023-07-01'")]""",
+    "sql": """select MONTH(data_date), sum(operation_playback_count) from (select data_date, operation_playback_count from song_library where release_date >= '2022-07-01' and release_date <= '2023-07-01' order by playback_count desc limit 100) t where datediff('year', data_date, '2023-09-10') <= 1 group by MONTH(data_date)"""
+},
+{
+    "current_date": "2023-09-10",
+    "table_name": "song_library",
+    "fields_list": """["song_language", "song_source", "operation_playback_count", "playback_count", "song_name", "settlement_playback_count", "album_name", "release_date", "song_version", "song_type", "data_date"]""",
+    "question": """For songs released between July 2022 and July 2023, rank by playback count and take the top 100, then aggregate the operational playback count by month for the past year and filter months where the sum of operational playback count is greater than 2k.""",
+    "prior_schema_links": """[]""",
+    "analysis": """Let's think step by step. In the question 'For songs released between July 2022 and July 2023, rank by playback count and take the top 100, then aggregate the operational playback count by month for the past year and filter months where the sum of operational playback count is greater than 2k.', we are asked: 'filter months where the sum of operational playback count is greater than 2k', so we need column=[operation_playback_count], cell values = [2000], so we have [operation_playback_count:(2000)] 'aggregate the operational playback count by month for the past year', so we need column=[data_date], cell values = [1], so we have [data_date:(1)] 'rank by playback count and take the top 100', so we need column=[playback_count], cell values = [100], so we have [playback_count:(100)] 'For songs released between July 2022 and July 2023', so we need column=[release_date], cell values = ['2022-07-01', '2023-07-01'], so we have [release_date:('2022-07-01', '2023-07-01')]""",
+    "schema_links": """["operation_playback_count":(2000), "data_date":(1), "playback_count":(100), "release_date":("'2022-07-01'", "'2023-07-01'")]""",
+    "sql": """select MONTH(data_date), sum(operation_playback_count) from (select data_date, operation_playback_count from song_library where release_date >= '2022-07-01' and release_date <= '2023-07-01' order by playback_count desc limit 100) t where datediff('year', data_date, '2023-09-10') <= 1 group by MONTH(data_date) having sum(operation_playback_count) > 2000"""
+}
+
 ]

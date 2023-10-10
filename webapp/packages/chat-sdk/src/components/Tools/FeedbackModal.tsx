@@ -17,7 +17,7 @@ const FeedbackModal: React.FC<Props> = ({ visible, feedbackValue, onSubmit, onCl
 
   const onOk = () => {
     if (feedback.trim() === '') {
-      message.warning('请输入点评内容');
+      message.warning('Please enter your review');
       return;
     }
     onSubmit(feedback);
@@ -30,16 +30,16 @@ const FeedbackModal: React.FC<Props> = ({ visible, feedbackValue, onSubmit, onCl
   return (
     <Modal
       open={visible}
-      title="点评一下~"
+      title="Feedback"
       onOk={onOk}
       onCancel={onClose}
-      okText="提交"
-      cancelText="取消"
+      okText="Ok"
+      cancelText="Cancel"
     >
       <div className={`${prefixCls}-feedback-item`}>
         <div className={`${prefixCls}-feedback-item-title`}>评价</div>
         <TextArea
-          placeholder="请输入评价"
+          placeholder="Please enter a rating"
           rows={3}
           value={feedback}
           onChange={onFeedbackChange}

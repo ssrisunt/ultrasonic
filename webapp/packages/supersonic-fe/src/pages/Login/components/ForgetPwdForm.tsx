@@ -43,9 +43,9 @@ const ForgetPwdForm: React.FC<RegisterFormProps> = (props) => {
   const renderFooter = () => {
     return (
       <>
-        <Button onClick={onCancel}>取消</Button>
+        <Button onClick={onCancel}>Cancel</Button>
         <Button type="primary" loading={saveLoading} onClick={handleSubmit}>
-          发送邮件
+          Send a message
         </Button>
       </>
     );
@@ -56,7 +56,7 @@ const ForgetPwdForm: React.FC<RegisterFormProps> = (props) => {
       width={600}
       bodyStyle={{ padding: '32px 40px 48px' }}
       destroyOnClose
-      title="忘记密码"
+      title="Forgot password"
       open={createModalVisible}
       footer={renderFooter()}
       onCancel={onCancel}
@@ -68,8 +68,8 @@ const ForgetPwdForm: React.FC<RegisterFormProps> = (props) => {
           ...formVals,
         }}
       >
-        <Item name="email" rules={[{ required: true }]} label="邮箱地址">
-          <Input size="large" type="email" placeholder="请输入邮箱地址" />
+        <Item name="email" rules={[{ required: true }]} label="EmailAddress">
+          <Input size="large" type="email" placeholder="Please enter your email address" />
         </Item>
       </Form>
     </Modal>

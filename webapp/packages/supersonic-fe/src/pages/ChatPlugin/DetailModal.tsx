@@ -160,7 +160,7 @@ const DetailModal: React.FC<Props> = ({ detail, onSubmit, onCancel }) => {
     });
     setConfirmLoading(false);
     onSubmit(values);
-    message.success(detail?.id ? '编辑成功' : '新建成功');
+    message.success(detail?.id ? 'Edit Successful' : 'New Success');
   };
 
   const updateDimensionList = async (value: number) => {
@@ -174,16 +174,16 @@ const DetailModal: React.FC<Props> = ({ detail, onSubmit, onCancel }) => {
   return (
     <Modal
       open
-      title={detail ? '编辑插件' : '新建插件'}
+      title={detail ? 'Edit Plugin/Model' : 'New Plugin/Model'}
       width={900}
       confirmLoading={confirmLoading}
       onOk={onOk}
       onCancel={onCancel}
     >
       <Form {...layout} form={form} style={{ maxWidth: 820 }}>
-        <FormItem name="modelList" label="主题域">
+        <FormItem name="modelList" label="Model List">
           <Select
-            placeholder="请选择主题域"
+            placeholder="Please select a Model"
             options={modelList.map((model) => ({
               label: model.name,
               value: model.id,
@@ -198,18 +198,18 @@ const DetailModal: React.FC<Props> = ({ detail, onSubmit, onCancel }) => {
         </FormItem>
         <FormItem
           name="name"
-          label="插件名称"
-          rules={[{ required: true, message: '请输入插件名称' }]}
+          label="Model name"
+          rules={[{ required: true, message: 'Please enter a plug-in/model name' }]}
         >
-          <Input placeholder="请输入插件名称" allowClear />
+          <Input placeholder="Please enter a plug-in/model name" allowClear />
         </FormItem>
         <FormItem
           name="type"
-          label="插件类型"
-          rules={[{ required: true, message: '请选择插件类型' }]}
+          label="Model type"
+          rules={[{ required: true, message: 'Please select the plug-in/model type' }]}
         >
           <Select
-            placeholder="请选择插件类型"
+            placeholder="Please select the plug-in/model type"
             options={Object.keys(PLUGIN_TYPE_MAP).map((key) => ({
               label: PLUGIN_TYPE_MAP[key],
               value: key,
@@ -223,25 +223,25 @@ const DetailModal: React.FC<Props> = ({ detail, onSubmit, onCancel }) => {
                     id: uuid(),
                     name: 'query_text',
                     type: 'string',
-                    description: '用户的原始自然语言查询',
+                    description: 'Text query',
                   },
                 ]);
               }
             }}
           />
         </FormItem>
-        <FormItem label="函数名称">
+        <FormItem label="Function name">
           <Input
             value={functionName}
             onChange={(e) => {
               setFunctionName(e.target.value);
             }}
-            placeholder="请输入函数名称，只能包含因为字母和下划线"
+            placeholder="Please enter a function name that can only contain because of letters and underscores"
             allowClear
           />
         </FormItem>
-        <FormItem name="pattern" label="函数描述">
-          <TextArea placeholder="请输入函数描述，多个描述换行分隔" allowClear />
+        <FormItem name="pattern" label="Function description">
+          <TextArea placeholder="Please enter a function description, separate multiple descriptions on a new line" allowClear />
         </FormItem>
         {/* <FormItem name="params" label="函数参数" hidden={pluginType === PluginTypeEnum.DSL}>
           <div className={styles.paramsSection}>
@@ -301,14 +301,14 @@ const DetailModal: React.FC<Props> = ({ detail, onSubmit, onCancel }) => {
             </Button>
           </div>
         </FormItem> */}
-        <FormItem name="exampleQuestions" label="示例问题">
+        <FormItem name="exampleQuestions" label="Example question">
           <div className={styles.paramsSection}>
             {examples.map((example) => {
               const { id, question } = example;
               return (
                 <div className={styles.filterRow} key={id}>
                   <Input
-                    placeholder="示例问题"
+                    placeholder="Example question"
                     value={question}
                     className={styles.questionExample}
                     onChange={(e) => {
@@ -331,22 +331,22 @@ const DetailModal: React.FC<Props> = ({ detail, onSubmit, onCancel }) => {
               }}
             >
               <PlusOutlined />
-              新增示例问题
+              New sample question
             </Button>
           </div>
         </FormItem>
         {(pluginType === PluginTypeEnum.WEB_PAGE || pluginType === PluginTypeEnum.WEB_SERVICE) && (
           <>
-            <FormItem name="url" label="地址" rules={[{ required: true, message: '请输入地址' }]}>
-              <Input placeholder="请输入地址" allowClear />
+            <FormItem name="url" label="Address" rules={[{ required: true, message: 'Please enter the URL' }]}>
+              <Input placeholder="Please enter the URL" allowClear />
             </FormItem>
-            <FormItem name="params" label="函数参数">
+            <FormItem name="params" label="Function parameters">
               <div className={styles.paramsSection}>
                 {filters.map((filter: any) => {
                   return (
                     <div className={styles.filterRow} key={filter.id}>
                       <Input
-                        placeholder="参数名称"
+                        placeholder="Parameter name"
                         value={filter.key}
                         className={styles.filterParamName}
                         onChange={(e) => {
@@ -362,12 +362,12 @@ const DetailModal: React.FC<Props> = ({ detail, onSubmit, onCancel }) => {
                         }}
                         value={filter.paramType}
                       >
-                        <Radio value={ParamTypeEnum.SEMANTIC}>维度</Radio>
-                        <Radio value={ParamTypeEnum.CUSTOM}>自定义</Radio>
+                        <Radio value={ParamTypeEnum.SEMANTIC}>Semantic</Radio>
+                        <Radio value={ParamTypeEnum.CUSTOM}>customization</Radio>
                       </Radio.Group>
                       {filter.paramType === ParamTypeEnum.CUSTOM && (
                         <Input
-                          placeholder="请输入"
+                          placeholder="Please enter"
                           value={filter.value}
                           className={styles.filterParamValueField}
                           onChange={(e) => {
@@ -380,7 +380,7 @@ const DetailModal: React.FC<Props> = ({ detail, onSubmit, onCancel }) => {
                       {filter.paramType === ParamTypeEnum.SEMANTIC && (
                         <>
                           <Select
-                            placeholder="主题域"
+                            placeholder="Subject model"
                             options={modelList.map((model) => ({
                               label: model.name,
                               value: model.id,
@@ -401,7 +401,7 @@ const DetailModal: React.FC<Props> = ({ detail, onSubmit, onCancel }) => {
                             }}
                           />
                           <Select
-                            placeholder="请选择维度，需先选择主题域"
+                            placeholder="To select a dimension, you need to select a subject domain first"
                             options={(modelDimensionList[filter.modelId] || []).map(
                               (dimension) => ({
                                 label: dimension.name,
@@ -444,8 +444,8 @@ const DetailModal: React.FC<Props> = ({ detail, onSubmit, onCancel }) => {
             </FormItem>
           </>
         )}
-        <FormItem name="height" label="高度">
-          <InputNumber placeholder="单位px" />
+        <FormItem name="height" label="Height">
+          <InputNumber placeholder="Unit px" />
         </FormItem>
       </Form>
     </Modal>

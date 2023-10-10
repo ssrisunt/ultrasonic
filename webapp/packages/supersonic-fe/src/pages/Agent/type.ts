@@ -24,54 +24,54 @@ export enum QueryModeEnum {
 
 export const AGENT_TOOL_TYPE_LIST = [
   {
-    label: '规则语义解析',
+    label: 'Agent Tool Rule',
     value: AgentToolTypeEnum.RULE
   },
   {
-    label: '大模型语义解析',
+    label: 'Large model semantic parsing',
     value: AgentToolTypeEnum.DSL
   },
   {
-    label: '大模型指标解读',
+    label: 'Interpretation of large model indicators',
     value: AgentToolTypeEnum.INTERPRET
   },
   {
-    label: '第三方插件',
+    label: 'Third-party plugins',
     value: AgentToolTypeEnum.PLUGIN
   },
 ]
 
 export const QUERY_MODE_LIST = [
   {
-    label: '实体明细(查询维度信息)',
+    label: 'Entity details (query dimension information)',
     value: QueryModeEnum.ENTITY_DETAIL
   },
   {
-    label: '实体圈选',
+    label: 'Entity Circle',
     value: QueryModeEnum.ENTITY_LIST_FILTER
   },
   {
-    label: '实体查询(按ID查询)',
+    label: 'Entity queries (query by Entity ID)',
     value: QueryModeEnum.ENTITY_ID
   },
   {
-    label: '指标查询(带实体)',
+    label: 'Metric query (with entities)',
     value: QueryModeEnum.METRIC_ENTITY
   },
   {
-    label: '指标查询(带条件)',
+    label: 'Metric query (with conditions)',
     value: QueryModeEnum.METRIC_FILTER
   },
   {
-    label: '指标查询(按维度分组)',
+    label: 'Metric queries (grouped by dimension)',
     value: QueryModeEnum.METRIC_GROUPBY
   },
   {
-    label: '指标查询(不带条件)',
+    label: 'Metric query (without conditions)',
     value: QueryModeEnum.METRIC_MODEL
   },
   {
-    label: '按指标排序',
+    label: 'Sort by metric',
     value: QueryModeEnum.METRIC_ORDERBY
   }
 ];

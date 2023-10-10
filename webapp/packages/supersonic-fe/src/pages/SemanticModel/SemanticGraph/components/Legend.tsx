@@ -16,7 +16,7 @@ const initLegend = ({ nodeData, filterFunctions }) => {
       fill: '#a6ccff',
       lineWidth: 1,
     },
-    title: '可见数据源',
+    title: 'Visible data source',
     titleConfig: {
       position: 'center',
       offsetX: 0,

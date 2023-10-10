@@ -127,7 +127,7 @@ const OverviewContainer: React.FC<Props> = ({ mode, domainManger, dispatch }) =>
         pushUrlMenu(selectDomainId, id, menuKey);
       }
     } else {
-      message.error('获取模型列表失败!');
+      message.error('Failed to get model list!');
     }
   };
 
@@ -200,7 +200,7 @@ const OverviewContainer: React.FC<Props> = ({ mode, domainManger, dispatch }) =>
 
   return (
     <div className={styles.projectBody}>
-      <Helmet title={'语义模型-超音数'} />
+      <Helmet title={'Semantic Model - UltraSonic'} />
       <div className={styles.projectManger}>
         <h2 className={styles.title}>
           {!!selectModelId && (
@@ -247,7 +247,7 @@ const OverviewContainer: React.FC<Props> = ({ mode, domainManger, dispatch }) =>
               <div className={styles.domainSelector}>
                 <span className={styles.domainTitle}>
                   <Space>
-                    {selectDomainName ? `${selectDomainName}` : '主题域信息'}
+                    {selectDomainName ? `${selectDomainName}` : 'Subject domain information'}
                     {selectModelName && (
                       <>
                         <span style={{ position: 'relative', top: '-2px' }}> | </span>

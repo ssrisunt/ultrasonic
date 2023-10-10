@@ -78,7 +78,7 @@ const DimensionMetricVisibleTableTransfer: React.FC<Props> = ({
       modelId,
     });
     if (code !== 200) {
-      message.error('获取字典导入任务失败!');
+      message.error('Get dictionary import task failed!');
       return;
     }
     const tastMap = data.reduce(
@@ -108,7 +108,7 @@ const DimensionMetricVisibleTableTransfer: React.FC<Props> = ({
       [recordData.id]: false,
     });
     if (code !== 200) {
-      message.error('字典导入任务创建失败!');
+      message.error('Dictionary import task created failed!');
       return;
     }
     setTimeout(() => {
@@ -124,7 +124,7 @@ const DimensionMetricVisibleTableTransfer: React.FC<Props> = ({
       },
     });
     if (code !== 200) {
-      message.error('删除字典导入任务创建失败!');
+      message.error('Delete dictionary import task creation failed!');
     }
   };
 
@@ -145,8 +145,8 @@ const DimensionMetricVisibleTableTransfer: React.FC<Props> = ({
       dataIndex: 'y',
       title: (
         <TableTitleTooltips
-          title="维度值可见"
-          tooltips="勾选可见后，维度值将在搜索时可以被联想出来"
+          title="Dimension values are visible"
+          tooltips="When Visible is checked, dimension values will be associated when searching"
         />
       ),
       width: 120,
@@ -182,7 +182,7 @@ const DimensionMetricVisibleTableTransfer: React.FC<Props> = ({
               queryDictLatestTaskList();
             }}
           >
-            <Tooltip title="刷新字典任务状态">
+            <Tooltip title="Refreshes the dictionary task status">
               <RedoOutlined />
             </Tooltip>
           </span>
@@ -192,7 +192,7 @@ const DimensionMetricVisibleTableTransfer: React.FC<Props> = ({
         const { id, type } = record;
         const target = taskStateMap[id];
         if (type === TransType.DIMENSION && target) {
-          return DictTaskState[target] || '未知状态';
+          return DictTaskState[target] || 'Unknown status';
         }
         return '--';
       },

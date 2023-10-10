@@ -64,7 +64,7 @@ const DomainTreeSelect: FC<Props> = ({
         style={{ width: '100%' }}
         value={value}
         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-        placeholder={'请选择主题域'}
+        placeholder={'Please select a subject field'}
         allowClear
         multiple
         treeNodeFilterProp="title"

@@ -18,7 +18,7 @@ public class EntityQueryTest extends BaseQueryTest {
 
     @Test
     public void queryTest_metric_entity_query() throws Exception {
-        QueryResult actualResult = submitNewChat("艺人周杰伦的播放量");
+        QueryResult actualResult = submitNewChat("The number of views of artist Jay Chou");
 
         QueryResult expectedResult = new QueryResult();
         SemanticParseInfo expectedParseInfo = new SemanticParseInfo();
@@ -27,10 +27,10 @@ public class EntityQueryTest extends BaseQueryTest {
         expectedResult.setQueryMode(MetricEntityQuery.QUERY_MODE);
         expectedParseInfo.setAggType(NONE);
 
-        QueryFilter dimensionFilter = DataUtils.getFilter("singer_name", FilterOperatorEnum.EQUALS, "周杰伦", "歌手名", 7L);
+        QueryFilter dimensionFilter = DataUtils.getFilter("singer_name", FilterOperatorEnum.EQUALS, "jay", "Singer Name", 7L);
         expectedParseInfo.getDimensionFilters().add(dimensionFilter);
 
-        SchemaElement metric = SchemaElement.builder().name("播放量").build();
+        SchemaElement metric = SchemaElement.builder().name("Playback volume").build();
         expectedParseInfo.getMetrics().add(metric);
 
         expectedParseInfo.setDateInfo(DataUtils.getDateConf(DateConf.DateMode.RECENT, 7, period, startDay, endDay));
@@ -41,7 +41,7 @@ public class EntityQueryTest extends BaseQueryTest {
 
     @Test
     public void queryTest_entity_list_filter() throws Exception {
-        QueryResult actualResult = submitNewChat("爱情、流行类型的艺人");
+        QueryResult actualResult = submitNewChat("Love、Entertainers of the popular genre");
 
         QueryResult expectedResult = new QueryResult();
         SemanticParseInfo expectedParseInfo = new SemanticParseInfo();
@@ -53,16 +53,16 @@ public class EntityQueryTest extends BaseQueryTest {
         List<String> list = new ArrayList<>();
         list.add("爱情");
         list.add("流行");
-        QueryFilter dimensionFilter = DataUtils.getFilter("genre", FilterOperatorEnum.IN, list, "风格", 6L);
+        QueryFilter dimensionFilter = DataUtils.getFilter("genre", FilterOperatorEnum.IN, list, "Style", 6L);
         expectedParseInfo.getDimensionFilters().add(dimensionFilter);
 
-        SchemaElement metric = SchemaElement.builder().name("播放量").build();
+        SchemaElement metric = SchemaElement.builder().name("Playback volume").build();
         expectedParseInfo.getMetrics().add(metric);
 
-        SchemaElement dim1 = SchemaElement.builder().name("歌手名").build();
-        SchemaElement dim2 = SchemaElement.builder().name("活跃区域").build();
-        SchemaElement dim3 = SchemaElement.builder().name("风格").build();
-        SchemaElement dim4 = SchemaElement.builder().name("代表作").build();
+        SchemaElement dim1 = SchemaElement.builder().name("Singer Name").build();
+        SchemaElement dim2 = SchemaElement.builder().name("Active region").build();
+        SchemaElement dim3 = SchemaElement.builder().name("Style").build();
+        SchemaElement dim4 = SchemaElement.builder().name("magnum opus").build();
         expectedParseInfo.getDimensions().add(dim1);
         expectedParseInfo.getDimensions().add(dim2);
         expectedParseInfo.getDimensions().add(dim3);

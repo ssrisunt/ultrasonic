@@ -68,7 +68,7 @@ const Message: React.FC<Props> = ({
               <div className={`${prefixCls}-info-bar`}>
                 <div className={`${prefixCls}-main-entity-info`}>
                   <div className={`${prefixCls}-info-item`}>
-                    <div className={`${prefixCls}-info-name`}>数据来源：</div>
+                    <div className={`${prefixCls}-info-name`}>Data Sources：</div>
                     <div className={`${prefixCls}-info-value`}>{modelName}</div>
                   </div>
                   <div className={`${prefixCls}-info-item`}>
@@ -79,7 +79,7 @@ const Message: React.FC<Props> = ({
                   </div>
                   {dimensionFilters && dimensionFilters?.length > 0 && (
                     <div className={`${prefixCls}-info-item`}>
-                      <div className={`${prefixCls}-info-name`}>筛选条件：</div>
+                      <div className={`${prefixCls}-info-name`}>Dimension Filter：</div>
                       {dimensionFilters.map((filter, index) => (
                         <div className={`${prefixCls}-info-value`}>
                           <span>{filter.name}：</span>

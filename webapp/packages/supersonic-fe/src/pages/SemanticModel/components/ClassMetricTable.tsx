@@ -69,41 +69,41 @@ const ClassMetricTable: React.FC<Props> = ({ domainManger, dispatch }) => {
     },
     {
       dataIndex: 'name',
-      title: '指标名称',
+      title: 'Indicator Name',
       search: false,
     },
     {
       dataIndex: 'key',
-      title: '指标搜索',
+      title: 'Indicator Search',
       hideInTable: true,
-      renderFormItem: () => <Input placeholder="请输入ID/指标名称/字段名称/标签" />,
+      renderFormItem: () => <Input placeholder="Please enter ID/Metric Name/Field Name/Label" />,
     },
     {
       dataIndex: 'alias',
-      title: '别名',
+      title: 'Alias',
       width: 300,
       ellipsis: true,
       search: false,
     },
     {
       dataIndex: 'bizName',
-      title: '字段名称',
+      title: 'Business name',
       search: false,
     },
     {
       dataIndex: 'sensitiveLevel',
-      title: '敏感度',
+      title: 'Sensitivity',
       width: 80,
       valueEnum: SENSITIVE_LEVEL_ENUM,
     },
     {
       dataIndex: 'createdBy',
-      title: '创建人',
+      title: 'Created by',
       search: false,
     },
     {
       dataIndex: 'tags',
-      title: '标签',
+      title: 'Label',
       search: false,
       render: (tags) => {
         if (Array.isArray(tags)) {
@@ -122,7 +122,7 @@ const ClassMetricTable: React.FC<Props> = ({ domainManger, dispatch }) => {
     },
     {
       dataIndex: 'description',
-      title: '描述',
+      title: 'Description',
       search: false,
     },
     // {
@@ -136,14 +136,14 @@ const ClassMetricTable: React.FC<Props> = ({ domainManger, dispatch }) => {
 
     {
       dataIndex: 'updatedAt',
-      title: '更新时间',
+      title: 'Update time',
       search: false,
       render: (value: any) => {
         return value && value !== '-' ? moment(value).format('YYYY-MM-DD HH:mm:ss') : '-';
       },
     },
     {
-      title: '操作',
+      title: 'Operate',
       dataIndex: 'x',
       valueType: 'option',
       render: (_, record) => {
@@ -156,13 +156,13 @@ const ClassMetricTable: React.FC<Props> = ({ domainManger, dispatch }) => {
                 setCreateModalVisible(true);
               }}
             >
-              编辑
+              Edit
             </a>
 
             <Popconfirm
-              title="确认删除？"
-              okText="是"
-              cancelText="否"
+              title="Confirm deletion?"
+              okText="Ok"
+              cancelText="Cancel"
               onConfirm={async () => {
                 const { code, msg } = await deleteMetric(record.id);
                 if (code === 200) {
@@ -179,7 +179,7 @@ const ClassMetricTable: React.FC<Props> = ({ domainManger, dispatch }) => {
                   setMetricItem(record);
                 }}
               >
-                删除
+                Delete
               </a>
             </Popconfirm>
           </Space>
@@ -227,7 +227,7 @@ const ClassMetricTable: React.FC<Props> = ({ domainManger, dispatch }) => {
               setCreateModalVisible(true);
             }}
           >
-            创建指标
+            Create metrics
           </Button>,
         ]}
       />

@@ -13,7 +13,7 @@ export default defineConfig({
   webpack5: {},
   mfsu: false,
   define: {
-    // 添加这个自定义的环境变量
+    // Add this custom environment variable
     // 'process.env.REACT_APP_ENV': process.env.REACT_APP_ENV, // * REACT_APP_ENV 本地开发环境：dev，测试服：test，正式服：prod
     'process.env': {
       ...process.env,
@@ -43,8 +43,7 @@ export default defineConfig({
     ...defaultSettings,
   },
   locale: {
-    // default zh-CN
-    default: 'zh-CN',
+    default: 'en-US',
     antd: true,
     // default true, when it is true, will use `navigator.language` overwrite default
     baseNavigator: false,

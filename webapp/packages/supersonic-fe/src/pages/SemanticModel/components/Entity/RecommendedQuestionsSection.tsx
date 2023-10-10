@@ -38,7 +38,7 @@ const RecommendedQuestionsSection: React.FC<Props> = ({ domainManger }) => {
       return;
     }
 
-    message.error('获取问答设置信息失败');
+    message.error('Failed to get Q&A setup information');
   };
 
   const saveEntity = async (list: string[]) => {
@@ -73,7 +73,7 @@ const RecommendedQuestionsSection: React.FC<Props> = ({ domainManger }) => {
 
   return (
     <div style={{ width: 800, margin: '0 auto' }}>
-      <ProCard bordered title="问题推荐列表">
+      <ProCard bordered title="A list of recommended questions">
         <TextAreaCommonEditList
           value={questionData}
           onChange={(list) => {

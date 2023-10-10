@@ -49,9 +49,9 @@ const ModelCreateFormModal: React.FC<ModelCreateFormModalProps> = (props) => {
 
   const footer = (
     <>
-      <Button onClick={onCancel}>取消</Button>
+      <Button onClick={onCancel}>Cancel</Button>
       <Button type="primary" loading={saveLoading} onClick={handleConfirm}>
-        确定
+        Are you sure?
       </Button>
     </>
   );
@@ -61,7 +61,7 @@ const ModelCreateFormModal: React.FC<ModelCreateFormModalProps> = (props) => {
       width={640}
       bodyStyle={{ padding: '32px 40px 48px' }}
       destroyOnClose
-      title={'模型信息'}
+      title={'Model information'}
       open={true}
       footer={footer}
       onCancel={onCancel}
@@ -76,30 +76,30 @@ const ModelCreateFormModal: React.FC<ModelCreateFormModalProps> = (props) => {
       >
         <FormItem
           name="name"
-          label="模型名称"
-          rules={[{ required: true, message: '请输入模型名称！' }]}
+          label="Model name"
+          rules={[{ required: true, message: 'Please enter a model name!' }]}
         >
-          <Input placeholder="模型名称不可重复" />
+          <Input placeholder="Model names are not repeatable" />
         </FormItem>
         <FormItem
           name="bizName"
-          label="模型英文名称"
-          rules={[{ required: true, message: '请输入模型英文名称！' }]}
+          label="business model name"
+          rules={[{ required: true, message: 'Please enter the English name of the model!' }]}
         >
-          <Input placeholder="请输入模型英文名称" />
+          <Input placeholder="Please enter the English name of the model" />
         </FormItem>
-        <FormItem name="alias" label="别名">
+        <FormItem name="alias" label="Alias">
           <Select
             mode="tags"
-            placeholder="输入别名后回车确认，多别名输入、复制粘贴支持英文逗号自动分隔"
+            placeholder="Enter after entering the alias to confirm, multi-alias input, copy and paste support automatic separation of English commas"
             tokenSeparators={[',']}
             maxTagCount={9}
           />
         </FormItem>
-        <FormItem name="description" label="模型描述">
-          <Input.TextArea placeholder="模型描述" />
+        <FormItem name="description" label="Model description">
+          <Input.TextArea placeholder="Model description" />
         </FormItem>
-        <FormItem name="isUnique" label="是否唯一" hidden={true}>
+        <FormItem name="isUnique" label="Whether it is only 一" hidden={true}>
           <Switch size="small" checked={true} />
         </FormItem>
       </Form>

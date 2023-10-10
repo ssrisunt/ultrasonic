@@ -63,13 +63,14 @@ public class ChatGptHelper {
         Date date = new Date(nowTime);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = sdf.format(date);
-        Message system = Message.ofSystem("现在时间 " + formattedDate + "，你是一个专业的数据分析师，你的任务是基于数据，专业的解答用户的问题。"
-                + "你需要遵守以下规则：\n"
-                + "1.返回规范的数据格式，json，如： 输入：近 10 天的日活跃数，输出：{\"start\":\"2023-07-21\",\"end\":\"2023-07-31\"}"
-                + "2.你对时间数据要求规范，能从近 10 天，国庆节，端午节，获取到相应的时间，填写到 json 中。\n"
+        Message system = Message.ofSystem("Current Time " + formattedDate + "，You are a professional data analyst, and your task is to answer users' questions professionally based on data."
+                + "You need to follow these rules:\n"
+                + "1.Returns the canonical data format，json，as： input：near10 The number of daily active days，output：{\"start\":\"2023-07-21\",\"end\":\"2023-07-31\"}"
+                + "2.You require a specification of time data, which can be approximate 10 Day, National Day, Dragon Boat Festival, get the corresponding time, fill in the json.\n"
                 + "3.你的数据时间，只有当前及之前时间即可,超过则回复去年\n"
-                + "4.只需要解析出时间，时间可以是时间月和年或日、日历采用公历\n"
-                + "5.时间给出要是绝对正确，不能瞎编\n"
+                + "4.Only the time needs to be parsed，The time can be time, month, year, or day、The calendar uses the Gregorian calendar\n"
+                + "5.The time is given if it is absolutely correct，You can't make it up\n"
+
         );
         Message message = Message.of("输入：" + queryText + "，输出：");
         Message res = getChatCompletion(system, message);
@@ -132,8 +133,8 @@ public class ChatGptHelper {
                 + "2. Only return in JSON format,"
                 + "3. the array item > 1 and < 5,more alias,"
                 + "for example：input:[\"qq_music\",\"kugou_music\"],"
-                + "out:{\"tran\":[\"qq音乐\",\"酷狗音乐\"],\"alias\":{\"qq_music\":[\"q音\",\"qq音乐\"],"
-                + "\"kugou_music\":[\"kugou\",\"酷狗\"]}},"
+                + "out:{\"tran\":[\"qqMusic\",\"KugouMusic\"],\"alias\":{\"qq_music\":[\"qTone\",\"qqMusic\"],"
+                + "\"kugou_music\":[\"kugou\",\"coolDogs\"]}},"
                 + "now input: "
                 + json + ","
                 + "answer json:";

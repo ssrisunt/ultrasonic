@@ -36,17 +36,17 @@ const ChatSetting: React.FC<Props> = ({
 
   const isModelItem = [
     {
-      label: '指标模式',
+      label: 'Indicator mode',
       key: 'metric',
       children: <EntitySection chatConfigType={ChatConfigType.AGG} />,
     },
     {
-      label: '实体模式',
-      key: 'dimenstion',
+      label: 'Dimension',
+      key: 'dimension',
       children: <EntitySection chatConfigType={ChatConfigType.DETAIL} />,
     },
     {
-      label: '推荐问题',
+      label: 'Recommended Question',
       key: 'recommendedQuestions',
       children: <RecommendedQuestionsSection />,
     },
@@ -85,7 +85,7 @@ const ChatSetting: React.FC<Props> = ({
               }}
               style={{ marginRight: 10 }}
             >
-              返回主题域
+              Returns the subject field
             </Button>
           ) : undefined
         }

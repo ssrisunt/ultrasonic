@@ -114,7 +114,7 @@ const CommonEditList: React.FC<Props> = ({ title, defaultCollapse = false, value
         >
           <div>
             <TextArea
-              placeholder="请输入推荐问题"
+              placeholder="Please enter a recommendation question"
               value={currentSql}
               style={{ height: 150 }}
               minLength={5}

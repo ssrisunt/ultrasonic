@@ -44,16 +44,16 @@ const ConversationModal: React.FC<Props> = ({ visible, editConversation, onClose
 
   return (
     <Modal
-      title={`修改${CHAT_TITLE}问答名称`}
+      title={`MODIFY THE {CHAT_TITLE} Q&A Name`}
       open={visible}
       onCancel={onClose}
       onOk={onConfirm}
       confirmLoading={loading}
     >
       <Form {...layout} form={form}>
-        <FormItem name="conversationName" label="名称" rules={[{ required: true }]}>
+        <FormItem name="conversationName" label="Name" rules={[{ required: true }]}>
           <Input
-            placeholder={`请输入${CHAT_TITLE}问答名称`}
+            placeholder={`Please enter {CHAT_TITLE} Q&A name`}
             ref={conversationNameInputRef}
             onPressEnter={onConfirm}
           />

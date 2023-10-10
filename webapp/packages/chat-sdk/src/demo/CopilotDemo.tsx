@@ -5,13 +5,13 @@ import { useRef } from 'react';
 
 const buttonParams = [
   {
-    msg: '周杰伦 艺人趋势解读',
+    msg: 'Jay Chou Artist trend interpretation',
     agentId: 8,
     modelId: 23,
     filters: [{ bizName: 'singer_id', elementID: 283, value: 4558 }],
   },
   {
-    msg: '林俊杰 艺人趋势解读',
+    msg: 'Lin Junjie Artist trend interpretation',
     agentId: 8,
     modelId: 23,
     filters: [{ bizName: 'singer_id', elementID: 283, value: 4286 }],

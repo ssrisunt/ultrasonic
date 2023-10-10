@@ -100,16 +100,16 @@ const Conversation: ForwardRefRenderFunction<any, Props> = (
   });
 
   const convertTime = (date: string) => {
-    moment.locale('zh-cn');
+    moment.locale('en-us');
     const now = moment();
     const inputDate = moment(date);
     const diffMinutes = now.diff(inputDate, 'minutes');
     if (diffMinutes < 1) {
-      return '刚刚';
+      return 'Now';
     } else if (inputDate.isSame(now, 'day')) {
       return inputDate.format('HH:mm');
     } else if (inputDate.isSame(now.subtract(1, 'day'), 'day')) {
-      return '昨天';
+      return 'Yesterday';
     }
     return inputDate.format('MM/DD');
   };
@@ -137,7 +137,7 @@ const Conversation: ForwardRefRenderFunction<any, Props> = (
         </div>
         <div className={styles.searchConversation}>
           <Input
-            placeholder="搜索"
+            placeholder="Search"
             prefix={<SearchOutlined className={styles.searchIcon} />}
             className={styles.searchTask}
             value={searchValue}
@@ -162,8 +162,8 @@ const Conversation: ForwardRefRenderFunction<any, Props> = (
                   overlay={
                     <Menu
                       items={[
-                        { label: '修改对话名称', key: 'editName' },
-                        { label: '删除', key: 'delete' },
+                        { label: 'Modify the conversation name', key: 'editName' },
+                        { label: 'Delete', key: 'delete' },
                       ]}
                       onClick={({ key }) => {
                         onOperate(key, item);

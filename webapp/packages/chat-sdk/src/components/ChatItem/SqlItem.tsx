@@ -20,7 +20,7 @@ const SqlItem: React.FC<Props> = ({ integrateSystem, sqlInfo }) => {
   const prefixCls = `${PREFIX_CLS}-sql-item`;
 
   const handleCopy = (text, result) => {
-    result ? message.success('复制SQL成功', 1) : message.error('复制SQL失败', 1);
+    result ? message.success('Replication of SQL successful', 1) : message.error('Replication of SQL failed', 1);
   };
 
   const onCollapse = () => {
@@ -104,7 +104,7 @@ const SqlItem: React.FC<Props> = ({ integrateSystem, sqlInfo }) => {
               text={format(sqlInfo[sqlType])}
               onCopy={(text, result) => handleCopy(text, result)}
             >
-              <button className={`${prefixCls}-copy-btn`}>复制代码</button>
+              <button className={`${prefixCls}-copy-btn`}>Copy The Code</button>
             </CopyToClipboard>
           </>
         )}

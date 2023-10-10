@@ -89,55 +89,55 @@ const ClassDimensionTable: React.FC<Props> = ({ domainManger, dispatch }) => {
     },
     {
       dataIndex: 'key',
-      title: '维度搜索',
+      title: 'Dimensional Search',
       hideInTable: true,
       renderFormItem: () => <Input placeholder="请输入ID/维度名称/字段名称" />,
     },
     {
       dataIndex: 'name',
-      title: '维度名称',
+      title: 'Dimension Name',
       search: false,
     },
     {
       dataIndex: 'alias',
-      title: '别名',
+      title: 'Alias',
       width: 300,
       ellipsis: true,
       search: false,
     },
     {
       dataIndex: 'bizName',
-      title: '字段名称',
+      title: 'Business Name',
       search: false,
       // order: 9,
     },
     {
       dataIndex: 'sensitiveLevel',
-      title: '敏感度',
+      title: 'Sensitivity',
       width: 80,
       valueEnum: SENSITIVE_LEVEL_ENUM,
     },
 
     {
       dataIndex: 'datasourceName',
-      title: '数据源名称',
+      title: 'DataSource Name',
       search: false,
     },
     {
       dataIndex: 'createdBy',
-      title: '创建人',
+      title: 'Created by',
       search: false,
     },
 
     {
       dataIndex: 'description',
-      title: '描述',
+      title: 'Description',
       search: false,
     },
 
     {
       dataIndex: 'updatedAt',
-      title: '更新时间',
+      title: 'Update Time',
       search: false,
       render: (value: any) => {
         return value && value !== '-' ? moment(value).format('YYYY-MM-DD HH:mm:ss') : '-';
@@ -145,7 +145,7 @@ const ClassDimensionTable: React.FC<Props> = ({ domainManger, dispatch }) => {
     },
 
     {
-      title: '操作',
+      title: 'Operation',
       dataIndex: 'x',
       valueType: 'option',
       render: (_, record) => {
@@ -158,7 +158,7 @@ const ClassDimensionTable: React.FC<Props> = ({ domainManger, dispatch }) => {
                 setCreateModalVisible(true);
               }}
             >
-              编辑
+              Edit
             </a>
             <a
               key="dimensionValueEditBtn"
@@ -172,12 +172,12 @@ const ClassDimensionTable: React.FC<Props> = ({ domainManger, dispatch }) => {
                 }
               }}
             >
-              维度值设置
+              Dimension value settings
             </a>
             <Popconfirm
-              title="确认删除？"
-              okText="是"
-              cancelText="否"
+              title="Confirm deletion?"
+              okText="Yes"
+              cancelText="No"
               onConfirm={async () => {
                 const { code, msg } = await deleteDimension(record.id);
                 if (code === 200) {
@@ -194,7 +194,7 @@ const ClassDimensionTable: React.FC<Props> = ({ domainManger, dispatch }) => {
                   setDimensionItem(record);
                 }}
               >
-                删除
+                Delete
               </a>
             </Popconfirm>
           </Space>
@@ -241,7 +241,7 @@ const ClassDimensionTable: React.FC<Props> = ({ domainManger, dispatch }) => {
               setCreateModalVisible(true);
             }}
           >
-            创建维度
+            Create a dimension
           </Button>,
         ]}
       />

@@ -5,11 +5,11 @@ import { history } from 'umi';
 const NoAuthPage: React.FC = () => (
   <Result
     status="403"
-    title="当前页面无权限"
-    subTitle={1 ? '请联系项目管理员 jerryjzhang 开通权限' : '请申请加入自己业务的项目'}
+    title="The current page has no permissions"
+    subTitle={1 ? 'Please contact the project administrator to activate permissions' : 'Please apply to join business domain'}
     extra={
       <Button type="primary" onClick={() => history.push('/homepage')}>
-        回到首页
+        Back to Home
       </Button>
     }
   />

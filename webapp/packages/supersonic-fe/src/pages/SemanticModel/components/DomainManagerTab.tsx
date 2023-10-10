@@ -42,7 +42,7 @@ const DomainManagerTab: React.FC<Props> = ({
   const { selectDomainId, domainList } = domainManger;
   const tabItem = [
     {
-      label: '模型',
+      label: 'Model',
       key: 'overview',
       children: (
         <OverView
@@ -59,7 +59,7 @@ const DomainManagerTab: React.FC<Props> = ({
     //   children: <DatabaseSection />,
     // },
     {
-      label: '权限管理',
+      label: 'Permission Setting',
       key: 'permissonSetting',
       children: <PermissionSection permissionTarget={'domain'} />,
     },
@@ -73,7 +73,7 @@ const DomainManagerTab: React.FC<Props> = ({
 
   const isModelItem = [
     {
-      label: '画布',
+      label: 'Canvas',
       key: 'xflow',
       children: (
         <div style={{ width: '100%', marginTop: -20 }}>
@@ -83,37 +83,37 @@ const DomainManagerTab: React.FC<Props> = ({
     },
 
     {
-      label: '数据源',
+      label: 'DataSource',
       key: 'dataSource',
       children: <ClassDataSourceTable />,
     },
     {
       label: '维度',
-      key: 'dimenstion',
+      key: 'dimension',
       children: <ClassDimensionTable />,
     },
     {
-      label: '指标',
+      label: 'Limited Terms',
       key: 'metric',
       children: <ClassMetricTable />,
     },
     {
-      label: '实体',
+      label: 'Entity',
       key: 'entity',
       children: <EntitySettingSection />,
     },
     {
-      label: '权限管理',
-      key: 'permissonSetting',
+      label: 'permissionSetting',
+      key: 'permissionSetting',
       children: <PermissionSection permissionTarget={'model'} />,
     },
     {
-      label: '问答设置',
+      label: 'Chat Setting',
       key: 'chatSetting',
       children: <ChatSettingSection />,
     },
     {
-      label: '推荐问题',
+      label: 'Recommended questions',
       key: 'recommendedQuestions',
       children: <RecommendedQuestionsSection />,
     },
@@ -141,7 +141,7 @@ const DomainManagerTab: React.FC<Props> = ({
               }}
               style={{ marginRight: 10 }}
             >
-              返回主题域
+              Returns the subject field
             </Button>
           ) : undefined
         }

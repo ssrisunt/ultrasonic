@@ -44,7 +44,7 @@ const MetricFilter: React.FC<Props> = ({ filterValues = {}, onFiltersChange }) =
     //   ],
     // },
     {
-      title: '敏感度',
+      title: 'Sensitivity',
       key: 'sensitiveLevel',
       options: SENSITIVE_LEVEL_OPTIONS,
     },
@@ -81,7 +81,7 @@ const MetricFilter: React.FC<Props> = ({ filterValues = {}, onFiltersChange }) =
               <FormItem name="key" noStyle>
                 <div className={styles.searchInput}>
                   <Input.Search
-                    placeholder="请输入需要查询指标的ID、指标名称、字段名称、标签"
+                    placeholder="Enter the ID, metric name, field name, and label of the metric to be queried"
                     enterButton={<SearchOutlined style={{ marginTop: 5 }} />}
                     onSearch={(value) => {
                       onSearch(value);
@@ -94,7 +94,7 @@ const MetricFilter: React.FC<Props> = ({ filterValues = {}, onFiltersChange }) =
         </div>
       </StandardFormRow>
       <Space size={80}>
-        <StandardFormRow key="domainIds" title="所属主题域" block>
+        <StandardFormRow key="domainIds" title="The subject field to which it belongs" block>
           <FormItem name="domainIds">
             <DomainTreeSelect />
           </FormItem>

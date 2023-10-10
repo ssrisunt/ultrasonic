@@ -11,7 +11,7 @@ export const useGraphHookConfig = createHookConfig<IProps>((config) => {
   // const props = proxy.getValue();
   config.setRegisterHook((hooks) => {
     const disposableList = [
-      // 注册增加 react Node Render
+      // Increased registrations react Node Render
       hooks.reactNodeRender.registerHook({
         name: 'add react node',
         handler: async (renderMap) => {
@@ -19,7 +19,7 @@ export const useGraphHookConfig = createHookConfig<IProps>((config) => {
           renderMap.set(GROUP_NODE_RENDER_ID, GroupNode);
         },
       }),
-      // 注册修改graphOptions配置的钩子
+      // Register hooks that modify the graph options configuration
       hooks.graphOptions.registerHook({
         name: 'custom-x6-options',
         after: 'dag-extension-x6-options',
@@ -27,37 +27,37 @@ export const useGraphHookConfig = createHookConfig<IProps>((config) => {
           const graphOptions: Graph.Options = {
             connecting: {
               allowLoop: false,
-              // 是否触发交互事件
+              // Whether the interaction event is triggered
               validateMagnet() {
                 // return magnet.getAttribute('port-group') !== NsGraph.AnchorGroup.TOP
                 return true;
               },
-              // 显示可用的链接桩
+              // Displays the available link stakes
               validateConnection(args: any) {
                 const { sourceView, targetView, sourceMagnet, targetMagnet } = args;
 
-                // 不允许连接到自己
+                // Connecting to yourself is not allowed
                 if (sourceView === targetView) {
                   return false;
                 }
-                // 没有起点的返回false
+                // Return false without starting point
                 if (!sourceMagnet) {
                   return false;
                 }
                 if (!targetMagnet) {
                   return false;
                 }
-                // 只能从上游节点的输出链接桩创建连接
+                // Connections can only be created from the output link pile of the upstream node
                 if (sourceMagnet?.getAttribute('port-group') === NsGraph.AnchorGroup.LEFT) {
                   return false;
                 }
-                // 只能连接到下游节点的输入桩
+                // You can only connect to input stubs of downstream nodes
                 if (targetMagnet?.getAttribute('port-group') === NsGraph.AnchorGroup.RIGHT) {
                   return false;
                 }
                 const node = targetView!.cell as any;
 
-                // 判断目标链接桩是否可连接
+                // Determine whether the target link pile can be connected
                 const portId = targetMagnet.getAttribute('port')!;
                 const port = node.getPort(portId);
                 return !!port;
@@ -68,7 +68,7 @@ export const useGraphHookConfig = createHookConfig<IProps>((config) => {
         },
       }),
       // hooks.afterGraphInit.registerHook({
-      //   name: '注册toolTips工具',
+      //   name: 'Sign up for tool tips tool',
       //   handler: async (args) => {},
       // }),
     ];

@@ -62,7 +62,7 @@ public class LoadBenchMarkDemo implements CommandLineRunner {
 
     public void addDomain() {
         DomainReq domainReq = new DomainReq();
-        domainReq.setName("测评数据-音乐");
+        domainReq.setName("Assessment Data - Music");
         domainReq.setBizName("music");
         domainReq.setParentId(0L);
         domainReq.setViewers(Arrays.asList("admin", "tom", "jack"));
@@ -74,7 +74,7 @@ public class LoadBenchMarkDemo implements CommandLineRunner {
 
     public void addModel_1() {
         ModelReq modelReq = new ModelReq();
-        modelReq.setName("测评数据-音乐");
+        modelReq.setName("Assessment Data - Music");
         modelReq.setBizName("music");
         modelReq.setDomainId(2L);
         modelReq.setViewers(Arrays.asList("admin", "tom", "jack"));
@@ -87,24 +87,24 @@ public class LoadBenchMarkDemo implements CommandLineRunner {
     public void addDatasource_1() throws Exception {
         DatasourceReq datasourceReq = new DatasourceReq();
         datasourceReq.setModelId(3L);
-        datasourceReq.setName("艺术类型");
+        datasourceReq.setName("Art Type");
         datasourceReq.setBizName("genre");
-        datasourceReq.setDescription("艺术类型");
+        datasourceReq.setDescription("Art Type");
         datasourceReq.setDatabaseId(1L);
 
         List<Dim> dimensions = new ArrayList<>();
         Dim dimension1 = new Dim("", "imp_date", DimensionTypeEnum.time.name(), 0);
         dimension1.setTypeParams(new DimensionTimeTypeParams());
         dimensions.add(dimension1);
-        dimensions.add(new Dim("活跃区域", "most_popular_in", DimensionTypeEnum.categorical.name(), 1));
+        dimensions.add(new Dim("Active Area", "most_popular_in", DimensionTypeEnum.categorical.name(), 1));
         datasourceReq.setDimensions(dimensions);
 
         List<Identify> identifiers = new ArrayList<>();
-        identifiers.add(new Identify("音乐类型名称", IdentifyTypeEnum.primary.name(), "g_name"));
+        identifiers.add(new Identify("Music Genre", IdentifyTypeEnum.primary.name(), "g_name"));
         datasourceReq.setIdentifiers(identifiers);
 
         List<Measure> measures = new ArrayList<>();
-        Measure measure = new Measure("评分", "rating", AggOperatorEnum.SUM.name(), 0);
+        Measure measure = new Measure("Rating", "rating", AggOperatorEnum.SUM.name(), 0);
         measures.add(measure);
         datasourceReq.setMeasures(measures);
 
@@ -116,19 +116,19 @@ public class LoadBenchMarkDemo implements CommandLineRunner {
     public void addDatasource_2() throws Exception {
         DatasourceReq datasourceReq = new DatasourceReq();
         datasourceReq.setModelId(3L);
-        datasourceReq.setName("艺术家");
+        datasourceReq.setName("Artist");
         datasourceReq.setBizName("artist");
-        datasourceReq.setDescription("艺术家");
+        datasourceReq.setDescription("Artist");
         datasourceReq.setDatabaseId(1L);
 
         List<Dim> dimensions = new ArrayList<>();
-        dimensions.add(new Dim("国籍", "country", DimensionTypeEnum.categorical.name(), 1));
-        dimensions.add(new Dim("性别", "gender", DimensionTypeEnum.categorical.name(), 1));
+        dimensions.add(new Dim("Nationality", "country", DimensionTypeEnum.categorical.name(), 1));
+        dimensions.add(new Dim("Gender", "gender", DimensionTypeEnum.categorical.name(), 1));
         datasourceReq.setDimensions(dimensions);
 
         List<Identify> identifiers = new ArrayList<>();
-        identifiers.add(new Identify("艺术家名称", IdentifyTypeEnum.primary.name(), "artist_name"));
-        identifiers.add(new Identify("音乐类型名称", IdentifyTypeEnum.foreign.name(), "g_name"));
+        identifiers.add(new Identify("Artist Name", IdentifyTypeEnum.primary.name(), "artist_name"));
+        identifiers.add(new Identify("Music Genre Name", IdentifyTypeEnum.foreign.name(), "g_name"));
         datasourceReq.setIdentifiers(identifiers);
 
         datasourceReq.setMeasures(Collections.emptyList());
@@ -141,19 +141,19 @@ public class LoadBenchMarkDemo implements CommandLineRunner {
     public void addDatasource_3() throws Exception {
         DatasourceReq datasourceReq = new DatasourceReq();
         datasourceReq.setModelId(3L);
-        datasourceReq.setName("文件");
+        datasourceReq.setName("File");
         datasourceReq.setBizName("files");
-        datasourceReq.setDescription("文件");
+        datasourceReq.setDescription("File");
         datasourceReq.setDatabaseId(1L);
 
         List<Dim> dimensions = new ArrayList<>();
-        dimensions.add(new Dim("持续时间", "duration", DimensionTypeEnum.categorical.name(), 1));
-        dimensions.add(new Dim("文件格式", "formats", DimensionTypeEnum.categorical.name(), 1));
+        dimensions.add(new Dim("duration", "duration", DimensionTypeEnum.categorical.name(), 1));
+        dimensions.add(new Dim("file_format", "formats", DimensionTypeEnum.categorical.name(), 1));
         datasourceReq.setDimensions(dimensions);
 
         List<Identify> identifiers = new ArrayList<>();
-        identifiers.add(new Identify("歌曲ID", IdentifyTypeEnum.primary.name(), "f_id"));
-        identifiers.add(new Identify("艺术家名称", IdentifyTypeEnum.foreign.name(), "artist_name"));
+        identifiers.add(new Identify("song_id", IdentifyTypeEnum.primary.name(), "f_id"));
+        identifiers.add(new Identify("artist_name", IdentifyTypeEnum.foreign.name(), "artist_name"));
         datasourceReq.setIdentifiers(identifiers);
 
         datasourceReq.setMeasures(Collections.emptyList());
@@ -166,28 +166,28 @@ public class LoadBenchMarkDemo implements CommandLineRunner {
     public void addDatasource_4() throws Exception {
         DatasourceReq datasourceReq = new DatasourceReq();
         datasourceReq.setModelId(3L);
-        datasourceReq.setName("歌曲");
+        datasourceReq.setName("Songs");
         datasourceReq.setBizName("song");
-        datasourceReq.setDescription("歌曲");
+        datasourceReq.setDescription("Songs");
         datasourceReq.setDatabaseId(1L);
 
         List<Dim> dimensions = new ArrayList<>();
         Dim dimension1 = new Dim("", "imp_date", DimensionTypeEnum.time.name(), 0);
         dimension1.setTypeParams(new DimensionTimeTypeParams());
         dimensions.add(dimension1);
-        dimensions.add(new Dim("国家", "country", DimensionTypeEnum.categorical.name(), 1));
-        dimensions.add(new Dim("语种", "languages", DimensionTypeEnum.categorical.name(), 1));
-        dimensions.add(new Dim("发行时间", "releasedate", DimensionTypeEnum.categorical.name(), 1));
+        dimensions.add(new Dim("Country", "country", DimensionTypeEnum.categorical.name(), 1));
+        dimensions.add(new Dim("Language", "languages", DimensionTypeEnum.categorical.name(), 1));
+        dimensions.add(new Dim("Release Date", "releasedate", DimensionTypeEnum.categorical.name(), 1));
         datasourceReq.setDimensions(dimensions);
 
         List<Identify> identifiers = new ArrayList<>();
-        identifiers.add(new Identify("歌曲名称", IdentifyTypeEnum.primary.name(), "song_name"));
-        identifiers.add(new Identify("歌曲ID", IdentifyTypeEnum.foreign.name(), "f_id"));
+        identifiers.add(new Identify("Song Name", IdentifyTypeEnum.primary.name(), "song_name"));
+        identifiers.add(new Identify("Song ID", IdentifyTypeEnum.foreign.name(), "f_id"));
         datasourceReq.setIdentifiers(identifiers);
 
         List<Measure> measures = new ArrayList<>();
-        measures.add(new Measure("分辨率", "resolution", AggOperatorEnum.SUM.name(), 1));
-        measures.add(new Measure("评分", "rating", AggOperatorEnum.SUM.name(), 1));
+        measures.add(new Measure("resolution", "resolution", AggOperatorEnum.SUM.name(), 1));
+        measures.add(new Measure("Rating", "rating", AggOperatorEnum.SUM.name(), 1));
         datasourceReq.setMeasures(measures);
 
         datasourceReq.setQueryType("sql_query");

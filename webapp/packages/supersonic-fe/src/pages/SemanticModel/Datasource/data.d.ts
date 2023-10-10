@@ -1,8 +1,8 @@
-// 任务查询结果列
+// Task query result column
 export type TaskResultColumn = {
   name: string;
   type: string;
 };
 
-// 任务查询结果
+// Query the results of the task
 export type TaskResultItem = Record<string, string | number>;

@@ -51,27 +51,27 @@ const AgentModal: React.FC<Props> = ({ editAgent, onSaveAgent, onCancel }) => {
   return (
     <Modal
       open
-      title={editAgent ? '编辑助理' : '新建助理'}
+      title={editAgent ? 'Edit assistant' : 'Create a new assistant'}
       confirmLoading={saveLoading}
       width={800}
       onOk={onOk}
       onCancel={onCancel}
     >
       <Form {...layout} form={form} initialValues={{ enableSearch: true }}>
-        <FormItem name="name" label="名称" rules={[{ required: true, message: '请输入助理名称' }]}>
-          <Input placeholder="请输入助理名称" />
+        <FormItem name="name" label="Name" rules={[{ required: true, message: 'Please enter the assistant name' }]}>
+          <Input placeholder="Please enter the assistant name" />
         </FormItem>
-        <FormItem name="enableSearch" label="支持联想" valuePropName="checked">
-          <Switch checkedChildren="开启" unCheckedChildren="关闭" />
+        <FormItem name="enableSearch" label="Support Lenovo" valuePropName="checked">
+          <Switch checkedChildren="Open" unCheckedChildren="Close" />
         </FormItem>
-        <FormItem name="examples" label="示例问题">
+        <FormItem name="examples" label="Example question">
           <div className={styles.paramsSection}>
             {examples.map((example) => {
               const { id, question } = example;
               return (
                 <div className={styles.filterRow} key={id}>
                   <Input
-                    placeholder="示例问题"
+                    placeholder="Example question"
                     value={question}
                     className={styles.questionExample}
                     onChange={(e) => {
@@ -94,12 +94,12 @@ const AgentModal: React.FC<Props> = ({ editAgent, onSaveAgent, onCancel }) => {
               }}
             >
               <PlusOutlined />
-              新增示例问题
+              New sample question
             </Button>
           </div>
         </FormItem>
-        <FormItem name="description" label="描述">
-          <TextArea placeholder="请输入助理描述" />
+        <FormItem name="description" label="Description">
+          <TextArea placeholder="Please enter a description for the assistant" />
         </FormItem>
       </Form>
     </Modal>

@@ -87,31 +87,31 @@ const NodeInfoDrawer: React.FC<Props> = ({
 
     const list = [
       {
-        title: '基本信息',
+        title: 'Basic information',
         children: [
           {
-            label: '字段名称',
+            label: 'Field name',
             value: bizName,
           },
           {
-            label: '别名',
+            label: 'Alias',
             hideItem: !alias,
             value: alias || '-',
           },
           {
-            label: '所属主题域',
+            label: 'The subject field to which it belongs',
             value: domainName,
             content: <Tag>{domainName || selectDomainName}</Tag>,
           },
 
           {
-            label: '描述',
+            label: 'Description',
             value: description,
           },
         ],
       },
       {
-        title: '应用信息',
+        title: 'App information',
         children: [
           // {
           //   label: '全路径',
@@ -123,7 +123,7 @@ const NodeInfoDrawer: React.FC<Props> = ({
           //   ),
           // },
           {
-            label: '敏感度',
+            label: 'Sensitivity',
             value: SENSITIVE_LEVEL_ENUM[sensitiveLevel],
           },
           // {
@@ -134,18 +134,18 @@ const NodeInfoDrawer: React.FC<Props> = ({
         ],
       },
       {
-        title: '创建信息',
+        title: 'Create information',
         children: [
           {
-            label: '创建人',
+            label: 'Created by',
             value: createdBy,
           },
           {
-            label: '创建时间',
+            label: 'Creation time',
             value: createdAt ? moment(createdAt).format('YYYY-MM-DD HH:mm:ss') : '',
           },
           {
-            label: '更新时间',
+            label: 'Update time',
             value: updatedAt ? moment(updatedAt).format('YYYY-MM-DD HH:mm:ss') : '',
           },
         ],
@@ -154,36 +154,36 @@ const NodeInfoDrawer: React.FC<Props> = ({
 
     const datasourceList = [
       {
-        title: '基本信息',
+        title: 'Basic information',
         children: [
           {
-            label: '英文名称',
+            label: 'Biz Name',
             value: bizName,
           },
           {
-            label: '所属主题域',
+            label: 'Domain Name',
             value: domainName,
             content: <Tag>{domainName || selectDomainName}</Tag>,
           },
           {
-            label: '描述',
+            label: 'Description',
             value: description,
           },
         ],
       },
       {
-        title: '创建信息',
+        title: 'Create information',
         children: [
           {
-            label: '创建人',
+            label: 'Created by',
             value: createdBy,
           },
           {
-            label: '创建时间',
+            label: 'Creation time',
             value: createdAt ? moment(createdAt).format('YYYY-MM-DD HH:mm:ss') : '',
           },
           {
-            label: '更新时间',
+            label: 'Update time',
             value: updatedAt ? moment(updatedAt).format('YYYY-MM-DD HH:mm:ss') : '',
           },
         ],
@@ -228,9 +228,9 @@ const NodeInfoDrawer: React.FC<Props> = ({
         </Button>
 
         <Popconfirm
-          title="确认删除？"
-          okText="是"
-          cancelText="否"
+          title="Confirm deletion?"
+          okText="Ok"
+          cancelText="Cancel"
           onConfirm={() => {
             handleDeleteConfirm();
           }}

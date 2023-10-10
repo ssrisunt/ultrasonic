@@ -30,7 +30,7 @@ const DeleteConfirmModal: React.FC<Props> = ({
       deleteQuery = deleteDatasource;
     }
     if (!deleteQuery) {
-      message.error('当前节点类型不是维度，指标，数据源中的一种，请确认节点数据');
+      message.error('The current node type is not one of the dimensions, indicators, or data sources, please confirm the node data');
       return;
     }
     setConfirmLoading(true);
@@ -38,7 +38,7 @@ const DeleteConfirmModal: React.FC<Props> = ({
     setConfirmLoading(false);
     if (code === 200) {
       onOkClick();
-      message.success('删除成功!');
+      message.success('Deleted successfully!');
     } else {
       message.error(msg);
     }
@@ -51,7 +51,7 @@ const DeleteConfirmModal: React.FC<Props> = ({
   return (
     <>
       <Modal
-        title={'删除确认'}
+        title={'Delete confirmation'}
         open={open}
         onOk={handleOk}
         confirmLoading={confirmLoading}
@@ -59,7 +59,7 @@ const DeleteConfirmModal: React.FC<Props> = ({
       >
         <>
           <span style={{ color: '#296DF3', fontWeight: 'bold' }}>{nodeData?.name}</span>
-          将被删除，是否确认？
+          Will be deleted, do you want to confirm?
         </>
       </Modal>
     </>

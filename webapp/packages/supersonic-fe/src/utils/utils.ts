@@ -12,7 +12,7 @@ export const isUrl = (path: string): boolean => reg.test(path);
 
 export function copyText(str: string) {
   copy(str);
-  return message.success('复制成功');
+  return message.success('The copy succeeded');
 }
 
 export function mapToOptions(map: Map<string | number, string>) {
@@ -46,13 +46,13 @@ export function listToTree(list: any[], parentId: number) {
 }
 
 /**
- * 返回格式化后的url params
+ * Returns the formatted one url params
  * @param {string} originUrl 地址，例如http://www.domain.com/?user=anonymous&id=123&id=456&city=%E5%8C%97%E4%BA%AC&enabled，不传则默认是window.location.href
- * @return {*} 针对以上URL返回以下对象
+ * @return {*} The following objects are returned for the above URL
  * {
   user: 'anonymous',
   id: [123, 456],     // 重复出现的 key 要组装成数组，能被转成数字的就转成数字类型
-  city: '北京',        // 中文
+  city: 'Beijing',        // 中文
   enabled: true,      // 未指定值的 key 约定值为 true
 }
  * */
@@ -99,7 +99,7 @@ export function deleteUrlQuery(url = '', key = '') {
 }
 
 /**
- * 获取权限判断后的树数据(项目树选择等组件会用到)
+ * Obtain the tree data after permission judgment (used by components such as project tree selection)
  * @param {Array} treeData
  * @param {Function} authFn 权限过滤函数，如果不传则默认根据数结构的authCodes字段进行权限识别
  * @return {Array} 处理后的树结构数据

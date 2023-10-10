@@ -199,10 +199,10 @@ function showModal(node: NsGraph.INodeConfig, getAppContext: IGetAppCtx) {
           <Form form={form} {...layout} initialValues={{ newNodeName: node.label }}>
             <Form.Item
               name="newNodeName"
-              label="节点名"
+              label="Node name"
               rules={[
-                { required: true, message: '请输入新节点名' },
-                { min: 3, message: '节点名不能少于3个字符' },
+                { required: true, message: 'Please enter a new node name' },
+                { min: 3, message: 'The node name cannot be less than 3 characters' },
               ]}
             >
               <Input />

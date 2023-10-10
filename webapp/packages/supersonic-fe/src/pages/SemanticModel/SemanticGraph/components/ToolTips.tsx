@@ -18,23 +18,23 @@ const initTooltips = () => {
       const { name, bizName, createdBy, updatedAt, description } = model;
       const list = [
         {
-          label: '名称:',
+          label: 'Name:',
           value: name,
         },
         {
-          label: '字段:',
+          label: 'Business Name:',
           value: bizName,
         },
         {
-          label: '创建人:',
+          label: 'Created by:',
           value: createdBy,
         },
         {
-          label: '更新时间:',
+          label: 'Update time:',
           value: updatedAt ? moment(updatedAt).format('YYYY-MM-DD HH:mm:ss') : '',
         },
         {
-          label: '描述:',
+          label: 'Description:',
           value: description,
         },
       ];

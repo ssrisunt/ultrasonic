@@ -22,7 +22,7 @@ import type { NsGraphCmd } from '@antv/xflow';
 import { Radio } from 'antd';
 
 export namespace NSToolbarConfig {
-  /** 注册icon 类型 */
+  /** Register the icon type */
   IconStore.set('SaveOutlined', SaveOutlined);
   IconStore.set('CloudSyncOutlined', CloudSyncOutlined);
   IconStore.set('GatewayOutlined', GatewayOutlined);
@@ -31,7 +31,7 @@ export namespace NSToolbarConfig {
   IconStore.set('PlaySquareOutlined', PlaySquareOutlined);
   IconStore.set('StopOutlined', StopOutlined);
 
-  /** toolbar依赖的状态 */
+  /** The state of the toolbar dependency */
   export interface IToolbarState {
     isMultiSelectionActive: boolean;
     isNodeSelected: boolean;
@@ -47,7 +47,7 @@ export namespace NSToolbarConfig {
     ];
   };
 
-  /** toolbar依赖的状态 */
+  /** The state of the toolbar dependency */
   export const getToolbarState = async (modelService: IModelService) => {
     // isMultiSelectionActive
     const { isEnable: isMultiSelectionActive } = await MODELS.GRAPH_ENABLE_MULTI_SELECT.useValue(
@@ -72,7 +72,7 @@ export namespace NSToolbarConfig {
     const toolbarGroup1: IToolbarItemOptions[] = [];
     const toolbarGroup2: IToolbarItemOptions[] = [];
     const toolbarGroup3: IToolbarItemOptions[] = [];
-    /** 保存数据 */
+    /** Save the data */
     toolbarGroup1.push({
       id: XFlowGraphCommands.SAVE_GRAPH_DATA.id,
       iconName: 'SaveOutlined',
@@ -84,7 +84,7 @@ export namespace NSToolbarConfig {
         );
       },
     });
-    // /** 部署服务按钮 */
+    // /** Deploy Service button */
     // toolbarGroup1.push({
     //   iconName: 'CloudSyncOutlined',
     //   tooltip: '部署服务',
@@ -205,9 +205,9 @@ export const getExtraToolbarItems = async () => {
     render: () => {
       return (
         <Radio.Group defaultValue="dataSource" buttonStyle="solid" size="small">
-          <Radio.Button value="dataSource">数据源</Radio.Button>
-          <Radio.Button value="dimension">维度</Radio.Button>
-          <Radio.Button value="metric">指标</Radio.Button>
+          <Radio.Button value="dataSource">Data source</Radio.Button>
+          <Radio.Button value="dimension">Dimension</Radio.Button>
+          <Radio.Button value="metric">Metric</Radio.Button>
         </Radio.Group>
       );
     },

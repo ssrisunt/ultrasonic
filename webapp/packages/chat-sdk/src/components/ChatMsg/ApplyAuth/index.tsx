@@ -10,7 +10,7 @@ const ApplyAuth: React.FC<Props> = ({ model, onApplyAuth }) => {
 
   return (
     <div className={prefixCls}>
-      暂无权限，
+      No permission,
       {onApplyAuth ? (
         <span
           className={`${prefixCls}-apply`}
@@ -21,7 +21,7 @@ const ApplyAuth: React.FC<Props> = ({ model, onApplyAuth }) => {
           点击申请
         </span>
       ) : (
-        '请联系管理员申请权限'
+        'Please contact your administrator to request permissions'
       )}
     </div>
   );

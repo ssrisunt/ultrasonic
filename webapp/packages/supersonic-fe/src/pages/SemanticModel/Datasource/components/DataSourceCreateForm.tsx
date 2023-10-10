@@ -28,9 +28,9 @@ export type CreateFormProps = {
 const { Step } = Steps;
 
 const initFormVal = {
-  name: '', // 数据源名称
-  bizName: '', // 数据源英文名
-  description: '', // 数据源描述
+  name: '', // Data source name
+  bizName: '', // The English name of the data source
+  description: '', // Data source description
 };
 
 const DataSourceCreateForm: React.FC<CreateFormProps> = ({
@@ -172,7 +172,7 @@ const DataSourceCreateForm: React.FC<CreateFormProps> = ({
       const { code, msg, data } = await queryDatasource(queryParams);
       setSaveLoading(false);
       if (code === 200) {
-        message.success('保存数据源成功！');
+        message.success('Save data source successful!');
         onSubmit?.({
           ...queryParams,
           ...data,
@@ -325,23 +325,23 @@ const DataSourceCreateForm: React.FC<CreateFormProps> = ({
       return (
         <>
           <Button style={{ float: 'left' }} onClick={backward}>
-            上一步
+           Previous step
           </Button>
-          <Button onClick={onCancel}>取消</Button>
+          <Button onClick={onCancel}>Cancel</Button>
           <Button
             type="primary"
             loading={saveLoading}
             onClick={handleNext}
             disabled={hasEmptyNameField}
           >
-            完成
+            Finish
           </Button>
         </>
       );
     }
     return (
       <>
-        <Button onClick={onCancel}>取消</Button>
+        <Button onClick={onCancel}>Cancel</Button>
         <Button type="primary" onClick={handleNext}>
           下一步
         </Button>
@@ -355,15 +355,15 @@ const DataSourceCreateForm: React.FC<CreateFormProps> = ({
       width={1300}
       bodyStyle={{ padding: '32px 40px 48px' }}
       destroyOnClose
-      title={`${isEdit ? '编辑' : '新建'}数据源`}
+      title={`${isEdit ? 'Edit': 'New'}datasource`}
       maskClosable={false}
       open={createModalVisible}
       footer={renderFooter()}
       onCancel={onCancel}
     >
       <Steps style={{ marginBottom: 28 }} size="small" current={currentStep}>
-        <Step title="基本信息" />
-        <Step title="字段信息" />
+        <Step title="Basic information" />
+        <Step title="Field information" />
       </Steps>
       <Form
         {...formLayout}

@@ -68,7 +68,7 @@ const DimensionInfoModal: React.FC<CreateFormProps> = ({
     const { code, msg } = await saveDimensionQuery(queryParams);
     if (code === 200) {
       if (!isSilenceSubmit) {
-        message.success('编辑维度成功');
+        message.success('The dimension was edited successfully');
         handleUpdate(fieldsValue);
       }
       return;
@@ -102,14 +102,14 @@ const DimensionInfoModal: React.FC<CreateFormProps> = ({
   const renderFooter = () => {
     return (
       <>
-        <Button onClick={onCancel}>取消</Button>
+        <Button onClick={onCancel}>Cancel</Button>
         <Button
           type="primary"
           onClick={() => {
             handleSubmit();
           }}
         >
-          完成
+          Finish
         </Button>
       </>
     );
@@ -129,7 +129,7 @@ const DimensionInfoModal: React.FC<CreateFormProps> = ({
     if (code === 200) {
       form.setFieldValue('alias', Array.from(new Set([...formAlias, ...data])));
     } else {
-      message.error('大语言模型解析异常');
+      message.error('Large Language Model Parsing Exception');
     }
   };
 
@@ -141,26 +141,26 @@ const DimensionInfoModal: React.FC<CreateFormProps> = ({
         </FormItem>
         <FormItem
           name="name"
-          label="维度名称"
-          rules={[{ required: true, message: '请输入维度名称' }]}
+          label="The dimension name"
+          rules={[{ required: true, message: 'Please enter dimension name' }]}
         >
-          <Input placeholder="名称不可重复" />
+          <Input placeholder="Non-repeatable name" />
         </FormItem>
         <FormItem
           hidden={isEdit}
           name="bizName"
-          label="字段名称"
-          rules={[{ required: true, message: '请输入字段名称' }]}
+          label="Business Name"
+          rules={[{ required: true, message: 'Please enter a field name' }]}
         >
-          <Input placeholder="名称不可重复" disabled={isEdit} />
+          <Input placeholder="Names are not repeatable" disabled={isEdit} />
         </FormItem>
         <FormItem
           hidden={isEdit}
           name="datasourceId"
-          label="所属数据源"
-          rules={[{ required: true, message: '请选择所属数据源' }]}
+          label="The data source"
+          rules={[{ required: true, message: 'Please select the data source' }]}
         >
-          <Select placeholder="请选择数据源" disabled={isEdit}>
+          <Select placeholder="Please select a data source" disabled={isEdit}>
             {dataSourceList.map((item) => (
               <Option key={item.id} value={item.id}>
                 {item.name}
@@ -168,13 +168,13 @@ const DimensionInfoModal: React.FC<CreateFormProps> = ({
             ))}
           </Select>
         </FormItem>
-        <FormItem label="别名">
+        <FormItem label="alias">
           <Row>
             <Col flex="1 1 200px">
               <FormItem name="alias" noStyle>
                 <Select
                   mode="tags"
-                  placeholder="输入别名后回车确认，多别名输入、复制粘贴支持英文逗号自动分隔"
+                  placeholder="Enter the alias to confirm, and multi-alias input and copy and paste support automatic separation of English commas"
                   tokenSeparators={[',']}
                   maxTagCount={9}
                 />
@@ -192,8 +192,8 @@ const DimensionInfoModal: React.FC<CreateFormProps> = ({
                   }}
                 >
                   <Space>
-                    智能填充
-                    <Tooltip title="智能填充将根据维度相关信息，使用大语言模型获取维度别名">
+                    smart_fill
+                    <Tooltip title="Smart Fill will use a large language model to get dimension aliases based on information about the dimension">
                       <InfoCircleOutlined />
                     </Tooltip>
                   </Space>
@@ -204,10 +204,10 @@ const DimensionInfoModal: React.FC<CreateFormProps> = ({
         </FormItem>
         <FormItem
           name="semanticType"
-          label="类型"
-          rules={[{ required: true, message: '请选择维度类型' }]}
+          label="Type"
+          rules={[{ required: true, message: 'Please select dimension type' }]}
         >
-          <Select placeholder="请选择维度类型">
+          <Select placeholder="Select a dimension type">
             {['CATEGORY', 'ID', 'DATE'].map((item) => (
               <Option key={item} value={item}>
                 {item}
@@ -217,10 +217,10 @@ const DimensionInfoModal: React.FC<CreateFormProps> = ({
         </FormItem>
         <FormItem
           name="sensitiveLevel"
-          label="敏感度"
-          rules={[{ required: true, message: '请选择敏感度' }]}
+          label="Sensitivity"
+          rules={[{ required: true, message: 'Please select sensitivity' }]}
         >
-          <Select placeholder="请选择敏感度">
+          <Select placeholder="Please select a sensitivity">
             {SENSITIVE_LEVEL_OPTIONS.map((item) => (
               <Option key={item.value} value={item.value}>
                 {item.label}
@@ -228,21 +228,21 @@ const DimensionInfoModal: React.FC<CreateFormProps> = ({
             ))}
           </Select>
         </FormItem>
-        <FormItem name="defaultValues" label="默认值">
+        <FormItem name="defaultValues" label="Default value">
           <InfoTagList />
         </FormItem>
         <FormItem
           name="description"
-          label="维度描述"
-          rules={[{ required: true, message: '请输入维度描述' }]}
+          label="Dimension description"
+          rules={[{ required: true, message: 'Please enter a dimension description' }]}
         >
-          <TextArea placeholder="请输入维度描述" />
+          <TextArea placeholder="Please enter a dimension description" />
         </FormItem>
         <FormItem
           name="expr"
-          label="表达式"
-          tooltip="表达式中的字段必须在创建数据源的时候被标记为日期或者维度"
-          rules={[{ required: true, message: '请输入表达式' }]}
+          label="Expression"
+          tooltip="The fields in the expression must be marked as dates or dimensions when the data source is created"
+          rules={[{ required: true, message: 'Please enter an expression' }]}
         >
           <SqlEditor height={'150px'} />
         </FormItem>
@@ -255,7 +255,7 @@ const DimensionInfoModal: React.FC<CreateFormProps> = ({
       <Modal
         width={800}
         destroyOnClose
-        title="维度信息"
+        title="Dimension information"
         style={{ top: 48 }}
         maskClosable={false}
         open={bindModalVisible}

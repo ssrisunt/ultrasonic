@@ -6,14 +6,14 @@ export const EnumTransModelType = {
 export const EnumDescSensitivity = {
   low: {
     value: 1,
-    label: '低',
+    label: 'low',
   },
   middle: {
     value: 2,
-    label: '中',
+    label: 'medium',
   },
   height: {
     value: 3,
-    label: '高',
+    label: 'high',
   },
 };

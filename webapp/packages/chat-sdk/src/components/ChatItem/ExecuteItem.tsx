@@ -43,11 +43,11 @@ const ExecuteItem: React.FC<Props> = ({
   };
 
   if (executeLoading) {
-    return getNodeTip('数据查询中');
+    return getNodeTip('Data query');
   }
 
   if (executeTip) {
-    return getNodeTip('数据查询失败', executeTip);
+    return getNodeTip('Data query failed', executeTip);
   }
 
   if (!data) {
@@ -58,7 +58,7 @@ const ExecuteItem: React.FC<Props> = ({
     <>
       <div className={`${prefixCls}-title-bar`}>
         <CheckCircleFilled className={`${prefixCls}-step-icon`} />
-        <div className={`${prefixCls}-step-title`}>数据查询</div>
+        <div className={`${prefixCls}-step-title`}>Data queries</div>
       </div>
       <div className={`${prefixCls}-content-container ${prefixCls}-last-node`}>
         <Spin spinning={entitySwitchLoading}>

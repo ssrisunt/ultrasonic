@@ -12,28 +12,28 @@ import { GraphApi } from './service';
 
 /** menuitem 配置 */
 export namespace NsMenuItemConfig {
-  /** 注册菜单依赖的icon */
+  /**Register the icon that the menu depends on */
   IconStore.set('DeleteOutlined', DeleteOutlined);
   IconStore.set('EditOutlined', EditOutlined);
   IconStore.set('StopOutlined', StopOutlined);
 
   export const DELETE_EDGE: IMenuOptions = {
     id: XFlowEdgeCommands.DEL_EDGE.id,
-    label: '删除边',
+    label: 'Delete an edge',
     iconName: 'DeleteOutlined',
     onClick: async (args) => {
       const { target, commandService, modelService } = args;
       await commandService.executeCommand<NsEdgeCmd.DelEdge.IArgs>(XFlowEdgeCommands.DEL_EDGE.id, {
         edgeConfig: target.data as NsGraph.IEdgeConfig,
       });
-      // 保存数据源关联关系
+      // Save the data source association relationship
       await commandService.executeCommand(CustomCommands.DATASOURCE_RELATION.id, {});
-      // 保存图数据
+      // Save the graph data
       commandService.executeCommand<NsGraphCmd.SaveGraphData.IArgs>(
         XFlowGraphCommands.SAVE_GRAPH_DATA.id,
         { saveGraphDataService: (meta, graphData) => GraphApi.saveGraphData!(meta, graphData) },
       );
-      // 关闭设置关联关系弹窗
+      // Close the Set Association Relationship pop-up window
       const modalModel = await modelService!.awaitModel(
         NS_DATA_SOURCE_RELATION_MODAL_OPEN_STATE.ID,
       );
@@ -43,7 +43,7 @@ export namespace NsMenuItemConfig {
 
   export const DELETE_NODE: IMenuOptions = {
     id: XFlowNodeCommands.DEL_NODE.id,
-    label: '删除节点',
+    label: 'Delete the node',
     iconName: 'DeleteOutlined',
     onClick: async ({ target, commandService }) => {
       commandService.executeCommand<NsNodeCmd.DelNode.IArgs>(XFlowNodeCommands.DEL_NODE.id, {
@@ -54,7 +54,7 @@ export namespace NsMenuItemConfig {
 
   export const EMPTY_MENU: IMenuOptions = {
     id: 'EMPTY_MENU_ITEM',
-    label: '暂无可用',
+    label: 'Not available',
     isEnabled: false,
     iconName: 'DeleteOutlined',
   };
@@ -75,14 +75,14 @@ export namespace NsMenuItemConfig {
 
   export const DELETE_DATASOURCE_NODE: IMenuOptions = {
     id: CustomCommands.SHOW_RENAME_MODAL.id,
-    label: '删除数据源',
+    label: 'Delete the data source',
     isVisible: true,
     iconName: 'EditOutlined',
     onClick: async ({ target, commandService }) => {
       const nodeConfig = {
         ...target.data,
         modalProps: {
-          title: '确认删除？',
+          title: 'Confirm deletion?',
         },
       } as NsGraph.INodeConfig;
       await commandService.executeCommand<NsConfirmModalCmd.IArgs>(
@@ -114,7 +114,7 @@ export namespace NsMenuItemConfig {
 
   export const VIEW_DIMENSION: IMenuOptions = {
     id: CustomCommands.VIEW_DIMENSION.id,
-    label: '查看维度',
+    label: 'View dimensions',
     isVisible: true,
     iconName: 'EditOutlined',
     onClick: async (args) => {
@@ -133,7 +133,7 @@ export const useMenuConfig = createCtxMenuConfig((config) => {
   config.setMenuModelService(async (target, model, modelService, toDispose) => {
     const { type, cell } = target as any;
     switch (type) {
-      /** 节点菜单 */
+      /** Node menu */
       case 'node':
         model.setValue({
           id: 'root',
@@ -147,7 +147,7 @@ export const useMenuConfig = createCtxMenuConfig((config) => {
           ],
         });
         break;
-      /** 边菜单 */
+      /** Side menu */
       case 'edge':
         model.setValue({
           id: 'root',
@@ -155,7 +155,7 @@ export const useMenuConfig = createCtxMenuConfig((config) => {
           submenu: [NsMenuItemConfig.DELETE_EDGE],
         });
         break;
-      /** 画布菜单 */
+      /** Canvas menu */
       case 'blank':
         model.setValue({
           id: 'root',
@@ -163,7 +163,7 @@ export const useMenuConfig = createCtxMenuConfig((config) => {
           submenu: [NsMenuItemConfig.EMPTY_MENU],
         });
         break;
-      /** 默认菜单 */
+      /** Default menu */
       default:
         model.setValue({
           id: 'root',

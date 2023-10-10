@@ -21,8 +21,8 @@ type Props = {
 const dimensionConfig = {
   blackIdListKey: 'blackDimIdList',
   visibleIdListKey: 'whiteDimIdList',
-  modalTitle: '问答可见信息',
-  titles: ['不可见维度/指标', '可见维度/指标'],
+  modalTitle: 'Q&A',
+  titles: ['Invisible dimensions/metrics', 'Visible dimensions/metrics'],
 };
 
 const DimensionAndMetricVisibleModal: React.FC<Props> = ({
@@ -131,7 +131,7 @@ const DimensionAndMetricVisibleModal: React.FC<Props> = ({
     });
     if (code === 200) {
       if (!isSilenceSubmit) {
-        message.success('保存成功');
+        message.success('Save successfully');
       }
       onSubmit?.({ isSilenceSubmit });
       return;
@@ -153,7 +153,7 @@ const DimensionAndMetricVisibleModal: React.FC<Props> = ({
             saveEntity({ selectedKeyList, knowledgeInfosMap });
           }}
         >
-          完成
+          Finish
         </Button>
       </>
     );
@@ -161,7 +161,7 @@ const DimensionAndMetricVisibleModal: React.FC<Props> = ({
 
   const tabItem = [
     {
-      label: '可见设置',
+      label: 'Visible settings',
       key: 'visibleSetting',
       children: (
         <DimensionMetricVisibleTransfer
@@ -181,7 +181,7 @@ const DimensionAndMetricVisibleModal: React.FC<Props> = ({
       ),
     },
     {
-      label: '全局维度值过滤',
+      label: 'Global dimension value filtering',
       key: 'dimensionValueFilter',
       children: (
         <div style={{ margin: '0 auto', width: '975px' }}>

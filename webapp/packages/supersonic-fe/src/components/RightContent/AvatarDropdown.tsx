@@ -14,8 +14,8 @@ export type GlobalHeaderRightProps = {
 };
 
 /**
- * 退出登录
- * 并返回到首页
+ * Log out
+ * and return to the home page
  */
 const loginOut = async () => {
   localStorage.removeItem(AUTH_TOKEN_KEY);
@@ -35,7 +35,7 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = () => {
       label: (
         <>
           <LogoutOutlined />
-          退出登录
+          Sign out
         </>
       ),
       onClick: (event: any) => {

@@ -10,7 +10,7 @@ type Panes = {
   type: 'add' | 'edit';
   scriptId?: number;
   sql?: string;
-  isSave?: boolean; // 暂存提示保存
+  isSave?: boolean; // Staging prompts to save
 };
 
 type TableRef = {
@@ -31,8 +31,8 @@ const LIST_KEY = 'list';
 const SqlSide: React.FC<Props> = ({ initialValues, onSubmitSuccess }) => {
   const defaultPanes: Panes[] = [
     {
-      key: '数据源查询',
-      title: initialValues?.name || '数据源查询',
+      key: 'Data source queries',
+      title: initialValues?.name || 'Data source queries',
       type: 'add',
       isSave: true,
     },

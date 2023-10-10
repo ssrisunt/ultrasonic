@@ -9,13 +9,13 @@ import { CustomCommands } from './constants';
 import 'antd/es/modal/style/index.css';
 
 export namespace NsConfirmModalCmd {
-  /** Command: 用于注册named factory */
+  /** Command: Used to register named factory */
   // eslint-disable-next-line
   export const command = CustomCommands.SHOW_CONFIRM_MODAL;
   /** hook name */
   // eslint-disable-next-line
   export const hookKey = 'confirmModal';
-  /** hook 参数类型 */
+  /** hook The parameter type */
   export interface IArgs extends IArgsBase {
     nodeConfig: NsGraph.INodeConfig;
     confirmModalCallBack: IConfirmModalService;
@@ -23,9 +23,9 @@ export namespace NsConfirmModalCmd {
   export interface IConfirmModalService {
     (): Promise<any>;
   }
-  /** hook handler 返回类型 */
+  /** hook handler Return type */
   export type IResult = any;
-  /** hooks 类型 */
+  /** hooks type */
   export interface ICmdHooks extends IHooks {
     confirmModal: HookHub<IArgs, IResult>;
   }
@@ -44,12 +44,12 @@ const deleteDataSourceConfirmNode = (name: string) => {
 type ICommand = ICommandHandler<NsConfirmModalCmd.IArgs, NsConfirmModalCmd.IResult, NsConfirmModalCmd.ICmdHooks>;
 
 @ManaSyringe.injectable()
-/** 部署画布数据 */
+/** Deploy canvas data */
 export class ConfirmModalCommand implements ICommand {
   /** api */
   @ManaSyringe.inject(ICommandContextProvider) contextProvider!: ICommand['contextProvider'];
 
-  /** 执行Cmd */
+  /** Execute Cmd */
   execute = async () => {
     const ctx = this.contextProvider();
     const { args } = ctx.getArgs();
@@ -125,12 +125,12 @@ function showModal(node: NsGraph.INodeConfig, getAppContext: IGetAppCtx) {
   const defer = new Deferred<string | void>();
   const modalTitle = node.modalProps?.title;
   const modalContent = node.modalProps?.modalContent;
-  /** modal确认保存逻辑 */
+  /** MODAL CONFIRMS THE SAVE LOGIC */
   class ModalCache {
     static modal: IModalInstance;
   }
 
-  /** modal确认保存逻辑 */
+  /** MODAL CONFIRMS THE SAVE LOGIC */
   const onOk = async () => {
     const { modal } = ModalCache;
     const appContext = getAppContext();
@@ -138,27 +138,27 @@ function showModal(node: NsGraph.INodeConfig, getAppContext: IGetAppCtx) {
     try {
       modal.update({ okButtonProps: { loading: true } });
 
-      /** 执行 confirm回调*/
+      /** Execute the confirm callback*/
       if (confirmModalCallBack) {
         await confirmModalCallBack();
       }
-      /** 更新成功后，关闭modal */
+      /** After the update is successful, close the modal */
       onHide();
     } catch (error) {
       console.error(error);
-      /** 如果resolve空字符串则不更新 */
+      /** If resolve an empty string, it is not updated */
       modal.update({ okButtonProps: { loading: false } });
     }
   };
 
-  /** modal销毁逻辑 */
+  /** modal destroys logic */
   const onHide = () => {
     modal.destroy();
     ModalCache.modal = null as any;
     container.destroy();
   };
 
-  /** modal内容 */
+  /** Modal content */
   const ModalContent = () => {
     return (
       <div>
@@ -166,7 +166,7 @@ function showModal(node: NsGraph.INodeConfig, getAppContext: IGetAppCtx) {
       </div>
     );
   };
-  /** 创建modal dom容器 */
+  /** Create a modal DOM container */
   const container = createContainer();
   /** 创建modal */
   const modal = Modal.confirm({
@@ -189,10 +189,10 @@ function showModal(node: NsGraph.INodeConfig, getAppContext: IGetAppCtx) {
     },
   });
 
-  /** 缓存modal实例 */
+  /** Cache modal instances */
   ModalCache.modal = modal;
 
-  /** showModal 返回一个Promise，用于await */
+  /** showModal returns a Promise for await */
   return defer.promise;
 }
 

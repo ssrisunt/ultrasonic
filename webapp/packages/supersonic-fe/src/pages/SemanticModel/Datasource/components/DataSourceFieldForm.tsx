@@ -51,24 +51,24 @@ const FieldForm: React.FC<Props> = ({ fields, onFieldChange }) => {
 
   const columns = [
     {
-      title: '字段名称',
+      title: 'Business name',
       dataIndex: 'bizName',
       width: 100,
     },
     {
-      title: '数据类型',
+      title: 'DATA TYPE',
       dataIndex: 'sqlType',
       width: 80,
     },
     {
-      title: '字段类型',
+      title: 'Field type',
       dataIndex: 'type',
       width: 100,
       render: (_: any, record: FieldItem) => {
         const type = fields.find((field) => field.bizName === record.bizName)?.type;
         return (
           <Select
-            placeholder="字段类型"
+            placeholder="Field type"
             value={type}
             onChange={(value) => {
               let defaultParams = {};
@@ -111,7 +111,7 @@ const FieldForm: React.FC<Props> = ({ fields, onFieldChange }) => {
       },
     },
     {
-      title: '扩展配置',
+      title: 'Extended configuration',
       dataIndex: 'extender',
       width: 180,
       render: (_: any, record: FieldItem) => {
@@ -120,7 +120,7 @@ const FieldForm: React.FC<Props> = ({ fields, onFieldChange }) => {
           const agg = fields.find((field) => field.bizName === record.bizName)?.agg;
           return (
             <Select
-              placeholder="度量算子"
+              placeholder="Measure operators"
               value={agg}
               onChange={(value) => {
                 handleFieldChange(record, 'agg', value);
@@ -144,7 +144,7 @@ const FieldForm: React.FC<Props> = ({ fields, onFieldChange }) => {
           return (
             <Space>
               <Select
-                placeholder="时间格式"
+                placeholder="Time format"
                 value={dateFormat}
                 onChange={(value) => {
                   handleFieldChange(record, 'dateFormat', value);
@@ -158,12 +158,12 @@ const FieldForm: React.FC<Props> = ({ fields, onFieldChange }) => {
                   </Option>
                 ))}
               </Select>
-              <Tooltip title="请选择数据库中时间字段对应格式">
+              <Tooltip title="Select the format for the time field in the database">
                 <ExclamationCircleOutlined />
               </Tooltip>
-              <span>时间粒度:</span>
+              <span>time granularity:</span>
               <Select
-                placeholder="时间粒度"
+                placeholder="time granularity"
                 value={timeGranularity}
                 onChange={(value) => {
                   handleFieldChange(record, 'timeGranularity', value);
@@ -186,8 +186,8 @@ const FieldForm: React.FC<Props> = ({ fields, onFieldChange }) => {
     {
       title: (
         <TableTitleTooltips
-          title="快速创建"
-          tooltips="若勾选快速创建并填写名称，将会把该维度/指标直接创建到维度/指标列表"
+          title="Quick Create"
+          tooltips="If you select Quick Create and fill in the name, the dimension/metric will be created directly to the dimension/metric list"
         />
       ),
       dataIndex: 'fastCreate',
@@ -240,7 +240,7 @@ const FieldForm: React.FC<Props> = ({ fields, onFieldChange }) => {
                     [isCreateName]: 1,
                   });
                 }}
-                placeholder="请填写名称"
+                placeholder="Please fill in the name"
               />
             </Checkbox>
           );
@@ -257,7 +257,7 @@ const FieldForm: React.FC<Props> = ({ fields, onFieldChange }) => {
         banner
         message={
           <div>
-            为了保障同一个模型下维度/指标列表唯一，消除歧义，若本模型下的多个数据源存在相同的字段名并且都勾选了快速创建，系统默认这些相同字段的指标维度是同一个，同时列表中将只显示第一次创建的指标/维度。
+            To ensure that the dimension/indicator list under the same model is unique and eliminate ambiguity, if multiple data sources in this model have the same field name and Quick Create is selected, the system defaults to the same indicator dimension of these same fields, and only the first created indicator/dimension is displayed in the list.
           </div>
           // <Marquee pauseOnHover gradient={false}>
           //   为了保障同一个主题域下维度/指标列表唯一，消除歧义，若本主题域下的多个数据源存在相同的字段名并且都勾选了快速创建，系统默认这些相同字段的指标维度是同一个，同时列表中将只显示最后一次创建的指标/维度。

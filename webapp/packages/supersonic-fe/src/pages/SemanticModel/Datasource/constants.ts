@@ -14,19 +14,19 @@ export enum EnumDataSourceType {
 
 export const TYPE_OPTIONS = [
   {
-    label: '维度',
+    label: 'Dimension',
     value: EnumDataSourceType.CATEGORICAL,
   },
   {
-    label: '日期',
+    label: 'Time',
     value: EnumDataSourceType.TIME,
   },
   {
-    label: '度量',
+    label: 'Measure',
     value: EnumDataSourceType.MEASURES,
   },
   {
-    label: '主键',
+    label: 'primary key',
     value: EnumDataSourceType.PRIMARY,
   },
   // {

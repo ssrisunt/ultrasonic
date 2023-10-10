@@ -42,10 +42,10 @@ const ChatSettingSection: React.FC<Props> = () => {
         destroyInactiveTabPane
         tabPosition="left"
       /> */}
-      <ProCard bordered title="指标模式" style={{ marginBottom: 20 }}>
+      <ProCard bordered title="Indicator mode" style={{ marginBottom: 20 }}>
         <EntitySection chatConfigType={ChatConfigType.AGG} />
       </ProCard>
-      <ProCard bordered title="实体模式" style={{ marginBottom: 20 }}>
+      <ProCard bordered title="Entity schema" style={{ marginBottom: 20 }}>
         <EntitySection chatConfigType={ChatConfigType.DETAIL} />
       </ProCard>
     </div>

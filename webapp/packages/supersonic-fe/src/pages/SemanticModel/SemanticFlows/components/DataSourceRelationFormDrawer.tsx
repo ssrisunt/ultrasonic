@@ -81,15 +81,15 @@ const DataSourceRelationFormDrawer: React.FC<DataSourceRelationFormDrawerProps> 
         <FormItem hidden={true} name="id" label="ID">
           <Input placeholder="id" />
         </FormItem>
-        <FormItem label="主数据源:">{nodeDataSource?.sourceData?.name}</FormItem>
-        <FormItem label="关联数据源:">{nodeDataSource?.targetData?.name}</FormItem>
+        <FormItem label="Primary data source:">{nodeDataSource?.sourceData?.name}</FormItem>
+        <FormItem label="Associate data sources:">{nodeDataSource?.targetData?.name}</FormItem>
         <FormItem
           name="joinKey"
-          label="可关联Key:"
-          tooltip="主从数据源中必须具有相同的主键或外键才可建立关联关系"
-          rules={[{ required: true, message: '请选择关联Key' }]}
+          label="JoinKey:"
+          tooltip="The master-slave data source must have the same primary or foreign key for an association relationship"
+          rules={[{ required: true, message: 'Please select Associate Key' }]}
         >
-          <Select placeholder="请选择关联Key">
+          <Select placeholder="Select the associated key">
             {dataSourceOptions.map((item) => (
               <Option key={item.value} value={item.value}>
                 {item.label}
@@ -112,7 +112,7 @@ const DataSourceRelationFormDrawer: React.FC<DataSourceRelationFormDrawerProps> 
     });
     setSaveLoading(false);
     if (code === 200) {
-      message.success('保存成功');
+      message.success('Save successfully');
       getRelationListInfo();
       onClose?.();
       return;
@@ -148,7 +148,7 @@ const DataSourceRelationFormDrawer: React.FC<DataSourceRelationFormDrawerProps> 
       forceRender
       width={400}
       getContainer={false}
-      title={'数据源关联信息'}
+      title={'Data Source Association Information'}
       mask={false}
       open={open}
       footer={renderFooter()}

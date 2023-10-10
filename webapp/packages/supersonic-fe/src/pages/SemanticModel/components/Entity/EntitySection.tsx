@@ -42,7 +42,7 @@ const EntitySection: React.FC<Props> = ({
       return;
     }
 
-    message.error('获取问答设置信息失败');
+    message.error('Failed to get Q&A setup information');
   };
 
   const initPage = async () => {
@@ -59,7 +59,7 @@ const EntitySection: React.FC<Props> = ({
   return (
     <div style={{ width: 800, margin: '0 auto' }}>
       <Space direction="vertical" style={{ width: '100%' }} size={20}>
-        <ProCard bordered title="问答可见">
+        <ProCard bordered title="Q&A visible">
           <DimensionMetricVisibleForm
             chatConfigKey={
               chatConfigType === ChatConfigType.DETAIL ? 'chatDetailConfig' : 'chatAggConfig'
@@ -81,7 +81,7 @@ const EntitySection: React.FC<Props> = ({
             }}
           />
         </ProCard>
-        <ProCard bordered title="默认设置">
+        <ProCard bordered title="Default settings">
           <DefaultSettingForm
             domainId={Number(selectDomainId)}
             entityData={entityData || {}}

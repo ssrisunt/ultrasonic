@@ -39,29 +39,29 @@ const DatabaseTable: React.FC<Props> = ({}) => {
     },
     {
       dataIndex: 'name',
-      title: '连接名称',
+      title: 'Connection name',
     },
 
     {
       dataIndex: 'type',
-      title: '类型',
+      title: 'Type',
       search: false,
     },
     {
       dataIndex: 'createdBy',
-      title: '创建人',
+      title: 'Created by',
       search: false,
     },
 
     {
       dataIndex: 'description',
-      title: '描述',
+      title: 'Description',
       search: false,
     },
 
     {
       dataIndex: 'updatedAt',
-      title: '更新时间',
+      title: 'Update time',
       search: false,
       render: (value: any) => {
         return value && value !== '-' ? moment(value).format('YYYY-MM-DD HH:mm:ss') : '-';
@@ -69,7 +69,7 @@ const DatabaseTable: React.FC<Props> = ({}) => {
     },
 
     {
-      title: '操作',
+      title: 'Operate',
       dataIndex: 'x',
       valueType: 'option',
       render: (_, record) => {
@@ -88,9 +88,9 @@ const DatabaseTable: React.FC<Props> = ({}) => {
               编辑
             </a>
             <Popconfirm
-              title="确认删除？"
-              okText="是"
-              cancelText="否"
+              title="Confirm deletion?"
+              okText="Ok"
+              cancelText="Cancel"
               onConfirm={async () => {
                 const { code, msg } = await deleteDatabase(record.id);
                 if (code === 200) {
@@ -107,7 +107,7 @@ const DatabaseTable: React.FC<Props> = ({}) => {
                   setDatabaseItem(record);
                 }}
               >
-                删除
+                Delete
               </a>
             </Popconfirm>
           </Space>
@@ -139,7 +139,7 @@ const DatabaseTable: React.FC<Props> = ({}) => {
               setCreateModalVisible(true);
             }}
           >
-            创建数据库连接
+            Create a database connection
           </Button>,
         ]}
       />

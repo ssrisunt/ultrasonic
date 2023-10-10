@@ -29,6 +29,10 @@ public class TimeRangeParser implements SemanticParser {
 
     private static final Pattern RECENT_PATTERN_CN = Pattern.compile(
             ".*(?<periodStr>(近|过去)((?<enNum>\\d+)|(?<zhNum>[一二三四五六七八九十百千万亿]+))个?(?<zhPeriod>[天周月年])).*");
+
+    private static final Pattern RECENT_PATTERN_EN = Pattern.compile(
+            ".*(?<periodStr>(past|last)((?<num>\\d+)|(?<numWord>one|two|three|four|five|six|seven|eight|nine|ten))\\s*(?<period>days|weeks|months|years)).*"
+    );
     private static final Pattern DATE_PATTERN_NUMBER = Pattern.compile("(\\d{8})");
     private static final DateFormat DATE_FORMAT_NUMBER = new SimpleDateFormat("yyyyMMdd");
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
@@ -114,6 +118,58 @@ public class TimeRangeParser implements SemanticParser {
     }
 
     private DateConf parseRecent(String queryText) {
+        Matcher m = RECENT_PATTERN_EN.matcher(queryText);
+        if (m.matches()) {
+            int num = 0;
+            String numStr = m.group("num");
+            String numWord = m.group("numWord");
+            if (numStr != null) {
+                num = Integer.parseInt(numStr);
+            } else if (numWord != null) {
+                num = enNumParse(numWord);
+            }
+
+            if (num > 0) {
+                DateConf conf = new DateConf();
+                String period = m.group("period");
+                int days = 0;
+                switch (period) {
+                    case "days":
+                        days = 1;
+                        conf.setPeriod("DAY");
+                        break;
+                    case "weeks":
+                        days = 7;
+                        conf.setPeriod("WEEK");
+                        break;
+                    case "months":
+                        days = 30;
+                        conf.setPeriod("MONTH");
+                        break;
+                    case "years":
+                        days = 365;
+                        conf.setPeriod("YEAR");
+                        break;
+                    default:
+                        days = 1;
+                        conf.setPeriod(Constants.DAY);
+                }
+
+                // Set other fields
+                conf.setDateMode(DateConf.DateMode.RECENT);
+                conf.setDetectWord(m.group("periodStr"));
+                conf.setStartDate(LocalDate.now().minusDays(days).toString());
+                conf.setEndDate(LocalDate.now().minusDays(1).toString());
+                conf.setUnit(num);
+
+
+                return conf;
+            }
+        }
+        return null;
+    }
+
+    private DateConf parseRecentCN(String queryText) {
         Matcher m = RECENT_PATTERN_CN.matcher(queryText);
         if (m.matches()) {
             int num = 0;
@@ -185,6 +241,30 @@ public class TimeRangeParser implements SemanticParser {
         }
 
         return stack.stream().mapToInt(s -> s).sum();
+    }
+
+    private int enNumParse(String enNumStr) {
+        Stack<Integer> stacken = new Stack<>();
+        String numStr = "one-two-three-four-five-six-seven-eight-nine";
+        String unitStr = "ten hundred quadrillion";
+
+        String[] ssArr = enNumStr.split("");
+        for (String e : ssArr) {
+            int numIndex = numStr.indexOf(e);
+            int unitIndex = unitStr.indexOf(e);
+            if (numIndex != -1) {
+                stacken.push(numIndex + 1);
+            } else if (unitIndex != -1) {
+                int unitNum = (int) Math.pow(10, unitIndex + 1);
+                if (stacken.isEmpty()) {
+                    stacken.push(unitNum);
+                } else {
+                    stacken.push(stacken.pop() * unitNum);
+                }
+            }
+        }
+
+        return stacken.stream().mapToInt(s -> s).sum();
     }
 
     private DateConf getDateConf(Date startDate, Date endDate, String detectWord) {

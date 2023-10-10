@@ -18,7 +18,7 @@ const FilterSection: React.FC<Props> = ({ chatContext, entityInfo }) => {
 
   return hasFilterSection ? (
     <div className={prefixCls}>
-      <div className={`${prefixCls}-field-label`}>筛选条件：</div>
+      <div className={`${prefixCls}-field-label`}>Filter criteria：</div>
       <div className={`${prefixCls}-filter-values`}>
         {(entityInfoList.length > 0 ? entityInfoList : dimensionFilters).map(filterItem => {
           const filterValue =

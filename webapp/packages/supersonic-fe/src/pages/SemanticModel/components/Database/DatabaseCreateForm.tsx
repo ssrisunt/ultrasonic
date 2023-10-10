@@ -53,7 +53,7 @@ const DatabaseCreateForm: ForwardRefRenderFunction<any, Props> = (
     });
 
     if (code === 200) {
-      message.success('保存成功');
+      message.success('Save successfully');
       onSubmit?.();
       return;
     }
@@ -68,10 +68,10 @@ const DatabaseCreateForm: ForwardRefRenderFunction<any, Props> = (
     });
     setTestLoading(false);
     if (code === 200 && data) {
-      message.success('连接测试通过');
+      message.success('The connection test passed');
       return;
     }
-    message.error('连接测试失败');
+    message.error('The connection test failed');
   };
   return (
     <>
@@ -87,17 +87,17 @@ const DatabaseCreateForm: ForwardRefRenderFunction<any, Props> = (
           }
         }}
       >
-        <FormItem name="name" label="名称" rules={[{ required: true, message: '请输入名称' }]}>
-          <Input placeholder="请输入数据库名称" />
+        <FormItem name="name" label="Name" rules={[{ required: true, message: 'Please enter a name' }]}>
+          <Input placeholder="Please enter a database name" />
         </FormItem>
         <FormItem
           name="type"
-          label="数据库类型"
-          rules={[{ required: true, message: '请选择数据库类型' }]}
+          label="Database type"
+          rules={[{ required: true, message: 'Please select a database type' }]}
         >
           <Select
             style={{ width: '100%' }}
-            placeholder="请选择数据库类型"
+            placeholder="Please select a database type"
             options={[
               { value: 'h2', label: 'h2' },
               { value: 'mysql', label: 'mysql' },
@@ -106,18 +106,18 @@ const DatabaseCreateForm: ForwardRefRenderFunction<any, Props> = (
           />
         </FormItem>
         {selectedDbType === 'h2' ? (
-          <FormItem name="url" label="链接" rules={[{ required: true, message: '请输入链接' }]}>
-            <Input placeholder="请输入链接" />
+          <FormItem name="url" label="Link" rules={[{ required: true, message: 'Please enter the link' }]}>
+            <Input placeholder="Please enter the link" />
           </FormItem>
         ) : (
           <>
-            <FormItem name="host" label="host" rules={[{ required: true, message: '请输入IP' }]}>
-              <Input placeholder="请输入IP" />
+            <FormItem name="host" label="host" rules={[{ required: true, message: 'Please enter the Host IP' }]}>
+              <Input placeholder="Please enter the Host IP" />
             </FormItem>
             <FormItem
               name="port"
               label="port"
-              rules={[{ required: true, message: '请输入端口号' }]}
+              rules={[{ required: true, message: 'Please enter the port number' }]}
             >
               <Input placeholder="请输入端口号" />
             </FormItem>
@@ -127,12 +127,12 @@ const DatabaseCreateForm: ForwardRefRenderFunction<any, Props> = (
         {selectedDbType === 'mysql' && (
           <FormItem
             name="version"
-            label="数据库版本"
-            rules={[{ required: true, message: '请选择数据库版本' }]}
+            label="Database version"
+            rules={[{ required: true, message: 'Please select the database version' }]}
           >
             <Select
               style={{ width: '100%' }}
-              placeholder="请选择数据库版本"
+              placeholder="Please select the database version"
               options={[
                 { value: '5.7', label: '5.7' },
                 { value: '8.0', label: '8.0' },
@@ -145,27 +145,27 @@ const DatabaseCreateForm: ForwardRefRenderFunction<any, Props> = (
           label="用户名"
           // rules={[{ required: true, message: '请输入用户名' }]}
         >
-          <Input placeholder="请输入用户名" />
+          <Input placeholder="Please enter a username" />
         </FormItem>
-        <FormItem name="password" label="密码">
-          <Input.Password placeholder="请输入密码" />
+        <FormItem name="password" label="Password">
+          <Input.Password placeholder="Please enter a password" />
         </FormItem>
-        <FormItem name="database" label="数据库名称">
-          <Input placeholder="请输入数据库名称" />
+        <FormItem name="database" label="Database name">
+          <Input placeholder="Please enter a database name" />
         </FormItem>
         <FormItem
           name="admins"
-          label="管理员"
+          label="Administrator"
           // rules={[{ required: true, message: '请设定数据库连接管理者' }]}
         >
-          <SelectTMEPerson placeholder="请邀请团队成员" />
+          <SelectTMEPerson placeholder="Please invite team members" />
         </FormItem>
-        <FormItem name="viewers" label="使用者">
-          <SelectTMEPerson placeholder="请邀请团队成员" />
+        <FormItem name="viewers" label="User">
+          <SelectTMEPerson placeholder="Please invite team members" />
         </FormItem>
 
-        <FormItem name="description" label="描述">
-          <TextArea placeholder="请输入数据库描述" style={{ height: 100 }} />
+        <FormItem name="description" label="Description">
+          <TextArea placeholder="Please enter a database description" style={{ height: 100 }} />
         </FormItem>
         {!hideSubmitBtn && (
           <FormItem>

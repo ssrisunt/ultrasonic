@@ -58,7 +58,7 @@ const RegisterForm: React.FC<RegisterFormProps> = (props) => {
       width={600}
       bodyStyle={{ padding: '32px 40px 48px' }}
       destroyOnClose
-      title="用户注册"
+      title="User registration"
       open={createModalVisible}
       footer={renderFooter()}
       onCancel={onCancel}
@@ -70,11 +70,11 @@ const RegisterForm: React.FC<RegisterFormProps> = (props) => {
           ...formVals,
         }}
       >
-        <Item name="name" rules={[{ required: true }]} label="账号">
-          <Input size="large" placeholder="请输入账号" />
+        <Item name="name" rules={[{ required: true }]} label="account">
+          <Input size="large" placeholder="Please enter the account number" />
         </Item>
-        <Item name="password" rules={[{ required: true, min: 6, max: 10 }]} label="密码">
-          <Input size="large" type="password" placeholder="请输入密码" />
+        <Item name="password" rules={[{ required: true, min: 6, max: 10 }]} label="Password">
+          <Input size="large" type="password" placeholder="Please enter a password" />
         </Item>
         {/* <Item name="email" rules={[{ required: true, type: 'email' }]} label="邮箱地址">
           <Input size="large" type="email" placeholder="请输入邮箱地址" />

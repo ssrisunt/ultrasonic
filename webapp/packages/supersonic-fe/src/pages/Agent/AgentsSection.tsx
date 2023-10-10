@@ -88,7 +88,7 @@ const AgentsSection: React.FC<Props> = ({
                         }}
                       />
                       <Popconfirm
-                        title="确定删除吗？"
+                        title="Are you sure you want to delete?"
                         onCancel={(e) => {
                           e?.stopPropagation();
                         }}
@@ -112,9 +112,9 @@ const AgentsSection: React.FC<Props> = ({
                     </div>
                     <div className={styles.toggleStatus}>
                       {agent.status === 0 ? (
-                        '已禁用'
+                        'Disabled'
                       ) : (
-                        <span className={styles.online}>已启用</span>
+                        <span className={styles.online}>Enabled</span>
                       )}
                       <span
                         onClick={(e) => {

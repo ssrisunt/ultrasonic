@@ -40,7 +40,7 @@ export const useCmdConfig = createCmdConfig((config) => {
         },
       }),
       hooks.addEdge.registerHook({
-        name: '获取起始和结束节点的业务数据，并写入在边上',
+        name: 'Gets the business data of the start and end nodes and writes them to the edge',
         handler: async (handlerArgs, handler: any) => {
           const { commandService } = handlerArgs;
           const main = async (args: any) => {
@@ -61,7 +61,7 @@ export const useCmdConfig = createCmdConfig((config) => {
                 {
                   name: 'tooltip',
                   args: {
-                    tooltip: '左键点击进行关系编辑，右键点击进行删除操作',
+                    tooltip: 'Left-click to edit the relationship, right-click to delete',
                   },
                 },
               ]);
@@ -86,7 +86,7 @@ export const useCmdConfig = createCmdConfig((config) => {
         },
       }),
       hooks.delEdge.registerHook({
-        name: '边删除，并向后台请求删除数据源间关联关系',
+        name: 'edge, and request to the background to delete the association relationship between data sources',
         handler: async (args) => {
           args.deleteEdgeService = GraphApi.delEdge;
         },
@@ -98,11 +98,11 @@ export const useCmdConfig = createCmdConfig((config) => {
   });
 });
 
-/** 查询图的节点和边的数据 */
+/** Query data for nodes and edges of the graph */
 export const initGraphCmds = async (app: IApplication) => {
   const { commandService } = app;
   await app.executeCommandPipeline([
-    /** 1. 从服务端获取数据 */
+    /** 1. Get data from the server */
     {
       commandId: XFlowGraphCommands.LOAD_DATA.id,
       getCommandOption: async () => {
@@ -124,11 +124,11 @@ export const initGraphCmds = async (app: IApplication) => {
             layoutType: 'dagre',
             layoutOptions: {
               type: 'dagre',
-              /** 布局方向 */
+              /** Layout orientation */
               rankdir: 'LR',
-              /** 节点间距 */
+              /** Node spacing */
               nodesep: 30,
-              /** 层间距 */
+              /** Layer spacing */
               ranksep: 80,
               begin: [0, 0],
             },
@@ -137,7 +137,7 @@ export const initGraphCmds = async (app: IApplication) => {
         };
       },
     } as IGraphPipelineCommand<NsGraphCmd.GraphLayout.IArgs>,
-    /** 3. 画布内容渲染 */
+    /** 3. Canvas content rendering */
     {
       commandId: XFlowGraphCommands.GRAPH_RENDER.id,
       getCommandOption: async (ctx) => {
@@ -194,7 +194,7 @@ export const initGraphCmds = async (app: IApplication) => {
   // }
 };
 
-/** 查询当前数据源下的维度节点和边的数据 */
+/** Query the data of dimension nodes and edges under the current data source */
 export const initDimensionGraphCmds = async (args: {
   commandService: IGraphCommandService;
   target: NsGraph.INodeConfig;

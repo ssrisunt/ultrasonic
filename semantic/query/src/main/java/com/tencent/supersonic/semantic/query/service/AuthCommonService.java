@@ -81,7 +81,7 @@ public class AuthCommonService {
             ModelResp modelResp = modelService.getModel(modelId);
             String modelName = modelResp.getName();
             List<String> admins = modelService.getModelAdmin(modelResp.getId());
-            String message = String.format("您没有主题域[%s]权限，请联系管理员%s开通", modelName, admins);
+            String message = String.format("You do not have subject domain [%s] permissions, please contact administrator %s", modelName, admins);
             throw new InvalidPermissionException(message);
         }
 
@@ -244,7 +244,7 @@ public class AuthCommonService {
         }
         List<String> admins = modelService.getModelAdmin(modelId);
         if (!CollectionUtils.isEmpty(need2Apply)) {
-            String promptInfo = String.format("当前结果已经过脱敏处理， 申请权限请联系管理员%s", admins);
+            String promptInfo = String.format("The current result has been redacted, please contact administrator %s to apply for permission", admins);
             queryResultWithColumns.setQueryAuthorization(new QueryAuthorization(promptInfo));
         }
         if (!CollectionUtils.isEmpty(filters)) {
@@ -256,7 +256,7 @@ public class AuthCommonService {
                 descList.add(filter.getDescription());
                 exprList.add(filter.getExpressions().toString());
             });
-            String promptInfo = "当前结果已经过行权限过滤，详细过滤条件如下:%s, 申请权限请联系管理员%s";
+            String promptInfo = "The current results have been filtered by permissions, and the detailed filter conditions are as follows: %s, please contact the administrator %s to apply for permissions";
             String message = String.format(promptInfo, CollectionUtils.isEmpty(descList) ? exprList : descList, admins);
 
             queryResultWithColumns.setQueryAuthorization(

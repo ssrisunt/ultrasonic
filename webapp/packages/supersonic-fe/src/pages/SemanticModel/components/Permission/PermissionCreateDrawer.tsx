@@ -68,7 +68,7 @@ const PermissionCreateDrawer: React.FC<Props> = ({
 
     if (code === 200) {
       onSubmit?.();
-      message.success('保存成功');
+      message.success('Save successfully');
       return;
     }
     message.error(msg);
@@ -105,14 +105,14 @@ const PermissionCreateDrawer: React.FC<Props> = ({
     return (
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
         <Space>
-          <Button onClick={onCancel}>取消</Button>
+          <Button onClick={onCancel}>Cancel</Button>
           <Button
             type="primary"
             onClick={() => {
               saveAuth();
             }}
           >
-            完成
+            Finish
           </Button>
         </Space>
       </div>
@@ -125,7 +125,7 @@ const PermissionCreateDrawer: React.FC<Props> = ({
         width={'100%'}
         className={styles.permissionDrawer}
         destroyOnClose
-        title={'权限组信息'}
+        title={'Group Permission'}
         maskClosable={false}
         open={visible}
         footer={renderFooter()}
@@ -133,13 +133,13 @@ const PermissionCreateDrawer: React.FC<Props> = ({
       >
         <div style={{ overflow: 'auto', margin: '0 auto', width: '1200px' }}>
           <Space direction="vertical" style={{ width: '100%' }} size={20}>
-            <ProCard title="基本信息" bordered>
+            <ProCard title="Basic information" bordered>
               <PermissionCreateForm ref={basicInfoFormRef} permissonData={permissonData} />
             </ProCard>
 
-            <ProCard title="列权限" bordered tooltip="仅对敏感度为高的指标/维度进行授权">
+            <ProCard title="Column permissions" bordered tooltip="Only authorize metrics/dimensions with high sensitivity">
               <DimensionMetricVisibleTransfer
-                titles={['未授权维度/指标', '已授权维度/指标']}
+                titles={['Unlicensed dimensions/metrics', 'Delegated Dimension/Metric']}
                 sourceList={[
                   ...dimensionList
                     .map((item) => {
@@ -195,14 +195,14 @@ const PermissionCreateDrawer: React.FC<Props> = ({
               />
             </ProCard>
 
-            <ProCard bordered title="行权限">
+            <ProCard bordered title="Row permissions">
               <div>
                 <Form form={form} layout="vertical">
-                  <FormItem name="dimensionFilters" label="表达式">
+                  <FormItem name="dimensionFilters" label="Expression">
                     <SqlEditor height={'150px'} />
                   </FormItem>
-                  <FormItem name="dimensionFilterDescription" label="描述">
-                    <TextArea placeholder="行权限描述" />
+                  <FormItem name="dimensionFilterDescription" label="Description">
+                    <TextArea placeholder="Row permission description" />
                   </FormItem>
                 </Form>
               </div>

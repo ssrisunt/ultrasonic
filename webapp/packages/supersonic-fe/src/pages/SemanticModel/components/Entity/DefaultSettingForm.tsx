@@ -163,7 +163,7 @@ const DefaultSettingForm: ForwardRefRenderFunction<any, Props> = (
         </FormItem>
 
         {chatConfigType === ChatConfigType.DETAIL && (
-          <FormItem name="dataItemIds" label="展示维度/指标">
+          <FormItem name="dataItemIds" label="Display dimensions/metrics">
             <Select
               mode="multiple"
               allowClear
@@ -176,7 +176,7 @@ const DefaultSettingForm: ForwardRefRenderFunction<any, Props> = (
                 }
                 return false;
               }}
-              placeholder="请选择展示维度/指标信息"
+              placeholder="Please select Display dimension/metric information"
               options={dataItemListOptions}
             />
           </FormItem>
@@ -187,7 +187,7 @@ const DefaultSettingForm: ForwardRefRenderFunction<any, Props> = (
               name="metricIds"
               label={
                 <FormItemTitle
-                  title={'指标'}
+                  title={'Limited Terms'}
                   subTitle={'问答搜索结果选择中，如果没有指定指标，将会采用默认指标进行展示'}
                 />
               }
@@ -236,8 +236,8 @@ const DefaultSettingForm: ForwardRefRenderFunction<any, Props> = (
         <FormItem
           label={
             <FormItemTitle
-              title={'时间范围'}
-              subTitle={'问答搜索结果选择中，如果没有指定时间范围，将会采用默认时间范围'}
+              title={'Time range'}
+              subTitle={'In Q&A search result selection, if no time range is specified, the default time range will be used'}
             />
           }
         >
@@ -256,8 +256,8 @@ const DefaultSettingForm: ForwardRefRenderFunction<any, Props> = (
               <>
                 <FormItem name={'timeMode'} noStyle>
                   <Select style={{ width: '90px' }}>
-                    <Option value="LAST">前</Option>
-                    <Option value="RECENT">最近</Option>
+                    <Option value="LAST">Last</Option>
+                    <Option value="RECENT">Recent</Option>
                   </Select>
                 </FormItem>
               </>
@@ -267,10 +267,10 @@ const DefaultSettingForm: ForwardRefRenderFunction<any, Props> = (
             </FormItem>
             <FormItem name={'period'} noStyle>
               <Select style={{ width: '90px' }}>
-                <Option value="DAY">天</Option>
-                <Option value="WEEK">周</Option>
-                <Option value="MONTH">月</Option>
-                <Option value="YEAR">年</Option>
+                <Option value="DAY">Day</Option>
+                <Option value="WEEK">Week</Option>
+                <Option value="MONTH">Month</Option>
+                <Option value="YEAR">Year</Option>
               </Select>
             </FormItem>
           </Input.Group>

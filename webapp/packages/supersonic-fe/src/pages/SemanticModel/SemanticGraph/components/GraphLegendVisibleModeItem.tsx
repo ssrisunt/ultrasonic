@@ -23,15 +23,15 @@ const GraphLegendVisibleModeItem: React.FC<Props> = ({ value, onChange }) => {
         options={[
           {
             value: '',
-            label: '全部',
+            label: 'All',
           },
           {
             value: SemanticNodeType.DIMENSION,
-            label: '仅维度',
+            label: 'Dimensions only',
           },
           {
             value: SemanticNodeType.METRIC,
-            label: '仅指标',
+            label: 'Metrics only',
           },
         ]}
       />

@@ -42,7 +42,7 @@ const PermissionTable: React.FC<Props> = ({ domainManger }) => {
       setIntentionList(data);
       return;
     }
-    message.error('获取主题域解析词失败');
+    message.error('Failed to get subject domain parser term');
   };
 
   useEffect(() => {
@@ -79,12 +79,12 @@ const PermissionTable: React.FC<Props> = ({ domainManger }) => {
     },
     {
       dataIndex: 'name',
-      title: '名称',
+      title: 'Name',
       width: 150,
     },
     {
       dataIndex: 'departmentPermission',
-      title: '授权组织',
+      title: 'Department Permission',
       ellipsis: {
         showTitle: false,
       },
@@ -112,7 +112,7 @@ const PermissionTable: React.FC<Props> = ({ domainManger }) => {
     },
     {
       dataIndex: 'personPermission',
-      title: '授权个人',
+      title: 'Individual Permission',
       ellipsis: {
         showTitle: false,
       },
@@ -136,7 +136,7 @@ const PermissionTable: React.FC<Props> = ({ domainManger }) => {
     },
     {
       dataIndex: 'columnPermission',
-      title: '列权限',
+      title: 'Column permissions',
       // width: 400,
       ellipsis: {
         showTitle: false,
@@ -177,7 +177,7 @@ const PermissionTable: React.FC<Props> = ({ domainManger }) => {
       },
     },
     {
-      title: '操作',
+      title: 'Operate',
       dataIndex: 'x',
       valueType: 'option',
       render: (_, record) => {
@@ -190,7 +190,7 @@ const PermissionTable: React.FC<Props> = ({ domainManger }) => {
                 setCreateModalVisible(true);
               }}
             >
-              编辑
+              Edit
             </a>
             {/* <a
               key="dimensionEditBtn"
@@ -211,9 +211,9 @@ const PermissionTable: React.FC<Props> = ({ domainManger }) => {
               指标授权
             </a> */}
             <Popconfirm
-              title="确认删除？"
-              okText="是"
-              cancelText="否"
+              title="Confirm deletion?"
+              okText="Ok"
+              cancelText="Cancel"
               onConfirm={async () => {
                 const { code, msg } = await removeGroupAuth({
                   modelId: record.modelId,
@@ -233,7 +233,7 @@ const PermissionTable: React.FC<Props> = ({ domainManger }) => {
                   setPermissonData(record);
                 }}
               >
-                删除
+                Delete
               </a>
             </Popconfirm>
           </Space>
@@ -246,7 +246,7 @@ const PermissionTable: React.FC<Props> = ({ domainManger }) => {
     <>
       <ProTable
         actionRef={actionRef}
-        headerTitle="资源列表"
+        headerTitle="A list of resources"
         rowKey="groupId"
         columns={columns}
         search={false}
@@ -271,7 +271,7 @@ const PermissionTable: React.FC<Props> = ({ domainManger }) => {
               setCreateModalVisible(true);
             }}
           >
-            新建授权
+            Create a new authorization
           </Button>,
         ]}
       />

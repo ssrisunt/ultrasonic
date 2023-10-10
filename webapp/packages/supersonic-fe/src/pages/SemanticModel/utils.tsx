@@ -95,7 +95,7 @@ const isDescendant = (
     return isDescendant(parentNode, parentId, nodes);
   }
 
-  // 如果找不到父节点，则说明当前节点不是指定节点的子孙节点
+  // If the parent node cannot be found, the current node is not a descendant of the specified node
   return false;
 };
 
@@ -105,11 +105,11 @@ export const findLeafNodesFromDomainList = (
 ): ISemantic.IDomainItem[] => {
   const leafNodes: ISemantic.IDomainItem[] = [];
 
-  // 遍历所有节点
+  // Iterate through all nodes
   for (const node of nodes) {
     let isLeaf = true;
 
-    // 检查当前节点是否有子节点
+    // Check whether the current node has child nodes
     for (const childNode of nodes) {
       if (childNode.parentId === node.id) {
         isLeaf = false;
@@ -117,7 +117,7 @@ export const findLeafNodesFromDomainList = (
       }
     }
 
-    // 如果当前节点是叶子节点，并且满足指定的 id 条件，则将其添加到结果数组中
+    // If the current node is a leaf node and the specified id condition is met, it is added to the result array
     if (isLeaf && (id === null || isDescendant(node, id, nodes))) {
       leafNodes.push(node);
     }

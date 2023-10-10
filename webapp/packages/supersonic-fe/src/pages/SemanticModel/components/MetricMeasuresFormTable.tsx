@@ -43,7 +43,7 @@ const MetricMeasuresFormTable: React.FC<Props> = ({
   const columns = [
     {
       dataIndex: 'bizName',
-      title: '度量名称',
+      title: 'Measure Name',
     },
     // {
     //   dataIndex: 'alias',
@@ -74,15 +74,15 @@ const MetricMeasuresFormTable: React.FC<Props> = ({
     // },
     {
       dataIndex: 'constraint',
-      title: '限定条件',
+      title: 'Limited Terms',
       tooltip:
-        '该限定条件用于在计算指标时限定口径，作用于度量，所用于过滤的维度必须在创建数据源的时候被标记为日期或者维度，不需要加where关键字。比如：维度A="值1" and 维度B="值2"',
+        'This qualification is used to limit the caliber when calculating the indicator, acting on the measure, and the dimension used to filter must be marked as a date or dimension when the data source is created, without the WHERE keyword. For example: dimension A="value 1" and dimension B="value 2"',
       render: (_: any, record: any) => {
         const { constraint, name } = record;
         const { measures } = measuresParams;
         return (
           <TextArea
-            placeholder="请输入限定条件"
+            placeholder="Please enter qualifications"
             value={constraint}
             onChange={(event) => {
               const { value } = event.target;
@@ -131,8 +131,8 @@ const MetricMeasuresFormTable: React.FC<Props> = ({
       <Space direction="vertical" style={{ width: '100%' }}>
         <ProTable
           actionRef={actionRef}
-          headerTitle={<FormLabelRequire title="度量列表" />}
-          tooltip="基于本主题域下所有数据源的度量来创建指标，且该列表的度量为了加以区分，均已加上数据源名称作为前缀，选中度量后，可基于这几个度量来写表达式，若是选中的度量来自不同的数据源，系统将会自动join来计算该指标"
+          headerTitle={<FormLabelRequire title='Measure List' />}
+          tooltip="Create a metric based on the measures of all data sources under this topic domain, and the measures in this list have been prefixed with the data source name in order to distinguish them, after selecting the measure, you can write an expression based on these measures, if the selected measure is from different data sources, the system will automatically join to calculate the indicator"
           rowKey="name"
           columns={columns}
           dataSource={measuresParams?.measures || []}
@@ -153,8 +153,8 @@ const MetricMeasuresFormTable: React.FC<Props> = ({
           ]}
         />
         <ProCard
-          title={<FormLabelRequire title="度量表达式" />}
-          tooltip="度量表达式由上面选择的度量组成，如选择了度量A和B，则可将表达式写成A+B"
+          title={<FormLabelRequire title="Measure expressions" />}
+          tooltip="A metric expression consists of the metric selected above, and if measures A and B are selected, the expression can be written as A+B"
         >
           <SqlEditor
             value={exprString}

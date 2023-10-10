@@ -73,7 +73,7 @@ if "%command%"=="restart" (
    set "confDir=%runtimeDir%\supersonic-%service%\conf"
    set "webDir=%runtimeDir%\supersonic-%service%\webapp"
    set "classpath=%confDir%;%webDir%;%libDir%\*"
-   set "java-command=-Dfile.encoding=UTF-8 -Duser.language=Zh -Duser.region=CN -Duser.timezone=GMT+08 -Xms1024m -Xmx2048m -cp %CLASSPATH% %MAIN_CLASS%"
+   set "java-command=-Dfile.encoding=UTF-8 -Duser.language=en -Duser.region=US -Duser.timezone=GMT+08 -Xms1024m -Xmx2048m -cp %CLASSPATH% %MAIN_CLASS%"
    start /B java %java-command% >nul 2>&1
    timeout /t 10 >nul
    echo 'java service started'

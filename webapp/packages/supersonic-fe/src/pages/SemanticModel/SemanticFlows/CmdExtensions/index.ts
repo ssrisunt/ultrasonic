@@ -6,7 +6,7 @@ import {
   NsDataSourceRelationCmd,
 } from './CmdUpdateDataSourceRelationList';
 import type { ICommandContributionConfig } from '@antv/xflow';
-/** 注册成为可以执行的命令 */
+/** Register as a command that can be executed */
 
 export const COMMAND_CONTRIBUTIONS: ICommandContributionConfig[] = [
   {

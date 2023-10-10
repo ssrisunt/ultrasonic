@@ -13,7 +13,7 @@ assembly/runtime/*
 **/dist/
 *.umi/
 /assembly/deploy
-/runtime
+/old
 **/.flattened-pom.xml
 chm_db/
 __pycache__/

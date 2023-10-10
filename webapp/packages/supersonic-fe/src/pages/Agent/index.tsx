@@ -39,7 +39,7 @@ const Agent = () => {
   const onSaveAgent = async (agent: AgentType, noTip?: boolean) => {
     await saveAgent(agent);
     if (!noTip) {
-      message.success('保存成功');
+      message.success('Save successfully');
     }
     setModalVisible(false);
     updateData();
@@ -47,7 +47,7 @@ const Agent = () => {
 
   const onDeleteAgent = async (id: number) => {
     await deleteAgent(id);
-    message.success('删除成功');
+    message.success('The deletion was successful');
     updateData();
   };
 

@@ -67,7 +67,7 @@ const EntityCreateForm: ForwardRefRenderFunction<any, Props> = (
     if (code === 200) {
       form.setFieldValue('id', data);
       onSubmit?.();
-      message.success('保存成功');
+      message.success('Save successfully');
       return;
     }
     message.error(msg);
@@ -79,10 +79,10 @@ const EntityCreateForm: ForwardRefRenderFunction<any, Props> = (
         <FormItem hidden={true} name="id" label="ID">
           <Input placeholder="id" />
         </FormItem>
-        <FormItem name="name" label="实体别名">
-          <Input placeholder="请输入实体别名,多个名称以英文逗号分隔" />
+        <FormItem name="name" label="Entity aliases">
+          <Input placeholder="Please enter entity aliases, separated by commas" />
         </FormItem>
-        <FormItem name="entityId" label="唯一标识">
+        <FormItem name="entityId" label="unique-identification">
           <Select
             allowClear
             style={{ width: '100%' }}
@@ -93,7 +93,7 @@ const EntityCreateForm: ForwardRefRenderFunction<any, Props> = (
             //   }
             //   return false;
             // }}
-            placeholder="请选择主体标识"
+            placeholder="Please select a principal ID"
             options={dimensionListOptions}
           />
         </FormItem>
@@ -104,7 +104,7 @@ const EntityCreateForm: ForwardRefRenderFunction<any, Props> = (
               saveEntity();
             }}
           >
-            保 存
+            Save Entity
           </Button>
         </FormItem>
       </Form>

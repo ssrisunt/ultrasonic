@@ -40,20 +40,20 @@ export const THEME_COLOR_LIST = [
   '#5CA9E6',
 ];
 
-export const PARSE_ERROR_TIP = '智能助理不太懂您说什么呐，回去一定补充知识';
+export const PARSE_ERROR_TIP = 'The intelligent assistant doesn\'t understand what you say, so I must supplement my knowledge when I go back';
 
-export const SEARCH_EXCEPTION_TIP = '查询出错啦，数据库可能出现异常或者负载繁忙，请联系管理员或者稍后重试';
+export const SEARCH_EXCEPTION_TIP = 'There is an error with the query, the database may be abnormal or the load is heavy, please contact the administrator or try again later';
 
 export const MSG_VALID_TIP = {
-  [MsgValidTypeEnum.SEARCH_EXCEPTION]: '数据查询异常',
-  [MsgValidTypeEnum.INVALID]: '智能助理不太懂您说什么呐，回去一定补充知识',
+  [MsgValidTypeEnum.SEARCH_EXCEPTION]: 'Search exception',
+  [MsgValidTypeEnum.INVALID]: 'The intelligent assistant does not understand what you say, so you must supplement your knowledge when you go back',
 };
 
 export const PREFIX_CLS = 'ss-chat';
 
 export const AGG_TYPE_MAP = {
-  SUM: '总计',
-  AVG: '平均值',
-  MAX: '最大值',
-  MIN: '最小值',
+  SUM: 'sum',
+  AVG: 'average',
+  MAX: 'maximum',
+  MIN: 'minimum',
 }

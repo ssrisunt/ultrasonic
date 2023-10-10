@@ -52,18 +52,18 @@ const PluginManage = () => {
 
   const columns: any[] = [
     {
-      title: '插件名称',
+      title: 'Plug-in name',
       dataIndex: 'name',
       key: 'name',
     },
     {
-      title: '主题域',
+      title: 'Model List',
       dataIndex: 'modelList',
       key: 'modelList',
       width: 200,
       render: (value: number[]) => {
         if (value?.includes(-1)) {
-          return '默认';
+          return 'Default';
         }
         return value ? (
           <div className={styles.modelColumn}>
@@ -78,7 +78,7 @@ const PluginManage = () => {
       },
     },
     {
-      title: '插件类型',
+      title: 'Plug-in type',
       dataIndex: 'type',
       key: 'type',
       render: (value: string) => {
@@ -90,13 +90,13 @@ const PluginManage = () => {
       },
     },
     {
-      title: '函数描述',
+      title: 'Pattern',
       dataIndex: 'pattern',
       key: 'pattern',
       width: 450,
     },
     {
-      title: '更新人',
+      title: 'Updated By',
       dataIndex: 'updatedBy',
       key: 'updatedBy',
       render: (value: string) => {
@@ -104,7 +104,7 @@ const PluginManage = () => {
       },
     },
     {
-      title: '更新时间',
+      title: 'Updated At',
       dataIndex: 'updatedAt',
       key: 'updatedAt',
       render: (value: string) => {
@@ -112,7 +112,7 @@ const PluginManage = () => {
       },
     },
     {
-      title: '操作',
+      title: 'Operate',
       dataIndex: 'x',
       key: 'x',
       render: (_: any, record: any) => {
@@ -123,15 +123,15 @@ const PluginManage = () => {
                 onCheckPluginDetail(record);
               }}
             >
-              编辑
+              Edit
             </a>
             <Popconfirm
-              title="确定删除吗？"
+              title="Are you sure you want to delete?"
               onConfirm={() => {
                 onDeletePlugin(record);
               }}
             >
-              <a>删除</a>
+              <a>Delete</a>
             </Popconfirm>
           </div>
         );
@@ -167,10 +167,10 @@ const PluginManage = () => {
     <div className={styles.pluginManage}>
       <div className={styles.filterSection}>
         <div className={styles.filterItem}>
-          <div className={styles.filterItemTitle}>主题域</div>
+          <div className={styles.filterItemTitle}>Model List</div>
           <Select
             className={styles.filterItemControl}
-            placeholder="请选择主题域"
+            placeholder="Please select a Model"
             options={modelList.map((model) => ({ label: model.name, value: model.id }))}
             value={model}
             allowClear
@@ -178,10 +178,10 @@ const PluginManage = () => {
           />
         </div>
         <div className={styles.filterItem}>
-          <div className={styles.filterItemTitle}>插件名称</div>
+          <div className={styles.filterItemTitle}>Plug-in name</div>
           <Search
             className={styles.filterItemControl}
-            placeholder="请输入插件名称"
+            placeholder="Please enter a plug-in name"
             value={name}
             onChange={(e) => {
               setName(e.target.value);
@@ -190,10 +190,10 @@ const PluginManage = () => {
           />
         </div>
         <div className={styles.filterItem}>
-          <div className={styles.filterItemTitle}>函数描述</div>
+          <div className={styles.filterItemTitle}>Function description</div>
           <Search
             className={styles.filterItemControl}
-            placeholder="请输入函数描述"
+            placeholder="Please enter a description of the function"
             value={pattern}
             onChange={(e) => {
               setPattern(e.target.value);
@@ -202,10 +202,10 @@ const PluginManage = () => {
           />
         </div>
         <div className={styles.filterItem}>
-          <div className={styles.filterItemTitle}>插件类型</div>
+          <div className={styles.filterItemTitle}>Plug-in type</div>
           <Select
             className={styles.filterItemControl}
-            placeholder="请选择插件类型"
+            placeholder="Please select the plug-in type"
             options={Object.keys(PLUGIN_TYPE_MAP).map((key) => ({
               label: PLUGIN_TYPE_MAP[key],
               value: key,
@@ -218,10 +218,10 @@ const PluginManage = () => {
       </div>
       <div className={styles.pluginList}>
         <div className={styles.titleBar}>
-          <div className={styles.title}>插件列表</div>
+          <div className={styles.title}>List of plugins</div>
           <Button type="primary" onClick={onCreatePlugin}>
             <PlusOutlined />
-            新建插件
+            Create a new plug-in
           </Button>
         </div>
         <Table

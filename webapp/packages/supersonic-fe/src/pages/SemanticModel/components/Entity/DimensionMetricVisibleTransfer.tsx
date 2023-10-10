@@ -60,7 +60,7 @@ const DimensionMetricVisibleTransfer: React.FC<Props> = ({
         onKnowledgeInfosMapChange={onKnowledgeInfosMapChange}
         dataSource={transferData}
         showSearch
-        titles={titles || ['不可见维度', '可见维度']}
+        titles={titles || ['Invisible dimension', 'Visible dimension']}
         listStyle={{
           width: 720,
           height: 600,

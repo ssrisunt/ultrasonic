@@ -17,7 +17,7 @@ import {
 } from '../service';
 import { message } from 'antd';
 
-/** mock 后端接口调用 */
+/** mock Backend interface call */
 export namespace GraphApi {
   export const NODE_COMMON_PROPS = {
     renderKey: DATASOURCE_NODE_RENDER_ID,
@@ -41,13 +41,13 @@ export namespace GraphApi {
               id: `${nodeId}-input-${portIdx}`,
               type: NsGraph.AnchorType.INPUT,
               group: layout === 'TB' ? NsGraph.AnchorGroup.TOP : NsGraph.AnchorGroup.LEFT,
-              tooltip: `输入桩-${portIdx}`,
+              tooltip: `InputPile-${portIdx}`,
             },
             {
               id: `${nodeId}-output-${portIdx}`,
               type: NsGraph.AnchorType.OUTPUT,
               group: layout === 'TB' ? NsGraph.AnchorGroup.BOTTOM : NsGraph.AnchorGroup.RIGHT,
-              tooltip: `输出桩-${portIdx}`,
+              tooltip: `OutputPile-${portIdx}`,
             },
           ],
         );
@@ -67,11 +67,11 @@ export namespace GraphApi {
     };
   };
 
-  /** 删除节点的api */
+  /** Delete the node's API */
   export const delDataSource = async (nodeConfig: any) => {
     const dataSourceId = nodeConfig.targetData?.payload?.id;
     if (!dataSourceId) {
-      // dataSourceId 不存在时，为未保存节点，直接返回true删除
+      // dataSourceId If it does not exist, it is an unsaved node and directly returns true to delete
       return true;
     }
     const { code, msg } = await deleteDatasource(dataSourceId);
@@ -97,7 +97,7 @@ export namespace GraphApi {
       {},
     );
     if (code === 200) {
-      // 如果config存在，将数据源信息进行merge
+      // If config exists, merge the data source information
       if (graphConfig?.id && graphConfig?.config) {
         const { config } = graphConfig;
         const { nodes, edges } = config;
@@ -149,7 +149,7 @@ export namespace GraphApi {
         return { nodes: mergeNodes, edges: mergeEdges };
       }
 
-      //  如果config不存在，进行初始化
+      // If config does not exist, initialize it
       const nodes: NsGraph.INodeConfig[] = data.map((item: IDataSource.IDataSourceItem) => {
         return createDataSourceNode(item);
       });
@@ -187,7 +187,7 @@ export namespace GraphApi {
   ) => {
     const { commandService } = graphMeta;
     const initGraphCmdsState = commandService.getGlobal('initGraphCmdsSuccess');
-    // 如果graph处于初始化阶段，则禁止配置文件保存操作
+    // If the graph is in the initialization phase, the configuration file save operation is prohibited
     if (!initGraphCmdsState) {
       return;
     }
@@ -247,14 +247,14 @@ export namespace GraphApi {
       id: nodeId,
       ports: ports,
     };
-    /** group没有链接桩 */
+    /** Group does not have link stubs */
     if (groupChildren && groupChildren.length) {
       node.ports = [];
     }
     return node;
   };
 
-  /** 更新节点 name，可能依赖接口判断是否重名，返回空字符串时，不更新 */
+  /** Updating the node name may rely on the interface to determine whether the name is the same, and it is not updated when an empty string is returned */
   export const renameNode: NsRenameNodeCmd.IUpdateNodeNameService = async (
     name,
     node,
@@ -263,7 +263,7 @@ export namespace GraphApi {
     return { err: null, nodeName: name };
   };
 
-  /** 删除节点的api */
+  /**Delete the node's API */
   export const delNode: NsNodeCmd.DelNode.IArgs['deleteNodeService'] = async (args: any) => {
     const { type } = args.nodeConfig;
     switch (type) {
@@ -276,7 +276,7 @@ export namespace GraphApi {
     }
   };
 
-  /** 添加边的api */
+  /** Add an API for edges */
   export const addEdge: NsEdgeCmd.AddEdge.IArgs['createEdgeService'] = async (args) => {
     console.info('addEdge service running, add edge:', args);
     const { edgeConfig } = args;
@@ -304,7 +304,7 @@ export namespace GraphApi {
       dataSourceRelationList,
     );
     if (!relationConfig) {
-      // 如果配置不存在则直接删除
+      //If the configuration does not exist, it is simply deleted
       return true;
     }
     const { code, msg } = await deleteDatasourceRela(relationConfig.id);

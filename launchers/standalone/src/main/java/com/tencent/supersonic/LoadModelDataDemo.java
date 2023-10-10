@@ -91,8 +91,8 @@ public class LoadModelDataDemo implements CommandLineRunner {
 
     public void addDatabase() {
         DatabaseReq databaseReq = new DatabaseReq();
-        databaseReq.setName("H2数据实例");
-        databaseReq.setDescription("样例数据库实例");
+        databaseReq.setName("h_2_data_instance");
+        databaseReq.setDescription("Sample DB Instance");
         databaseReq.setType("h2");
         databaseReq.setUrl("jdbc:h2:mem:semantic;DATABASE_TO_UPPER=false");
         databaseReq.setUsername("root");
@@ -102,7 +102,7 @@ public class LoadModelDataDemo implements CommandLineRunner {
 
     public void addDomain() {
         DomainReq domainReq = new DomainReq();
-        domainReq.setName("超音数");
+        domainReq.setName("Ultra Sonic Number");
         domainReq.setBizName("supersonic");
         domainReq.setParentId(0L);
         domainReq.setViewers(Arrays.asList("admin", "tom", "jack"));
@@ -114,7 +114,7 @@ public class LoadModelDataDemo implements CommandLineRunner {
 
     public void addModel_1() {
         ModelReq modelReq = new ModelReq();
-        modelReq.setName("超音数");
+        modelReq.setName("SuperSonic Count");
         modelReq.setBizName("supersonic");
         modelReq.setDomainId(1L);
         modelReq.setViewers(Arrays.asList("admin", "tom", "jack"));
@@ -126,17 +126,17 @@ public class LoadModelDataDemo implements CommandLineRunner {
 
     public void addDatasource_1() throws Exception {
         DatasourceReq datasourceReq = new DatasourceReq();
-        datasourceReq.setName("用户部门");
+        datasourceReq.setName("User Department");
         datasourceReq.setBizName("user_department");
-        datasourceReq.setDescription("用户部门");
+        datasourceReq.setDescription("User Department");
         datasourceReq.setDatabaseId(1L);
 
         List<Identify> identifiers = new ArrayList<>();
-        identifiers.add(new Identify("用户名", IdentifyTypeEnum.primary.name(), "user_name"));
+        identifiers.add(new Identify("User name", IdentifyTypeEnum.primary.name(), "user_name"));
         datasourceReq.setIdentifiers(identifiers);
 
         List<Dim> dimensions = new ArrayList<>();
-        dimensions.add(new Dim("部门", "department",
+        dimensions.add(new Dim("Department", "department",
                 DimensionTypeEnum.categorical.name(), 1));
         datasourceReq.setDimensions(dimensions);
 
@@ -149,13 +149,13 @@ public class LoadModelDataDemo implements CommandLineRunner {
 
     public void addDatasource_2() throws Exception {
         DatasourceReq datasourceReq = new DatasourceReq();
-        datasourceReq.setName("PVUV统计");
+        datasourceReq.setName("PVUVStatistics");
         datasourceReq.setBizName("s2_pv_uv_statis");
-        datasourceReq.setDescription("PVUV统计");
+        datasourceReq.setDescription("PVUVStatistics");
         datasourceReq.setDatabaseId(1L);
 
         List<Identify> identifiers = new ArrayList<>();
-        identifiers.add(new Identify("用户名", IdentifyTypeEnum.primary.name(), "user_name"));
+        identifiers.add(new Identify("User name", IdentifyTypeEnum.primary.name(), "user_name"));
         datasourceReq.setIdentifiers(identifiers);
 
         List<Dim> dimensions = new ArrayList<>();
@@ -167,10 +167,10 @@ public class LoadModelDataDemo implements CommandLineRunner {
         datasourceReq.setDimensions(dimensions);
 
         List<Measure> measures = new ArrayList<>();
-        Measure measure1 = new Measure("访问次数", "pv", AggOperatorEnum.SUM.name(), 1);
+        Measure measure1 = new Measure("Number of visits", "pv", AggOperatorEnum.SUM.name(), 1);
         measures.add(measure1);
 
-        Measure measure2 = new Measure("访问人数", "uv", AggOperatorEnum.COUNT_DISTINCT.name(), 1);
+        Measure measure2 = new Measure("Number of visitors", "uv", AggOperatorEnum.COUNT_DISTINCT.name(), 1);
         measures.add(measure2);
 
         datasourceReq.setMeasures(measures);
@@ -182,25 +182,25 @@ public class LoadModelDataDemo implements CommandLineRunner {
 
     public void addDatasource_3() throws Exception {
         DatasourceReq datasourceReq = new DatasourceReq();
-        datasourceReq.setName("停留时长统计");
+        datasourceReq.setName("length_of_stay_statistics");
         datasourceReq.setBizName("s2_stay_time_statis");
-        datasourceReq.setDescription("停留时长统计");
+        datasourceReq.setDescription("Length of stay statistics");
         datasourceReq.setDatabaseId(1L);
 
         List<Identify> identifiers = new ArrayList<>();
-        identifiers.add(new Identify("用户名", IdentifyTypeEnum.primary.name(), "user_name"));
+        identifiers.add(new Identify("User name", IdentifyTypeEnum.primary.name(), "user_name"));
         datasourceReq.setIdentifiers(identifiers);
 
         List<Dim> dimensions = new ArrayList<>();
         Dim dimension1 = new Dim("", "imp_date", DimensionTypeEnum.time.name(), 0);
         dimension1.setTypeParams(new DimensionTimeTypeParams());
         dimensions.add(dimension1);
-        Dim dimension2 = new Dim("页面", "page", DimensionTypeEnum.categorical.name(), 1);
+        Dim dimension2 = new Dim("Page", "page", DimensionTypeEnum.categorical.name(), 1);
         dimensions.add(dimension2);
         datasourceReq.setDimensions(dimensions);
 
         List<Measure> measures = new ArrayList<>();
-        Measure measure1 = new Measure("停留时长", "stay_hours", AggregateTypeEnum.SUM.name(), 1);
+        Measure measure1 = new Measure("Length of stay", "stay_hours", AggregateTypeEnum.SUM.name(), 1);
         measures.add(measure1);
 
         datasourceReq.setMeasures(measures);
@@ -212,43 +212,43 @@ public class LoadModelDataDemo implements CommandLineRunner {
 
     public void addModel_2() {
         ModelReq modelReq = new ModelReq();
-        modelReq.setName("艺人库");
+        modelReq.setName("Artist Library");
         modelReq.setBizName("singer");
         modelReq.setDomainId(1L);
         modelReq.setViewers(Arrays.asList("admin", "tom", "jack"));
         modelReq.setViewOrgs(Collections.singletonList("admin"));
         modelReq.setAdmins(Collections.singletonList("admin"));
         modelReq.setAdminOrgs(Collections.emptyList());
-        modelReq.setEntity(new Entity(7L, Arrays.asList("歌手", "艺人")));
+        modelReq.setEntity(new Entity(7L, Arrays.asList("Singer", "Entertainer")));
         modelService.createModel(modelReq, user);
     }
 
     public void addDatasource_4() throws Exception {
         DatasourceReq datasourceReq = new DatasourceReq();
-        datasourceReq.setName("艺人库");
+        datasourceReq.setName("Artist Library");
         datasourceReq.setBizName("singer");
-        datasourceReq.setDescription("艺人库");
+        datasourceReq.setDescription("Artist Library");
         datasourceReq.setDatabaseId(1L);
 
         List<Identify> identifiers = new ArrayList<>();
-        identifiers.add(new Identify("歌手名", IdentifyTypeEnum.primary.name(), "singer_name"));
+        identifiers.add(new Identify("Singer Name", IdentifyTypeEnum.primary.name(), "singer_name"));
         datasourceReq.setIdentifiers(identifiers);
 
         List<Dim> dimensions = new ArrayList<>();
         Dim dimension1 = new Dim("", "imp_date", DimensionTypeEnum.time.name(), 0);
         dimension1.setTypeParams(new DimensionTimeTypeParams());
         dimensions.add(dimension1);
-        dimensions.add(new Dim("活跃区域", "act_area",
+        dimensions.add(new Dim("Active Area", "act_area",
                 DimensionTypeEnum.categorical.name(), 1));
-        dimensions.add(new Dim("代表作", "song_name",
+        dimensions.add(new Dim("Masterpiece", "song_name",
                 DimensionTypeEnum.categorical.name(), 1));
-        dimensions.add(new Dim("风格", "genre",
+        dimensions.add(new Dim("Style", "genre",
                 DimensionTypeEnum.categorical.name(), 1));
         datasourceReq.setDimensions(dimensions);
 
-        Measure measure1 = new Measure("播放量", "js_play_cnt", "sum", 1);
-        Measure measure2 = new Measure("下载量", "down_cnt", "sum", 1);
-        Measure measure3 = new Measure("收藏量", "favor_cnt", "sum", 1);
+        Measure measure1 = new Measure("Playback volume", "js_play_cnt", "sum", 1);
+        Measure measure2 = new Measure("Downloads", "down_cnt", "sum", 1);
+        Measure measure3 = new Measure("Collection", "favor_cnt", "sum", 1);
         datasourceReq.setMeasures(Lists.newArrayList(measure1, measure2, measure3));
         datasourceReq.setQueryType("table_query");
         datasourceReq.setTableQuery("PUBLIC.singer");
@@ -277,16 +277,16 @@ public class LoadModelDataDemo implements CommandLineRunner {
         MetricReq metricReq = new MetricReq();
         metricReq.setModelId(1L);
         metricReq.setId(3L);
-        metricReq.setName("停留时长");
+        metricReq.setName("Length of stay");
         metricReq.setBizName("stay_hours");
         metricReq.setSensitiveLevel(SensitiveLevelEnum.HIGH.getCode());
-        metricReq.setDescription("停留时长");
-        metricReq.setTags(Collections.singletonList("核心指标"));
-        metricReq.setAlias("访问时长");
+        metricReq.setDescription("Length of stay");
+        metricReq.setTags(Collections.singletonList("Core Indicators"));
+        metricReq.setAlias("Duration of the visit");
         MetricTypeParams metricTypeParams = new MetricTypeParams();
         metricTypeParams.setExpr("s2_stay_time_statis_stay_hours");
         List<Measure> measures = new ArrayList<>();
-        Measure measure = new Measure("停留时长",
+        Measure measure = new Measure("Length of stay",
                 "s2_stay_time_statis_stay_hours", AggOperatorEnum.SUM.getOperator(), 1);
         measure.setDatasourceId(3L);
         measures.add(measure);
@@ -325,7 +325,7 @@ public class LoadModelDataDemo implements CommandLineRunner {
 
         authGroupReq.setAuthRules(authRules);
         authGroupReq.setDimensionFilters(Collections.singletonList("department in ('sales')"));
-        authGroupReq.setDimensionFilterDescription("部门 in [sales]");
+        authGroupReq.setDimensionFilterDescription("Department in [sales]");
         authGroupReq.setAuthorizedUsers(Collections.singletonList("tom"));
         authGroupReq.setAuthorizedDepartmentIds(Collections.emptyList());
         authService.addOrUpdateAuthGroup(authGroupReq);

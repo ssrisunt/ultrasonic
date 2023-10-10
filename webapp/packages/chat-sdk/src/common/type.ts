@@ -181,10 +181,10 @@ export enum SemanticTypeEnum {
 };
 
 export const SEMANTIC_TYPE_MAP = {
-  [SemanticTypeEnum.DOMAIN]: '数据来源',
-  [SemanticTypeEnum.DIMENSION]: '维度',
-  [SemanticTypeEnum.METRIC]: '指标',
-  [SemanticTypeEnum.VALUE]: '维度值',
+  [SemanticTypeEnum.DOMAIN]: 'Source of data',
+  [SemanticTypeEnum.DIMENSION]: 'Dimension',
+  [SemanticTypeEnum.METRIC]: 'Limited Terms',
+  [SemanticTypeEnum.VALUE]: 'Dimension Value',
 };
 
 export type SuggestionItemType = {

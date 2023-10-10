@@ -28,31 +28,31 @@ const ClassDataSourceTable: React.FC<Props> = ({ dispatch, domainManger }) => {
     },
     {
       dataIndex: 'name',
-      title: '数据源名称',
+      title: 'Data Source Name',
     },
     {
       dataIndex: 'bizName',
-      title: '英文名称',
+      title: 'English Name',
     },
     {
       dataIndex: 'createdBy',
-      title: '创建人',
+      title: 'Created by',
     },
     {
       dataIndex: 'description',
-      title: '描述',
+      title: 'Description',
       search: false,
     },
     {
       dataIndex: 'updatedAt',
-      title: '更新时间',
+      title: 'Update Time',
       search: false,
       render: (value: any) => {
         return value && value !== '-' ? moment(value).format('YYYY-MM-DD HH:mm:ss') : '-';
       },
     },
     {
-      title: '操作',
+      title: 'Operation',
       dataIndex: 'x',
       valueType: 'option',
       render: (_, record) => {
@@ -68,9 +68,9 @@ const ClassDataSourceTable: React.FC<Props> = ({ dispatch, domainManger }) => {
               编辑
             </a>
             <Popconfirm
-              title="确认删除？"
-              okText="是"
-              cancelText="否"
+              title="Confirm deletion?"
+              okText="Yes"
+              cancelText="No"
               onConfirm={async () => {
                 const { code, msg } = await deleteDatasource(record.id);
                 if (code === 200) {
@@ -87,7 +87,7 @@ const ClassDataSourceTable: React.FC<Props> = ({ dispatch, domainManger }) => {
                   setDataSourceItem(record);
                 }}
               >
-                删除
+                Delete
               </a>
             </Popconfirm>
           </Space>
@@ -142,7 +142,7 @@ const ClassDataSourceTable: React.FC<Props> = ({ dispatch, domainManger }) => {
               setCreateDataSourceModalOpen(true);
             }}
           >
-            创建数据源
+            Create a data source
           </Button>,
         ]}
       />

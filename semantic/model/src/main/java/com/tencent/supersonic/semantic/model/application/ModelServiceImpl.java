@@ -181,7 +181,7 @@ public class ModelServiceImpl implements ModelService {
         List<DatasourceResp> datasourceResps = datasourceService.getDatasourceList(id);
         if (!CollectionUtils.isEmpty(metricResps) || !CollectionUtils.isEmpty(datasourceResps)
                 || !CollectionUtils.isEmpty(dimensionResps)) {
-            throw new RuntimeException("该模型下存在数据源、指标或者维度, 暂不能删除, 请确认");
+            throw new RuntimeException("There are data sources, indicators or dimensions under this model, which cannot be deleted yet. Please confirm.");
         }
     }
 

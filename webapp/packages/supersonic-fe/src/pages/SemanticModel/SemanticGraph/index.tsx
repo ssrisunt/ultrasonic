@@ -507,7 +507,7 @@ const DomainManger: React.FC<Props> = ({
       }
 
       graphRef.current.on('node:click', (evt: any) => {
-        const item = evt.item; // 被操作的节点 item
+        const item = evt.item; // 被Operate的节点 item
         const itemData = item?._cfg?.model;
         if (itemData) {
           const { nodeType } = itemData;

@@ -88,7 +88,7 @@ const DomainManagerTab: React.FC<Props> = ({
       children: <ClassDataSourceTable />,
     },
     {
-      label: '维度',
+      label: 'Dimension',
       key: 'dimension',
       children: <ClassDimensionTable />,
     },

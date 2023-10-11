@@ -165,7 +165,7 @@ function SqlEditor(props: ISqlEditorProps) {
             setIsSqlIdeFullScreen(true);
           }}
         >
-          <Typography.Link>全屏查看</Typography.Link>
+          <Typography.Link>View full screen</Typography.Link>
         </span>
       )}
     </div>

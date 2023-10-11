@@ -18,7 +18,7 @@ const { Item } = Form;
 
 const RegisterForm: React.FC<RegisterFormProps> = (props) => {
   const [formVals, setFormVals] = useState<Partial<RegisterFormDetail>>({
-    name: '', // 名称
+    name: '', // Name
     password: '', // 密码
   });
   const [saveLoading, setSaveLoading] = useState(false);

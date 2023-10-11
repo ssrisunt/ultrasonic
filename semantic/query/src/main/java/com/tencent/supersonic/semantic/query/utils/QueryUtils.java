@@ -139,7 +139,7 @@ public class QueryUtils {
                 column.setName(namePair.get(nameEn));
             } else {
                 if (nameEn.startsWith("name")) {
-                    column.setName("名称");
+                    column.setName("Name");
                 } else if (nameEn.startsWith("value")) {
                     column.setName("指标值");
                 }

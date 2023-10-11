@@ -102,7 +102,7 @@ const MetricMeasuresFormTable: React.FC<Props> = ({
       },
     },
     {
-      title: '操作',
+      title: 'Operate',
       dataIndex: 'x',
       valueType: 'option',
       render: (_: any, record: any) => {
@@ -119,7 +119,7 @@ const MetricMeasuresFormTable: React.FC<Props> = ({
                 onFieldChange?.(list);
               }}
             >
-              删除
+              Delete
             </a>
           </Space>
         );

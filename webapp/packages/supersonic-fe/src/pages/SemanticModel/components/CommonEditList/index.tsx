@@ -106,7 +106,7 @@ const CommonEditList: React.FC<Props> = ({ title, defaultCollapse = false, value
                   setActiveKey('editor');
                 }}
               >
-                新增
+                New
               </Button>
             )
           }
@@ -137,7 +137,7 @@ const CommonEditList: React.FC<Props> = ({ title, defaultCollapse = false, value
                   setActiveKey('editor');
                 }}
               >
-                编辑
+                Edit
               </a>,
               <a
                 key="list-loadmore-more"
@@ -149,7 +149,7 @@ const CommonEditList: React.FC<Props> = ({ title, defaultCollapse = false, value
                   setListDataSource(list);
                 }}
               >
-                删除
+                Delete
               </a>,
             ]}
           >

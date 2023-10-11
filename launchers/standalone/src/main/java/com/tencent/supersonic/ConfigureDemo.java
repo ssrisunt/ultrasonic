@@ -242,7 +242,7 @@ public class ConfigureDemo implements ApplicationListener<ApplicationReadyEvent>
     private void addAgent2() {
         Agent agent = new Agent();
         agent.setId(2);
-        agent.setName("Circle Entity");
+        agent.setName("Tags Entity");
         agent.setDescription("Helps you tag entities with natural language, supports multi-criteria combination filtering");
         agent.setStatus(1);
         agent.setEnableSearch(1);

@@ -240,7 +240,7 @@ public abstract class BaseNode<V> implements Comparable<BaseNode> {
 
     public enum Status {
         /**
-         * 未指定，用于删除词条
+         * 未指定，用于Delete词条
          */
         UNDEFINED_0,
         /**

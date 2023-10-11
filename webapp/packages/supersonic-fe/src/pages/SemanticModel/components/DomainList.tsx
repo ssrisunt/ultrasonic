@@ -102,7 +102,7 @@ const DomainListTree: FC<DomainListProps> = ({
     setProjectInfoModalVisible(false);
   };
 
-  // 删除项目
+  // Delete项目
   const confirmDelete = async (projectId: string) => {
     const res = await deleteDomain(projectId);
     if (res.code === 200) {

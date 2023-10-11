@@ -14,14 +14,15 @@ from fastapi import FastAPI, HTTPException
 from config.config_parse import LLMPARSER_HOST, LLMPARSER_PORT
 
 from services_router import (query2sql_service, preset_query_service,
-                            solved_query_service, plugin_call_service)
-
+                             solved_query_service, plugin_call_service)
 
 app = FastAPI()
+
 
 @app.get("/health")
 def read_health():
     return {"status": "Healthy"}
+
 
 app.include_router(preset_query_service.router)
 app.include_router(solved_query_service.router)

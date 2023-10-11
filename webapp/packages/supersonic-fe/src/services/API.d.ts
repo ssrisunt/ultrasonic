@@ -59,15 +59,15 @@ declare namespace API {
     typeId: string;
     typeName: string;
     changeTime: string; // 变更时间
-    owner: string; // 操作人
+    owner: string; // Operate人
     comment: string; // 变更说明
-    changeDetail: string; // 操作详情
+    changeDetail: string; // Operate详情
   };
 
   export type ChangeLogRes = PaginationResponse<ChangeLogItem>;
 
   export type SearchParams = {
-    name?: string; // 数据集名称
+    name?: string; // 数据集Name
     description?: string; // 数据集描述
     bizcodes?: string[]; // 所属项目
     dsowner?: string; // 负责人
@@ -81,12 +81,12 @@ declare namespace API {
   export type DataSetItem = {
     guid: string;
     longid: number;
-    name: string; // 数据集名称
+    name: string; // 数据集Name
     description: string; // 数据集描述
-    datasouce: string; // 数据源名称
+    datasouce: string; // 数据源Name
     datasouceId: number; // 数据源id
     tables: string; // 表名
-    projectId: string; // 业务名称
+    projectId: string; // 业务Name
     projectIdStr: string;
     owner: string; // 负责人
     updateperiod: string; // 更新周期
@@ -186,7 +186,7 @@ declare namespace API {
   export type DataInstanceDetail = {
     type: string; // 类型 mysql、tdw
     id: string; // id
-    name: string; // 名称
+    name: string; // Name
     description: string; // 描述
     ip?: string; // ip
     port?: string; // 端口

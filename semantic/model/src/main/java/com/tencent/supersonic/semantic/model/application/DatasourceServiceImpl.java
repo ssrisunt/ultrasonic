@@ -98,7 +98,7 @@ public class DatasourceServiceImpl implements DatasourceService {
         Optional<DatasourceResp> datasourceDescOptional = getDatasource(datasourceReq.getModelId(),
                 datasourceReq.getBizName());
         if (!datasourceDescOptional.isPresent()) {
-            throw new RuntimeException("创建数据源失败");
+            throw new RuntimeException("Failed to create data source");
         }
         DatasourceResp datasourceResp = datasourceDescOptional.get();
         datasource.setId(datasourceResp.getId());
@@ -182,7 +182,7 @@ public class DatasourceServiceImpl implements DatasourceService {
 
     private void preCheck(DatasourceReq datasourceReq) {
         if (NameCheckUtils.containsSpecialCharacters(datasourceReq.getName())) {
-            String message = String.format("数据源名称[%s]包含特殊字符, 请修改", datasourceReq.getName());
+            String message = String.format("The data source name [%s] contains special characters, please modify it", datasourceReq.getName());
             throw new InvalidArgumentException(message);
         }
         List<Dim> dims = datasourceReq.getDimensions();
@@ -190,32 +190,32 @@ public class DatasourceServiceImpl implements DatasourceService {
         List<Dim> timeDims = datasourceReq.getTimeDimension();
         List<Identify> identifies = datasourceReq.getIdentifiers();
         if (CollectionUtils.isEmpty(dims)) {
-            throw new InvalidArgumentException("缺少维度信息");
+            throw new InvalidArgumentException("Missing dimension information");
         }
         if (CollectionUtils.isEmpty(identifies)) {
-            throw new InvalidArgumentException("缺少主键信息");
+            throw new InvalidArgumentException("Missing primary key information");
         }
         if (!CollectionUtils.isEmpty(measures) && CollectionUtils.isEmpty(timeDims)) {
-            throw new InvalidArgumentException("有度量时, 不可缺少时间维度");
+            throw new InvalidArgumentException("When there is measurement, the time dimension is indispensable");
         }
         for (Measure measure : measures) {
             if (StringUtils.isNotBlank(measure.getName())
                     && NameCheckUtils.containsSpecialCharacters(measure.getName())) {
-                String message = String.format("度量[%s]包含特殊字符, 请修改", measure.getName());
+                String message = String.format("Measurement [%s] contains special characters, please modify it", measure.getName());
                 throw new InvalidArgumentException(message);
             }
         }
         for (Dim dim : dims) {
             if (StringUtils.isNotBlank(dim.getName())
                     && NameCheckUtils.containsSpecialCharacters(dim.getName())) {
-                String message = String.format("维度[%s]包含特殊字符, 请修改", dim.getName());
+                String message = String.format("Dimension [%s] contains special characters, please modify it", dim.getName());
                 throw new InvalidArgumentException(message);
             }
         }
         for (Identify identify : identifies) {
             if (StringUtils.isNotBlank(identify.getName())
                     && NameCheckUtils.containsSpecialCharacters(identify.getName())) {
-                String message = String.format("主键/外键[%s]包含特殊字符, 请修改", identify.getName());
+                String message = String.format("Primary key/foreign key [%s] contains special characters, please modify it", identify.getName());
                 throw new InvalidArgumentException(message);
             }
         }
@@ -225,7 +225,7 @@ public class DatasourceServiceImpl implements DatasourceService {
         Optional<DatasourceResp> datasourceRespOptional = getDatasource(datasourceReq.getModelId(),
                 datasourceReq.getBizName());
         if (datasourceRespOptional.isPresent()) {
-            throw new InvalidArgumentException("已存在相同名字的数据源:" + datasourceReq.getBizName());
+            throw new InvalidArgumentException("A data source name already exists:" + datasourceReq.getBizName());
         }
     }
 
@@ -290,7 +290,7 @@ public class DatasourceServiceImpl implements DatasourceService {
         List<MetricResp> metricResps = metricService.getMetrics(modelId, datasourceId);
         List<DimensionResp> dimensionResps = dimensionService.getDimensionsByDatasource(datasourceId);
         if (!CollectionUtils.isEmpty(metricResps) || !CollectionUtils.isEmpty(dimensionResps)) {
-            throw new RuntimeException("存在基于该数据源创建的指标和维度, 暂不能删除, 请确认");
+            throw new RuntimeException("There are indicators and dimensions created based on this data source. They cannot be deleted yet. Please confirm.");
         }
     }
 

@@ -65,7 +65,7 @@ const ClassDataSourceTable: React.FC<Props> = ({ dispatch, domainManger }) => {
                 setCreateDataSourceModalOpen(true);
               }}
             >
-              编辑
+              Edit
             </a>
             <Popconfirm
               title="Confirm deletion?"

@@ -90,7 +90,7 @@ public class DatabaseServiceImpl implements DatabaseService {
         if (!CollectionUtils.isEmpty(datasourceResps)) {
             List<String> datasourceNames = datasourceResps.stream()
                     .map(DatasourceResp::getName).collect(Collectors.toList());
-            String message = String.format("该数据库被数据源%s使用，无法删除", datasourceNames);
+            String message = String.format("The database is used by data source %s and cannot be deleted", datasourceNames);
             throw new RuntimeException(message);
         }
         databaseRepository.deleteDatabase(databaseId);

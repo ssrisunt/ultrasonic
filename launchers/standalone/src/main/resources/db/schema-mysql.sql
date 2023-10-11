@@ -62,7 +62,7 @@ CREATE TABLE `s2_chat_config` (
                                   `updated_at` datetime NOT NULL COMMENT '更新时间',
                                   `created_by` varchar(100) NOT NULL COMMENT '创建人',
                                   `updated_by` varchar(100) NOT NULL COMMENT '更新人',
-                                  `status` int(10) NOT NULL COMMENT '主题域扩展信息状态, 0-删除，1-生效',
+                                  `status` int(10) NOT NULL COMMENT '主题域扩展信息状态, 0-Delete，1-生效',
                                   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='主题域扩展信息表';
 
@@ -118,10 +118,10 @@ CREATE TABLE `s2_chat_statistics` (
 
 CREATE TABLE `s2_database` (
                                `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                               `name` varchar(255) NOT NULL COMMENT '名称',
+                               `name` varchar(255) NOT NULL COMMENT 'Name',
                                `description` varchar(500) DEFAULT NULL COMMENT '描述',
                                `version` varchar(64) DEFAULT NULL,
-                               `type` varchar(20) NOT NULL COMMENT '类型 mysql,clickhouse,tdw',
+                               `type` varchar(20) NOT NULL COMMENT 'Type mysql,clickhouse,tdw',
                                `config` text NOT NULL COMMENT '配置信息',
                                `created_at` datetime NOT NULL COMMENT '创建时间',
                                `created_by` varchar(100) NOT NULL COMMENT '创建人',
@@ -173,7 +173,7 @@ CREATE TABLE `s2_dictionary` (
                                  `updated_at` datetime NOT NULL COMMENT '更新时间',
                                  `created_by` varchar(100) NOT NULL COMMENT '创建人',
                                  `updated_by` varchar(100) DEFAULT NULL COMMENT '更新人',
-                                 `is_deleted` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1-删除,0-可用',
+                                 `is_deleted` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1-Delete,0-可用',
                                  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='字典配置信息表';
 
@@ -201,7 +201,7 @@ CREATE TABLE `s2_dimension` (
                                 `name` varchar(255) NOT NULL COMMENT '维度名称',
                                 `biz_name` varchar(255) NOT NULL COMMENT '字段名称',
                                 `description` varchar(500) NOT NULL COMMENT '描述',
-                                `status` int(10) NOT NULL COMMENT '维度状态,0正常,1下架,2删除',
+                                `status` int(10) NOT NULL COMMENT '维度状态,0正常,1下架,2Delete',
                                 `sensitive_level` int(10) DEFAULT NULL COMMENT '敏感级别',
                                 `type` varchar(50) NOT NULL COMMENT '维度类型 categorical,time',
                                 `type_params` text COMMENT '类型参数',
@@ -243,7 +243,7 @@ CREATE TABLE `s2_metric` (
                              `name` varchar(255) NOT NULL COMMENT '指标名称',
                              `biz_name` varchar(255) NOT NULL COMMENT '字段名称',
                              `description` varchar(500) DEFAULT NULL COMMENT '描述',
-                             `status` int(10) NOT NULL COMMENT '指标状态,0正常,1下架,2删除',
+                             `status` int(10) NOT NULL COMMENT '指标状态,0正常,1下架,2Delete',
                              `sensitive_level` int(10) NOT NULL COMMENT '敏感级别',
                              `type` varchar(50) NOT NULL COMMENT '指标类型 proxy,expr',
                              `type_params` text NOT NULL COMMENT '类型参数',

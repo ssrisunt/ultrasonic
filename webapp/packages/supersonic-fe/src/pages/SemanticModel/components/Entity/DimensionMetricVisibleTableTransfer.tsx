@@ -131,12 +131,12 @@ const DimensionMetricVisibleTableTransfer: React.FC<Props> = ({
   let rightColumns: ColumnsType<RecordType> = [
     {
       dataIndex: 'name',
-      title: '名称',
+      title: 'Name',
     },
     {
       dataIndex: 'type',
       width: 80,
-      title: '类型',
+      title: 'Type',
       render: (type: SemanticNodeType) => {
         return <TransTypeTag type={type} />;
       },
@@ -175,7 +175,7 @@ const DimensionMetricVisibleTableTransfer: React.FC<Props> = ({
       width: 130,
       title: (
         <Space>
-          导入字典状态
+          Import dictionary status
           <span
             className={styles.taskStateRefreshIcon}
             onClick={() => {
@@ -198,7 +198,7 @@ const DimensionMetricVisibleTableTransfer: React.FC<Props> = ({
       },
     },
     {
-      title: '操作',
+      title: 'Operate',
       dataIndex: 'x',
       render: (_: any, record: RecordType) => {
         const { type, bizName, id } = record;
@@ -215,7 +215,7 @@ const DimensionMetricVisibleTableTransfer: React.FC<Props> = ({
                 event.stopPropagation();
               }}
             >
-              导入字典
+              Import dictionary
             </Button>
             <Button
               style={{ padding: 0 }}
@@ -231,7 +231,7 @@ const DimensionMetricVisibleTableTransfer: React.FC<Props> = ({
                 event.stopPropagation();
               }}
             >
-              可见维度值设置
+             Visible dimension value settings
             </Button>
           </Space>
         ) : (
@@ -244,11 +244,11 @@ const DimensionMetricVisibleTableTransfer: React.FC<Props> = ({
   const leftColumns: ColumnsType<RecordType> = [
     {
       dataIndex: 'name',
-      title: '名称',
+      title: 'Name',
     },
     {
       dataIndex: 'type',
-      title: '类型',
+      title: 'Type',
       render: (type) => {
         return <TransTypeTag type={type} />;
       },

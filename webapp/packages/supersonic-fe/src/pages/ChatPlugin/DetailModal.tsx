@@ -438,7 +438,7 @@ const DetailModal: React.FC<Props> = ({ detail, onSubmit, onCancel }) => {
                   }}
                 >
                   <PlusOutlined />
-                  新增参数
+                  New parameters
                 </Button>
               </div>
             </FormItem>

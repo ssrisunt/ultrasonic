@@ -10,7 +10,7 @@ type Props = {
   onChange?: (valueList: string[]) => void;
 };
 
-const InfoTagList: React.FC<Props> = ({ value, createBtnString = '新增', onChange }) => {
+const InfoTagList: React.FC<Props> = ({ value, createBtnString = 'New', onChange }) => {
   const [tags, setTags] = useState<string[]>([]);
   const [inputVisible, setInputVisible] = useState(false);
   const [inputValue, setInputValue] = useState('');

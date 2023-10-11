@@ -117,7 +117,7 @@ const DrillDownDimensions: React.FC<Props> = ({
           )}
           {drillDownDimension && (
             <div className={`${prefixCls}-cancel-drill-down`} onClick={cancelDrillDown}>
-              取消下钻
+              Cancel drill down
             </div>
           )}
         </div>

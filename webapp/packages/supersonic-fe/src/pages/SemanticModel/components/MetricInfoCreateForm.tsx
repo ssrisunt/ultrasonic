@@ -433,7 +433,7 @@ const MetricInfoCreateForm: React.FC<CreateFormProps> = ({
       <>
         <Button onClick={onCancel}>Cancel</Button>
         <Button type="primary" onClick={handleNext}>
-          下一步
+          Next
         </Button>
       </>
     );

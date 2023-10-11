@@ -36,12 +36,13 @@ def schema_linking_exampler(
             "analysis",
             "schema_links",
         ],
-        template="Table {table_name}, columns = {fields_list}, prior_schema_links = {prior_schema_links}\n问题:{question}\n分析:{analysis} 所以Schema_links是:\nSchema_links:{schema_links}",
+        template="Table {table_name}, columns = {fields_list}, prior_schema_links = {prior_schema_links}\nQuestion:{question}\nanalysis:{analysis} So Schema_links are:\nSchema_links:{schema_links}",
+
     )
 
-    instruction = "# 根据数据库的表结构,参考先验信息,找出为每个问题生成SQL查询语句的schema_links"
+    instruction = "# According to the table structure of the database and referring to a priori information, find out the schema_links that generate SQL query statements for each question."
 
-    schema_linking_prompt = "Table {table_name}, columns = {fields_list}, prior_schema_links = {prior_schema_links}\n问题:{question}\n分析: 让我们一步一步地思考。"
+    schema_linking_prompt = "Table {table_name}, columns = {fields_list}, prior_schema_links = {prior_schema_links}\nQuestion:{question}\nAnalysis: Let us think step by step."
 
     schema_linking_example_prompt_template = FewShotPromptTemplate(
         example_selector=example_selector,
@@ -70,7 +71,7 @@ def sql_exampler(
     example_selector: SemanticSimilarityExampleSelector,
 ) -> str:
 
-    instruction = "# 根据schema_links为每个问题生成SQL查询语句"
+    instruction = "# Generate SQL query statements for each question based on schema links"
 
     sql_example_prompt_template = PromptTemplate(
         input_variables=[
@@ -80,10 +81,10 @@ def sql_exampler(
             "schema_links",
             "sql",
         ],
-        template="问题:{question}\nCurrent_date:{current_date}\nTable {table_name}\nSchema_links:{schema_links}\nSQL:{sql}",
+        template="Question:{question}\nCurrent_date:{current_date}\nTable {table_name}\nSchema_links:{schema_links}\nSQL:{sql}",
     )
 
-    sql_prompt = "问题:{question}\nCurrent_date:{current_date}\nTable {table_name}\nSchema_links:{schema_links}\nSQL:"
+    sql_prompt = "Question:{question}\nCurrent_date:{current_date}\nTable {table_name}\nSchema_links:{schema_links}\nSQL:"
 
     sql_example_prompt_template = FewShotPromptTemplate(
         example_selector=example_selector,
@@ -130,14 +131,14 @@ def schema_linking_sql_combo_examplar(
             "schema_links",
             "sql",
         ],
-        template="Table {table_name}, columns = {fields_list}, prior_schema_links = {prior_schema_links}\nCurrent_date:{current_date}\n问题:{question}\n分析:{analysis} 所以Schema_links是:\nSchema_links:{schema_links}\nSQL:{sql}",
+        template="Table {table_name}, columns = {fields_list}, prior_schema_links = {prior_schema_links}\nCurrent_date:{current_date}\nQuestion:{question}\nAnalysis:{analysis} So Schema_links is:\nSchema_links:{schema_links}\nSQL:{ sql}",
     )
 
     instruction = (
-        "# 根据数据库的表结构,参考先验信息,找出为每个问题生成SQL查询语句的schema_links,再根据schema_links为每个问题生成SQL查询语句"
+        "# According to the table structure of the database and with reference to a priori information, find out the schema_links that generate SQL query statements for each question, and then generate SQL query statements for each question based on the schema_links."
     )
 
-    schema_linking_sql_combo_prompt = "Table {table_name}, columns = {fields_list}, prior_schema_links = {prior_schema_links}\nCurrent_date:{current_date}\n问题:{question}\n分析: 让我们一步一步地思考。"
+    schema_linking_sql_combo_prompt = "Table {table_name}, columns = {fields_list}, prior_schema_links = {prior_schema_links}\nCurrent_date:{current_date}\nQuestion:{question}\nAnalysis: Let us think step by step."
 
     schema_linking_sql_combo_example_prompt_template = FewShotPromptTemplate(
         example_selector=example_selector,

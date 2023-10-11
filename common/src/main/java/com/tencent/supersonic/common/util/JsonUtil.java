@@ -309,7 +309,7 @@ public class JsonUtil {
      * 通过typeReference和json转对象
      *
      * @param json json串
-     * @param typeReference 类型
+     * @param typeReference Type
      * @param <T> 通配符
      * @return 对象
      */

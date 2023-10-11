@@ -52,7 +52,7 @@ export const AlgoNode: NsGraph.INodeRender = (props) => {
         value: id,
       },
       {
-        label: '名称',
+        label: 'Name',
         value: name,
       },
       {

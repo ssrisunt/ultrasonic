@@ -88,10 +88,10 @@ export function getUrlParams(originUrl: string = '') {
 }
 
 /**
- * 删除url中的某个参数
+ * Deleteurl中的某个参数
  * @param {String} URL 地址，例如http://www.domain.com/?user=anonymous&id=123&id=456&city=%E5%8C%97%E4%BA%AC&enabled
  * @param {String} key 指定的key
- * @return {String} URL 删除指定参数后的URL
+ * @return {String} URL Delete指定参数后的URL
  */
 export function deleteUrlQuery(url = '', key = '') {
   const regExp = new RegExp(`[\\&\\?]${key}=([^&#]+)`, 'g');

@@ -16,10 +16,10 @@ def construct_plugin_prompt(tool_config):
     tool_description = tool_config["description"]
     tool_examples = tool_config["examples"]
 
-    prompt = "【工具名称】\n" + tool_name + "\n"
-    prompt += "【工具描述】\n" + tool_description + "\n"
+    prompt = "【Tool name】\n" + tool_name + "\n"
+    prompt += "【Tool description】\n" + tool_description + "\n"
 
-    prompt += "【工具适用问题示例】\n"
+    prompt += "【Examples of tool application issues】\n"
     for example in tool_examples:
         prompt += example + "\n"
     return prompt
@@ -37,11 +37,11 @@ def construct_plugin_pool_prompt(tool_config_list):
 
 
 def construct_task_prompt(query_text, tool_explain_list_str):
-    instruction = """问题为:{query_text}\n请根据问题和工具的描述，选择对应的工具，完成任务。请注意，只能选择1个工具。请一步一步地分析选择工具的原因(每个工具的【工具适用问题示例】是选择的重要参考依据)，并给出最终选择，输出格式为json,key为’分析过程‘, ’选择工具‘""".format(
+    instruction = """The question is: {query_text}\nPlease select the corresponding tool according to the description of the problem and tool to complete the task. Please note that only 1 tool can be selected. Please analyze the reasons for selecting the tool step by step (the [Tool Applicable Question Example] of each tool is an important reference for selection), and give the final selection. The output format is json, and the key is 'Analysis Process', 'Selection Tool'""".format(
         query_text=query_text
     )
 
-    prompt = "工具选择如下:\n\n{tool_explain_list_str}\n\n【任务说明】\n{instruction}".format(
+    prompt = "Tool selection is as follows:\n\n{tool explain list str}\n\n【Task Description】\n{instruction}".format(
         instruction=instruction, tool_explain_list_str=tool_explain_list_str
     )
 
@@ -59,7 +59,7 @@ def plugin_selection_output_parse(llm_output: str) -> Union[Mapping[str, str], N
         result_dict = json.loads(result)
         logger.info("result_dict: {}", result_dict)
 
-        key_mapping = {"分析过程": "analysis", "选择工具": "toolSelection"}
+        key_mapping = {"Analysis process": "analysis", "Selection tool": "toolSelection"}
 
         converted_result_dict = {
             key_mapping[key]: value
@@ -86,7 +86,7 @@ def plugins_config_format_convert(
         parameters = plugin_config["parameters"]
 
         examples_str = "\n".join(examples)
-        description_new = """{plugin_desc}\n\n例如能够处理如下问题:\n{examples_str}""".format(
+        description_new = """{plugin_desc}\n\nFor example, it can handle the following problems:\n{examples_str}""".format(
             plugin_desc=description, examples_str=examples_str
         )
 

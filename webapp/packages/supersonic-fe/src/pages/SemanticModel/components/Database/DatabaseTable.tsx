@@ -85,7 +85,7 @@ const DatabaseTable: React.FC<Props> = ({}) => {
                 setCreateModalVisible(true);
               }}
             >
-              编辑
+              Edit
             </a>
             <Popconfirm
               title="Confirm deletion?"

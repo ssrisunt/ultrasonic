@@ -177,7 +177,7 @@ const DatabaseCreateForm: ForwardRefRenderFunction<any, Props> = (
                   testDatabaseConnection();
                 }}
               >
-                连接测试
+                Connection test
               </Button>
 
               <Button
@@ -186,7 +186,7 @@ const DatabaseCreateForm: ForwardRefRenderFunction<any, Props> = (
                   saveDatabaseConfig();
                 }}
               >
-                保 存
+                save
               </Button>
             </Space>
           </FormItem>

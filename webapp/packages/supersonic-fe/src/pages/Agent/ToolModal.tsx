@@ -174,7 +174,7 @@ const ToolModal: React.FC<Props> = ({ editTool, onSaveTool, onCancel }) => {
                 }}
               />
             </FormItem>
-            <FormItem name="params" label="指标">
+            <FormItem name="params" label="Metric">
               <div className={styles.paramsSection}>
                 {metricOptions.map((filter: any) => {
                   return (
@@ -216,7 +216,7 @@ const ToolModal: React.FC<Props> = ({ editTool, onSaveTool, onCancel }) => {
                   }}
                 >
                   <PlusOutlined />
-                  新增指标
+                  New indicator
                 </Button>
               </div>
             </FormItem>

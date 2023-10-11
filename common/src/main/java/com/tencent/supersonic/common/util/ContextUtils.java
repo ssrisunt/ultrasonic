@@ -68,7 +68,7 @@ public class ContextUtils implements ApplicationContextAware {
     }
 
     /**
-     * 获取上下文对象，可进行各种Spring的上下文操作
+     * 获取上下文对象，可进行各种Spring的上下文Operate
      *
      * @return Spring上下文对象
      */

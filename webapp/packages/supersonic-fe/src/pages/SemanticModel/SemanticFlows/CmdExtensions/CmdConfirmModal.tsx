@@ -34,8 +34,8 @@ export namespace NsConfirmModalCmd {
 const deleteDataSourceConfirmNode = (name: string) => {
   return (
     <>
-      数据源<span style={{ color: '#296DF3', fontWeight: 'bold' }}>{name}</span>
-      将被删除，是否确认？
+      data source<span style={{ color: '#296DF3', fontWeight: 'bold' }}>{name}</span>
+      Will be deleted, are you sure?
     </>
   );
 };

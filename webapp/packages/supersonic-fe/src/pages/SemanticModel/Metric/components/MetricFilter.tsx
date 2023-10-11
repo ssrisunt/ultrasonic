@@ -74,7 +74,7 @@ const MetricFilter: React.FC<Props> = ({ filterValues = {}, onFiltersChange }) =
                   top: '12px',
                 }}
               >
-                指标搜索
+                Search
               </span>
             </Col>
             <Col flex="auto">

@@ -113,7 +113,7 @@ const OverView: React.FC<Props> = ({
             type="primary"
           >
             <PlusOutlined />
-            新增模型
+            Add new model
           </Button>
         </div>
       )}

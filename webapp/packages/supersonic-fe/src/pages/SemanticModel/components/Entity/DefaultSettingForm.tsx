@@ -250,7 +250,7 @@ const DefaultSettingForm: ForwardRefRenderFunction<any, Props> = (
                   marginRight: '8px',
                 }}
               >
-                前
+                Previous
               </span>
             ) : (
               <>
@@ -282,7 +282,7 @@ const DefaultSettingForm: ForwardRefRenderFunction<any, Props> = (
               saveEntity();
             }}
           >
-            保 存
+            Save
           </Button>
         </FormItem>
       </Form>

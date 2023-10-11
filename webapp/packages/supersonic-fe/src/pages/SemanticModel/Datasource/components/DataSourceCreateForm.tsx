@@ -343,7 +343,7 @@ const DataSourceCreateForm: React.FC<CreateFormProps> = ({
       <>
         <Button onClick={onCancel}>Cancel</Button>
         <Button type="primary" onClick={handleNext}>
-          下一步
+          Next step
         </Button>
       </>
     );

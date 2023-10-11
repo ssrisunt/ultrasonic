@@ -91,7 +91,7 @@ const ClassDimensionTable: React.FC<Props> = ({ domainManger, dispatch }) => {
       dataIndex: 'key',
       title: 'Dimensional Search',
       hideInTable: true,
-      renderFormItem: () => <Input placeholder="请输入ID/维度名称/字段名称" />,
+      renderFormItem: () => <Input placeholder="Please enter ID/dimension name/field name" />,
     },
     {
       dataIndex: 'name',

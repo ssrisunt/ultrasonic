@@ -41,7 +41,7 @@ const DimensionMetricVisibleForm: ForwardRefRenderFunction<any, Props> = ({
               setDimensionModalVisible(true);
             }}
           >
-            设 置
+           SetUp
           </Button>
         </FormItem>
       </Form>

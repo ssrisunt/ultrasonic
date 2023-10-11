@@ -483,7 +483,7 @@ const SqlDetail: React.FC<IProps> = ({
                 onClick={handleFullScreenSqlResult}
                 disabled={!runState}
               >
-                全屏查看
+                View full screen
               </Button>
             </div>
             <div

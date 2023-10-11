@@ -86,7 +86,7 @@ const ToolsSection: React.FC<Props> = ({ currentAgent, onSaveAgent, onEditAgent,
       </div>
       <div className={styles.basicInfo}>
         <div className={styles.basicInfoTitle}>
-          基本信息
+         Basic Information
           <Button
             type="primary"
             onClick={() => {
@@ -110,7 +110,7 @@ const ToolsSection: React.FC<Props> = ({ currentAgent, onSaveAgent, onEditAgent,
       </div>
       <div className={styles.toolSection}>
         <div className={styles.toolSectionTitleBar}>
-          <div className={styles.toolSectionTitle}>工具</div>
+          <div className={styles.toolSectionTitle}>Tool</div>
           <Button
             type="primary"
             onClick={() => {

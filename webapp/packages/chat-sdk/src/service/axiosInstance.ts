@@ -49,7 +49,7 @@ axiosInstance.interceptors.response.use(
   (error) => {
     // 对响应错误进行处理
     if (error.response && error.response.status === 401) {
-      // 如果响应状态码为401，表示未授权，可以在这里处理重新登录等操作
+      // 如果响应状态码为401，表示未授权，可以在这里处理重新登录等Operate
       console.log('Unauthorized, please log in again.');
     }
     return Promise.reject(error);

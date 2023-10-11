@@ -224,7 +224,7 @@ const NodeInfoDrawer: React.FC<Props> = ({
             onEditBtnClick?.(nodeData);
           }}
         >
-          编辑
+          Edit
         </Button>
 
         <Popconfirm
@@ -236,7 +236,7 @@ const NodeInfoDrawer: React.FC<Props> = ({
           }}
         >
           <Button danger key="deleteBtn">
-            删除
+            Delete
           </Button>
         </Popconfirm>
       </Space>

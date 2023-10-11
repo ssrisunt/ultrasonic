@@ -46,7 +46,7 @@ const PluginManage = () => {
 
   const onDeletePlugin = async (record: PluginType) => {
     await deletePlugin(record.id);
-    message.success('插件删除成功');
+    message.success('Plug-in deleted successfully');
     updateData();
   };
 

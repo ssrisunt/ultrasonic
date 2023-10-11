@@ -6,7 +6,7 @@ const initTooltips = () => {
     offsetX: 10,
     offsetY: 10,
     fixToNode: [1, 0.5],
-    // 允许出现 tooltip 的 item 类型
+    // 允许出现 tooltip 的 item Type
     itemTypes: ['node'],
     // 自定义 tooltip 内容
     getContent: (e) => {
